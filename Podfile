@@ -2,6 +2,7 @@
 platform :ios, '6.0'
 
 pod 'FMDB'
+pod 'JSONKit-NoWarning'
 
 target 'testIOSLib' do
 
