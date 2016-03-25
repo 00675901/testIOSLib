@@ -1,13 +1,11 @@
-//
-//  GTDBManager.m
-//  testIOSLib
-//
-//  Created by admin on 16/3/23.
-//  Copyright © 2016年 admin. All rights reserved.
-//
+/**
+ *  数据库操作类,用于数据库初始化,数据内容初始化等
+ *
+ *  Created by admin on 16/3/23.
+ *  Copyright © 2016年 admin. All rights reserved.
+ */
 
 #import "GTDBManager.h"
-#import <objc/runtime.h>
 #import <sqlite3.h>
 
 @interface GTDBManager ()
@@ -37,14 +35,17 @@
     return _db;
 }
 
-- (void)openDB {
-    [_db open];
+- (BOOL)openDB {
+    return [_db open];
 }
 
-- (void)closeDB {
-    [_db close];
+- (BOOL)closeDB {
+    return [_db close];
 }
 
+/**
+ *  重置初始化数据,将默认初始化数据库考到操作路径
+ */
 - (void)reloadDB {
     if (_db) {
         [_db close];
@@ -63,30 +64,8 @@
         if ([fileManager copyItemAtPath:_sourceDBPath toPath:_dbPath error:&error]) {
             NSLog(@"复制DB成功：%@", _dbPath);
             _db = [[FMDatabase alloc] initWithPath:_dbPath];
-            [_db open];
         }
     }
-}
-
-- (NSMutableArray *)excuseQueryWithModel:(BaseModel *)model {
-    unsigned int outCount = 0;
-    Class cls = model.class;
-    NSMutableArray *resultList = [NSMutableArray arrayWithCapacity:0];
-    objc_property_t *pros = class_copyPropertyList(cls, &outCount);
-    Ivar *ivars = class_copyIvarList(cls, &outCount);
-    for (int i = 0; i < outCount; i++) {
-        objc_property_t pro = pros[i];
-        Ivar ivar = class_getInstanceVariable(cls, ivar_getName(ivars[i]));
-        object_setIvar(model, ivar, [NSString stringWithUTF8String:property_getName(pro)]);
-    }
-    
-    FMResultSet *result = [_db executeQuery:@"select * from customers"];
-    while ([result next]) {
-        NSString *name = [result stringForColumn:@"customer_name"];
-        NSLog(@"result name:%@", name);
-    }
-    
-    return resultList;
 }
 
 @end

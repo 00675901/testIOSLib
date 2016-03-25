@@ -1,13 +1,10 @@
-//
-//  GTDBManager.h
-//  testIOSLib
-//
-//  Created by admin on 16/3/23.
-//  Copyright © 2016年 admin. All rights reserved.
-//
+/**
+ *  数据库操作类,用于数据库初始化,数据内容初始化等
+ *
+ *  Created by admin on 16/3/23.
+ *  Copyright © 2016年 admin. All rights reserved.
+ */
 
-#import "BaseModel.h"
-#import "Customer.h"
 #import "FMDatabase.h"
 #import <Foundation/Foundation.h>
 
@@ -20,10 +17,8 @@
 + (GTDBManager *)getInstance;
 - (id)init;
 - (FMDatabase *)getDB;
-- (void)openDB;
-- (void)closeDB;
+- (BOOL)openDB;
+- (BOOL)closeDB;
 - (void)reloadDB;
-
-- (NSMutableArray *)excuseQueryWithModel:(BaseModel *)model;
 
 @end

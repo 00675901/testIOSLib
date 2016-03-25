@@ -17,6 +17,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 #import "GTDBManager.h"
+#import "AllBeans.h"
 
 #endif
 

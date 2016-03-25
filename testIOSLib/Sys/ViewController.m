@@ -10,6 +10,8 @@
 #import "GTDBManager.h"
 #import "ViewController.h"
 
+#import "Customers.h"
+
 @interface ViewController ()
 
 @end
@@ -19,14 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
-//    [self testTempJson];
+    Customers *tempc = [Customers getInstance];
     
-    Customer *cu = [[Customer alloc] initWithDictionary:NULL];
+    NSMutableArray *result = [tempc excuseQueryAll];
+    NSLog(@"%d",[result count]);
+    for (Customer* cu in result){
+        NSLog(@"======%@,%@,%@,%@,%@======", cu.customer_id, cu.contact_id, cu.customer_name, cu.customer_phone, cu.customer_name_letter);;
+    }
     
-//    [gtm excuseQueryWithModel:cu];
+    NSMutableArray *result2 = [tempc excuseQueryWithName:@"'哈哈'"];
+    NSLog(@"%d",[result2 count]);
+    for (Customer* cu in result2){
+        NSLog(@"======%@,%@,%@,%@,%@======", cu.customer_id, cu.contact_id, cu.customer_name, cu.customer_phone, cu.customer_name_letter);;
+    }
     
-    NSLog(@"======%@,%@,%@,%@,%@======", cu.customer_id, cu.contant_id, cu.customer_name, cu.customer_phone, cu.customer_name_letter);
 }
 
 - (void)testTempJson {

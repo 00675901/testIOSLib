@@ -3,6 +3,7 @@ platform :ios, '6.0'
 
 pod 'FMDB'
 pod 'JSONKit-NoWarning'
+pod 'TZImagePickerController'
 
 target 'testIOSLib' do
 
