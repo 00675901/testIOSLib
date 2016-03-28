@@ -25,7 +25,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        _sourceDBPath = [[NSBundle mainBundle] pathForResource:@"testDB" ofType:@"db"];
+        _sourceDBPath = [[NSBundle mainBundle] pathForResource:@"testCustomDB" ofType:@"db"];
         [self reloadDB];
     }
     return self;
@@ -52,7 +52,7 @@
         _db = nil;
     }
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    _dbPath = [documentPath stringByAppendingPathComponent:@"TestDB.db"];
+    _dbPath = [documentPath stringByAppendingPathComponent:@"TestCustomDB.db"];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
