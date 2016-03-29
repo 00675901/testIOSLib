@@ -1,6 +1,6 @@
 //
-//  Created by admin on 15/11/19.
-//  Copyright © 2015年 fangstar. All rights reserved.
+//  Created by admin on 16/3/23.
+//  Copyright © 2016年 admin. All rights reserved.
 //
 
 #import "GTTableViewCell.h"
