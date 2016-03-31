@@ -7,10 +7,10 @@
 
 #import "Customers.h"
 
+#import "GTTableViewController.h"
 #import "ImageShowViewController.h"
-#import "TZImagePickerController.h"
 
-@interface ViewController () <TZImagePickerControllerDelegate> {
+@interface ViewController () {
     IBOutlet UIButton *addImageBtn;
     IBOutlet UIScrollView *imageScrollView;
 }
@@ -31,7 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [self testTableView];
     //    [self getImages];
 }
 
@@ -49,19 +49,12 @@
 
 //测试tableView
 - (IBAction)testTableView {
+    Customers *tempc = [Customers getInstance];
+    NSMutableArray *result = [tempc excuseQueryAll];    
+    GTTableViewController *gtTabel = [[GTTableViewController alloc] initWithData:result];
+
+    [self.navigationController pushViewController:gtTabel animated:YES];
     
-    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-    imagePickerVc.allowPickingOriginalPhoto = NO;
-    imagePickerVc.allowPickingVideo = NO;
-    // You can get the photos by block, the same as by delegate.
-    // 你可以通过block或者代理，来得到用户选择的照片.
-    //    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets){
-    //        for (UIImage* image in photos) {
-    //            NSLog(@"%@",[image accessibilityIdentifier]);
-    //        }
-    //    }];
-    //    [self presentViewController:imagePickerVc animated:YES completion:nil];
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
     NSLog(@"======testTableView Run Over======");
 }
 

@@ -7,6 +7,6 @@
 
 @interface GTTableViewController : UIViewController
 
+- (GTTableViewController *)initWithData:(NSMutableArray *)array;
 
 @end
-

@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+#import "GTPublicDefine.h"
 #import "GTDBManager.h"
 #import "AllBeans.h"
 #import "GTStorageManager.h"
