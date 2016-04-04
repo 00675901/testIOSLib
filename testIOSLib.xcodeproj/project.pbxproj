@@ -40,6 +40,14 @@
 		84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */; };
 		84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */; };
 		84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4F0F51CA38D71005D5757 /* GTDBManager.m */; };
+		C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */; };
+		C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */; };
+		C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */; };
+		C80BBFEB1CB1B46100F0EF0A /* GTCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BBFE91CB1B46100F0EF0A /* GTCollectionViewHeader.xib */; };
+		C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */; };
+		C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */; };
+		C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB81CB263FE00519D4C /* GTCollectionAddViewCell.m */; };
+		C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CDEAB91CB263FE00519D4C /* GTCollectionAddViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +108,18 @@
 		84D4F0F41CA38D71005D5757 /* GTDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDBManager.h; sourceTree = "<group>"; };
 		84D4F0F51CA38D71005D5757 /* GTDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDBManager.m; sourceTree = "<group>"; };
 		84D4F0FF1CA39AAB005D5757 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C80BBFE21CB147A900F0EF0A /* GTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionViewCell.h; sourceTree = "<group>"; };
+		C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionViewCell.m; sourceTree = "<group>"; };
+		C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionViewCell.xib; sourceTree = "<group>"; };
+		C80BBFE71CB1B46100F0EF0A /* GTCollectionViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionViewHeader.h; sourceTree = "<group>"; };
+		C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionViewHeader.m; sourceTree = "<group>"; };
+		C80BBFE91CB1B46100F0EF0A /* GTCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionViewHeader.xib; sourceTree = "<group>"; };
+		C8CDEAB21CB2534700519D4C /* ImageCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCategoryViewController.h; sourceTree = "<group>"; };
+		C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCategoryViewController.m; sourceTree = "<group>"; };
+		C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCategoryViewController.xib; sourceTree = "<group>"; };
+		C8CDEAB71CB263FE00519D4C /* GTCollectionAddViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionAddViewCell.h; sourceTree = "<group>"; };
+		C8CDEAB81CB263FE00519D4C /* GTCollectionAddViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionAddViewCell.m; sourceTree = "<group>"; };
+		C8CDEAB91CB263FE00519D4C /* GTCollectionAddViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionAddViewCell.xib; sourceTree = "<group>"; };
 		C916FA054FB787C8763E2B23 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,11 +277,15 @@
 		848616351CAA55EA003F2C78 /* ImageEditor */ = {
 			isa = PBXGroup;
 			children = (
+				C80BBFE11CB147A900F0EF0A /* cell */,
 				848616361CAA5640003F2C78 /* ImageShowViewController.h */,
 				848616371CAA5640003F2C78 /* ImageShowViewController.m */,
 				8486164A1CAA854F003F2C78 /* ImageEditorViewController.h */,
 				8486164B1CAA854F003F2C78 /* ImageEditorViewController.m */,
 				8486164C1CAA854F003F2C78 /* ImageEditorViewController.xib */,
+				C8CDEAB21CB2534700519D4C /* ImageCategoryViewController.h */,
+				C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */,
+				C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */,
 			);
 			path = ImageEditor;
 			sourceTree = "<group>";
@@ -321,6 +345,22 @@
 				19FFD86A5FBE9F74F87A3D6C /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C80BBFE11CB147A900F0EF0A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				C80BBFE71CB1B46100F0EF0A /* GTCollectionViewHeader.h */,
+				C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */,
+				C80BBFE91CB1B46100F0EF0A /* GTCollectionViewHeader.xib */,
+				C80BBFE21CB147A900F0EF0A /* GTCollectionViewCell.h */,
+				C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */,
+				C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */,
+				C8CDEAB71CB263FE00519D4C /* GTCollectionAddViewCell.h */,
+				C8CDEAB81CB263FE00519D4C /* GTCollectionAddViewCell.m */,
+				C8CDEAB91CB263FE00519D4C /* GTCollectionAddViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,14 +423,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */,
+				C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */,
 				845FC0711CACCD4400BF9BC5 /* top_lf_arrow_lf@2x.png in Resources */,
 				845FC06E1CACCD4400BF9BC5 /* head_tabbar_arrow_down@3x.png in Resources */,
 				845FC0721CACCD4400BF9BC5 /* top_lf_arrow_lf@3x.png in Resources */,
 				8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */,
 				843148EF1CA919A100606FC1 /* GTTableViewCell.xib in Resources */,
+				C80BBFEB1CB1B46100F0EF0A /* GTCollectionViewHeader.xib in Resources */,
 				84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */,
 				8461CC671CA2A78000594CC1 /* Main.storyboard in Resources */,
 				845FC06F1CACCD4400BF9BC5 /* head_tabbar_arrow_up@2x.png in Resources */,
+				C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */,
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
@@ -456,7 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				848616461CAA5C36003F2C78 /* NSString+Utility.m in Sources */,
+				C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */,
 				84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */,
+				C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */,
 				841F88141CA4E06C00642797 /* Customers.m in Sources */,
 				8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */,
 				848616491CAA5DB0003F2C78 /* UIColor+Utility.m in Sources */,
@@ -469,9 +515,11 @@
 				84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */,
 				848616431CAA587E003F2C78 /* UILabel+Utility.m in Sources */,
 				845FC0611CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m in Sources */,
+				C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */,
 				8486162D1CAA22F8003F2C78 /* GTStorageManager.m in Sources */,
 				845FC0601CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m in Sources */,
 				841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */,
+				C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */,
 				8486164D1CAA854F003F2C78 /* ImageEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

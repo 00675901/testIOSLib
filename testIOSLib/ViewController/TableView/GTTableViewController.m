@@ -31,10 +31,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-// 设置导航
-//    [self setupNavigationBar];
-//    [self setupNaviBarBackGround];
-
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
     if (IOS7_OR_LATER) {
         self.edgesForExtendedLayout = UIRectEdgeNone;

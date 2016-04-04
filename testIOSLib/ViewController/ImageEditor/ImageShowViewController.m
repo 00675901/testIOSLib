@@ -56,7 +56,7 @@
 }
 // 设置导航
 - (void)setupNavigationBar {
-    _titleLab = [[UILabel alloc] initWithFont:[UIFont boldSystemFontOfSize:18] andText:@"testImageShowViewController" andColor:[UIColor blackColor]];
+    _titleLab = [[UILabel alloc] initWithFont:[UIFont boldSystemFontOfSize:18] andText:@"图片浏览" andColor:[UIColor blackColor]];
 
     _titleLab.frame = CGRectMake(0, 0, 80, 26);
 

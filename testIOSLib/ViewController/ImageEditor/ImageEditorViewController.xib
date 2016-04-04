@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageEditorViewController">
             <connections>
+                <outlet property="collectionView" destination="rNC-gd-YxH" id="uWZ-Rl-uH3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,15 +16,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpA-mH-UBR">
-                    <rect key="frame" x="0.0" y="63" width="150" height="60"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="pickImages" destination="-1" eventType="touchUpInside" id="fRz-2M-akF"/>
-                    </connections>
-                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rNC-gd-YxH">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="FXr-wS-Bau">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rNC-gd-YxH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="B5a-uR-kW9"/>
+                <constraint firstItem="rNC-gd-YxH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gS3-sA-Bfo"/>
+                <constraint firstItem="rNC-gd-YxH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="j9V-pM-rTT"/>
+                <constraint firstItem="rNC-gd-YxH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oAL-uX-ThJ"/>
+            </constraints>
         </view>
     </objects>
 </document>

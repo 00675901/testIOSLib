@@ -31,7 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self testTableView];
+    //    [self testTableView];
     //    [self getImages];
 }
 
@@ -50,11 +50,11 @@
 //测试tableView
 - (IBAction)testTableView {
     Customers *tempc = [Customers getInstance];
-    NSMutableArray *result = [tempc excuseQueryAll];    
-    GTTableViewController *gtTabel = [[GTTableViewController alloc] initWithData:result];
-
-    [self.navigationController pushViewController:gtTabel animated:YES];
+    NSMutableArray *result = [tempc excuseQueryAll];
     
+    GTTableViewController *gtTabel = [[GTTableViewController alloc] initWithData:result];
+    [self.navigationController pushViewController:gtTabel animated:YES];
+
     NSLog(@"======testTableView Run Over======");
 }
 
