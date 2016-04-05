@@ -3,6 +3,7 @@
 //  Copyright © 2015年 fangstar. All rights reserved.
 //
 
+#import "FSBMySecondHouseMoreContentView.h"
 #import "FSBMySecondHouseToolbar.h"
 #import "FSBMySecondHouseToolbarContentView.h"
 
@@ -13,14 +14,21 @@
 @property (retain, nonatomic) UIButton *currButton;
 
 @property (retain, nonatomic) NSMutableArray<FSBMySecondHouseToolbarContentView *> *viewListIndex;
-@property (retain, nonatomic) NSMutableArray<UILabel *> *bottomLineIndex;
+@property (retain, nonatomic) UILabel *currBottomLine;
 
 @property (nonatomic, assign) int initHeight;
 @property (nonatomic, assign) int contentHeight;
 
+//筛选页面
+@property (nonatomic, strong) FSBMySecondHouseMoreContentView *fsbMoreView;
+
 @end
 
 @implementation FSBMySecondHouseToolbar
+
+- (void)dealloc {
+    [_fsbMoreView removeFromSuperview];
+}
 
 - (FSBMySecondHouseToolbar *)init {
     return [self initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
@@ -52,11 +60,19 @@
 
 - (void)initContents {
     _viewListIndex = [NSMutableArray array];
-    _bottomLineIndex = [NSMutableArray array];
     int i = 0;
     UIView *btnView = [[UIView alloc] initWithFrame:self.bounds];
     [btnView setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:btnView];
+
+    UILabel *tempBottomLine = [[UILabel alloc] initWithFrame:CGRectMake(0, btnView.bounds.size.height, btnView.bounds.size.width, 1)];
+    tempBottomLine.backgroundColor = colorLine;
+    [btnView addSubview:tempBottomLine];
+    _currBottomLine = [[UILabel alloc] init];
+    _currBottomLine.backgroundColor = btnView.backgroundColor;
+    [_currBottomLine setHidden:YES];
+    [btnView addSubview:_currBottomLine];
+
     for (NSArray *list in _contentList) {
         CGRect tempFrame = CGRectMake(i * (ScreenWidth / [_contentList count]), 0, ScreenWidth / [_contentList count], self.bounds.size.height);
 
@@ -82,25 +98,26 @@
         [tempBtn setTitleColor:colorNull forState:UIControlStateHighlighted | UIControlStateSelected];
         [tempBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
 
-        [tempBtn addTarget:self action:@selector(btnStatusAction:) forControlEvents:UIControlEventTouchUpInside];
         [tempBtn setTag:i];
 
         [btnView addSubview:tempBtn];
-        
-        UILabel *tempBottomLine = [[UILabel alloc] initWithFrame:CGRectMake(i * tempFrame.size.width, tempFrame.origin.y + tempBtn.bounds.size.height, tempBtn.bounds.size.width, 1)];
-        tempBottomLine.backgroundColor = colorLine;
-        [btnView addSubview:tempBottomLine];
-        [_bottomLineIndex addObject:tempBottomLine];
 
-        //计算高度
-        int tempH = [_contentList[i] count];
-        tempH *= _contentHeight; //每个项目高度;
-        FSBMySecondHouseToolbarContentView *tempView = [[FSBMySecondHouseToolbarContentView alloc] initWithFrame:CGRectMake(0, _initHeight + 1, self.bounds.size.width, tempH) contentHeight:_contentHeight DataSour:_contentList[i]];
-        tempView.delegate = self;
-        tempView.hidden = YES;
-        [self addSubview:tempView];
+        //判断打开的页面
+        if (i != [_contentList count] - 1) {
+            [tempBtn addTarget:self action:@selector(btnStatusAction:) forControlEvents:UIControlEventTouchUpInside];
+            //计算高度
+            int tempH = [_contentList[i] count];
+            tempH *= _contentHeight; //每个项目高度;
+            FSBMySecondHouseToolbarContentView *tempView = [[FSBMySecondHouseToolbarContentView alloc] initWithFrame:CGRectMake(0, _initHeight + 1, self.bounds.size.width, tempH) contentHeight:_contentHeight DataSour:_contentList[i]];
+            tempView.delegate = self;
+            tempView.hidden = YES;
+            [self addSubview:tempView];
 
-        [_viewListIndex addObject:tempView];
+            [_viewListIndex addObject:tempView];
+        } else {
+            [tempBtn addTarget:self action:@selector(showMoreView) forControlEvents:UIControlEventTouchUpInside];
+        }
+
         i++;
     }
 }
@@ -109,23 +126,22 @@
     if (sender == _currButton) {
         _currButton.selected = _currButton.selected ? NO : YES;
         [_viewListIndex[_currButton.tag] setHidden:!_currButton.isSelected];
+        [_currBottomLine setHidden:!_currButton.isSelected];
         if (_currButton.isSelected) {
-            [_bottomLineIndex[_currButton.tag] setBackgroundColor:[UIColor whiteColor]];
             [self setFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         } else {
-            [_bottomLineIndex[_currButton.tag] setBackgroundColor:colorLine];
             [self setFrame:CGRectMake(0, 0, ScreenWidth, _initHeight)];
         }
     } else {
         [_currButton setSelected:NO];
         [_viewListIndex[_currButton.tag] setHidden:!_currButton.isSelected];
-        [_bottomLineIndex[_currButton.tag] setBackgroundColor:colorLine];
 
         _currButton = sender;
 
         [_currButton setSelected:YES];
         [_viewListIndex[_currButton.tag] setHidden:!_currButton.isSelected];
-        [_bottomLineIndex[_currButton.tag] setBackgroundColor:[UIColor whiteColor]];
+        [_currBottomLine setHidden:!_currButton.isSelected];
+        [_currBottomLine setFrame:CGRectMake(_currButton.frame.origin.x + 1, _currButton.frame.origin.y + _currButton.bounds.size.height, _currButton.bounds.size.width - 1, 1)];
 
         [self setFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     }
@@ -138,7 +154,20 @@
     if (_currButton) {
         [_currButton setSelected:NO];
     }
+    [_currBottomLine setHidden:YES];
     [self setFrame:CGRectMake(0, 0, ScreenWidth, _initHeight)];
+}
+
+- (void)showMoreView {
+    [self closeAllView];
+    if (!self.fsbMoreView) {
+        _fsbMoreView = [[FSBMySecondHouseMoreContentView alloc] init];
+        _fsbMoreView.frame = CGRectMake(ScreenWidth, 0, ScreenWidth, ScreenHeight);
+
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate.window addSubview:_fsbMoreView];
+    }
+    [_fsbMoreView show];
 }
 
 #pragma mark - 内容按钮回调

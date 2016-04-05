@@ -13,10 +13,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+#import "AppDelegate.h"
 #import "GTPublicDefine.h"
 #import "GTDBManager.h"
 #import "AllBeans.h"
 #import "GTStorageManager.h"
+#import "FMUMath.h"
 
 #import "UILabel+Utility.h"
 #import "NSString+Utility.h"

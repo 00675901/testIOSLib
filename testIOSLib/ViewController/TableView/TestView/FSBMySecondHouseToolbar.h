@@ -8,7 +8,7 @@
 @protocol FSBMySecondHouseToolbarDelegate <NSObject>
 
 @optional
--(void)testData;
+- (void)showMoreView;
 
 @end
 

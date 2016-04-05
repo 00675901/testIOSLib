@@ -11,9 +11,20 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 初始化根视图
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+
+    _deckController = [[IIViewDeckController alloc] initWithCenterViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]];
+    _deckController.leftSize = 92;
+    _deckController.panningMode = IIViewDeckNoPanning;
+
+    self.leftController = _deckController.leftController;
+    self.centerController = _deckController.centerController;
+    self.window.rootViewController = _deckController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
