@@ -4,6 +4,7 @@ platform :ios, '6.0'
 pod 'FMDB'
 pod 'JSONKit-NoWarning'
 pod 'ViewDeck'
+#pod 'MyLayout’
 pod 'TZImagePickerController'
 
 target 'testIOSLib' do

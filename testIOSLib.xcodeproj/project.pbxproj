@@ -51,6 +51,21 @@
 		C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */; };
 		C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */; };
 		C80BBFEB1CB1B46100F0EF0A /* GTCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BBFE91CB1B46100F0EF0A /* GTCollectionViewHeader.xib */; };
+		C8673F631CB55FEC00ED34D3 /* MyBaseLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F451CB55FEC00ED34D3 /* MyBaseLayout.m */; };
+		C8673F641CB55FEC00ED34D3 /* MyDimeScale.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F471CB55FEC00ED34D3 /* MyDimeScale.m */; };
+		C8673F651CB55FEC00ED34D3 /* MyFloatLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F491CB55FEC00ED34D3 /* MyFloatLayout.m */; };
+		C8673F661CB55FEC00ED34D3 /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F4B1CB55FEC00ED34D3 /* MyFlowLayout.m */; };
+		C8673F671CB55FEC00ED34D3 /* MyFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F4D1CB55FEC00ED34D3 /* MyFrameLayout.m */; };
+		C8673F681CB55FEC00ED34D3 /* MyLayoutDime.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F511CB55FEC00ED34D3 /* MyLayoutDime.m */; };
+		C8673F691CB55FEC00ED34D3 /* MyLayoutMeasure.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F551CB55FEC00ED34D3 /* MyLayoutMeasure.m */; };
+		C8673F6A1CB55FEC00ED34D3 /* MyLayoutPos.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F571CB55FEC00ED34D3 /* MyLayoutPos.m */; };
+		C8673F6B1CB55FEC00ED34D3 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F5A1CB55FEC00ED34D3 /* MyLayoutSizeClass.m */; };
+		C8673F6C1CB55FEC00ED34D3 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F5C1CB55FEC00ED34D3 /* MyLinearLayout.m */; };
+		C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F5E1CB55FEC00ED34D3 /* MyMaker.m */; };
+		C8673F6E1CB55FEC00ED34D3 /* MyRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F601CB55FEC00ED34D3 /* MyRelativeLayout.m */; };
+		C8673F6F1CB55FEC00ED34D3 /* MyTableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F621CB55FEC00ED34D3 /* MyTableLayout.m */; };
+		C8673F741CB5614400ED34D3 /* FSBTestMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */; };
+		C8673F751CB5614400ED34D3 /* FSBTestMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */; };
 		C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */; };
 		C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */; };
 		C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB81CB263FE00519D4C /* GTCollectionAddViewCell.m */; };
@@ -132,6 +147,40 @@
 		C80BBFE71CB1B46100F0EF0A /* GTCollectionViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionViewHeader.h; sourceTree = "<group>"; };
 		C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionViewHeader.m; sourceTree = "<group>"; };
 		C80BBFE91CB1B46100F0EF0A /* GTCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionViewHeader.xib; sourceTree = "<group>"; };
+		C8673F441CB55FEC00ED34D3 /* MyBaseLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaseLayout.h; sourceTree = "<group>"; };
+		C8673F451CB55FEC00ED34D3 /* MyBaseLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseLayout.m; sourceTree = "<group>"; };
+		C8673F461CB55FEC00ED34D3 /* MyDimeScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDimeScale.h; sourceTree = "<group>"; };
+		C8673F471CB55FEC00ED34D3 /* MyDimeScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDimeScale.m; sourceTree = "<group>"; };
+		C8673F481CB55FEC00ED34D3 /* MyFloatLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFloatLayout.h; sourceTree = "<group>"; };
+		C8673F491CB55FEC00ED34D3 /* MyFloatLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFloatLayout.m; sourceTree = "<group>"; };
+		C8673F4A1CB55FEC00ED34D3 /* MyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlowLayout.h; sourceTree = "<group>"; };
+		C8673F4B1CB55FEC00ED34D3 /* MyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayout.m; sourceTree = "<group>"; };
+		C8673F4C1CB55FEC00ED34D3 /* MyFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFrameLayout.h; sourceTree = "<group>"; };
+		C8673F4D1CB55FEC00ED34D3 /* MyFrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFrameLayout.m; sourceTree = "<group>"; };
+		C8673F4E1CB55FEC00ED34D3 /* MyLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayout.h; sourceTree = "<group>"; };
+		C8673F4F1CB55FEC00ED34D3 /* MyLayoutDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutDef.h; sourceTree = "<group>"; };
+		C8673F501CB55FEC00ED34D3 /* MyLayoutDime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutDime.h; sourceTree = "<group>"; };
+		C8673F511CB55FEC00ED34D3 /* MyLayoutDime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutDime.m; sourceTree = "<group>"; };
+		C8673F521CB55FEC00ED34D3 /* MyLayoutDimeInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutDimeInner.h; sourceTree = "<group>"; };
+		C8673F531CB55FEC00ED34D3 /* MyLayoutInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutInner.h; sourceTree = "<group>"; };
+		C8673F541CB55FEC00ED34D3 /* MyLayoutMeasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutMeasure.h; sourceTree = "<group>"; };
+		C8673F551CB55FEC00ED34D3 /* MyLayoutMeasure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutMeasure.m; sourceTree = "<group>"; };
+		C8673F561CB55FEC00ED34D3 /* MyLayoutPos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutPos.h; sourceTree = "<group>"; };
+		C8673F571CB55FEC00ED34D3 /* MyLayoutPos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutPos.m; sourceTree = "<group>"; };
+		C8673F581CB55FEC00ED34D3 /* MyLayoutPosInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutPosInner.h; sourceTree = "<group>"; };
+		C8673F591CB55FEC00ED34D3 /* MyLayoutSizeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSizeClass.h; sourceTree = "<group>"; };
+		C8673F5A1CB55FEC00ED34D3 /* MyLayoutSizeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutSizeClass.m; sourceTree = "<group>"; };
+		C8673F5B1CB55FEC00ED34D3 /* MyLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLinearLayout.h; sourceTree = "<group>"; };
+		C8673F5C1CB55FEC00ED34D3 /* MyLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLinearLayout.m; sourceTree = "<group>"; };
+		C8673F5D1CB55FEC00ED34D3 /* MyMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMaker.h; sourceTree = "<group>"; };
+		C8673F5E1CB55FEC00ED34D3 /* MyMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMaker.m; sourceTree = "<group>"; };
+		C8673F5F1CB55FEC00ED34D3 /* MyRelativeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRelativeLayout.h; sourceTree = "<group>"; };
+		C8673F601CB55FEC00ED34D3 /* MyRelativeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRelativeLayout.m; sourceTree = "<group>"; };
+		C8673F611CB55FEC00ED34D3 /* MyTableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableLayout.h; sourceTree = "<group>"; };
+		C8673F621CB55FEC00ED34D3 /* MyTableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableLayout.m; sourceTree = "<group>"; };
+		C8673F711CB5614400ED34D3 /* FSBTestMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBTestMoreView.h; sourceTree = "<group>"; };
+		C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBTestMoreView.m; sourceTree = "<group>"; };
+		C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBTestMoreView.xib; sourceTree = "<group>"; };
 		C8CDEAB21CB2534700519D4C /* ImageCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCategoryViewController.h; sourceTree = "<group>"; };
 		C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCategoryViewController.m; sourceTree = "<group>"; };
 		C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCategoryViewController.xib; sourceTree = "<group>"; };
@@ -208,6 +257,7 @@
 		845FC05B1CACC45000BF9BC5 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
+				C8673F701CB5614400ED34D3 /* TestLayoutView */,
 				843A91671CB4F13A00E1B8E1 /* cell */,
 				845FC05C1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.h */,
 				845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */,
@@ -241,6 +291,7 @@
 		8461CC5B1CA2A78000594CC1 /* testIOSLib */ = {
 			isa = PBXGroup;
 			children = (
+				C8673F421CB55FEC00ED34D3 /* Lib */,
 				8461CC681CA2A78100594CC1 /* Assets.xcassets */,
 				848616231CAA22F8003F2C78 /* main */,
 				848616281CAA22F8003F2C78 /* System */,
@@ -400,6 +451,62 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		C8673F421CB55FEC00ED34D3 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C8673F431CB55FEC00ED34D3 /* MyLayout */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		C8673F431CB55FEC00ED34D3 /* MyLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C8673F441CB55FEC00ED34D3 /* MyBaseLayout.h */,
+				C8673F451CB55FEC00ED34D3 /* MyBaseLayout.m */,
+				C8673F461CB55FEC00ED34D3 /* MyDimeScale.h */,
+				C8673F471CB55FEC00ED34D3 /* MyDimeScale.m */,
+				C8673F481CB55FEC00ED34D3 /* MyFloatLayout.h */,
+				C8673F491CB55FEC00ED34D3 /* MyFloatLayout.m */,
+				C8673F4A1CB55FEC00ED34D3 /* MyFlowLayout.h */,
+				C8673F4B1CB55FEC00ED34D3 /* MyFlowLayout.m */,
+				C8673F4C1CB55FEC00ED34D3 /* MyFrameLayout.h */,
+				C8673F4D1CB55FEC00ED34D3 /* MyFrameLayout.m */,
+				C8673F4E1CB55FEC00ED34D3 /* MyLayout.h */,
+				C8673F4F1CB55FEC00ED34D3 /* MyLayoutDef.h */,
+				C8673F501CB55FEC00ED34D3 /* MyLayoutDime.h */,
+				C8673F511CB55FEC00ED34D3 /* MyLayoutDime.m */,
+				C8673F521CB55FEC00ED34D3 /* MyLayoutDimeInner.h */,
+				C8673F531CB55FEC00ED34D3 /* MyLayoutInner.h */,
+				C8673F541CB55FEC00ED34D3 /* MyLayoutMeasure.h */,
+				C8673F551CB55FEC00ED34D3 /* MyLayoutMeasure.m */,
+				C8673F561CB55FEC00ED34D3 /* MyLayoutPos.h */,
+				C8673F571CB55FEC00ED34D3 /* MyLayoutPos.m */,
+				C8673F581CB55FEC00ED34D3 /* MyLayoutPosInner.h */,
+				C8673F591CB55FEC00ED34D3 /* MyLayoutSizeClass.h */,
+				C8673F5A1CB55FEC00ED34D3 /* MyLayoutSizeClass.m */,
+				C8673F5B1CB55FEC00ED34D3 /* MyLinearLayout.h */,
+				C8673F5C1CB55FEC00ED34D3 /* MyLinearLayout.m */,
+				C8673F5D1CB55FEC00ED34D3 /* MyMaker.h */,
+				C8673F5E1CB55FEC00ED34D3 /* MyMaker.m */,
+				C8673F5F1CB55FEC00ED34D3 /* MyRelativeLayout.h */,
+				C8673F601CB55FEC00ED34D3 /* MyRelativeLayout.m */,
+				C8673F611CB55FEC00ED34D3 /* MyTableLayout.h */,
+				C8673F621CB55FEC00ED34D3 /* MyTableLayout.m */,
+			);
+			path = MyLayout;
+			sourceTree = "<group>";
+		};
+		C8673F701CB5614400ED34D3 /* TestLayoutView */ = {
+			isa = PBXGroup;
+			children = (
+				C8673F711CB5614400ED34D3 /* FSBTestMoreView.h */,
+				C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */,
+				C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */,
+			);
+			path = TestLayoutView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +574,7 @@
 				845FC06E1CACCD4400BF9BC5 /* head_tabbar_arrow_down@3x.png in Resources */,
 				845FC0721CACCD4400BF9BC5 /* top_lf_arrow_lf@3x.png in Resources */,
 				8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */,
+				C8673F751CB5614400ED34D3 /* FSBTestMoreView.xib in Resources */,
 				843148EF1CA919A100606FC1 /* GTTableViewCell.xib in Resources */,
 				C80BBFEB1CB1B46100F0EF0A /* GTCollectionViewHeader.xib in Resources */,
 				84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */,
@@ -540,29 +648,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				848616461CAA5C36003F2C78 /* NSString+Utility.m in Sources */,
+				C8673F641CB55FEC00ED34D3 /* MyDimeScale.m in Sources */,
 				843A91701CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m in Sources */,
 				C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */,
 				84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */,
 				C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */,
+				C8673F6C1CB55FEC00ED34D3 /* MyLinearLayout.m in Sources */,
 				843A916B1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m in Sources */,
 				846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreView.m in Sources */,
+				C8673F651CB55FEC00ED34D3 /* MyFloatLayout.m in Sources */,
 				841F88141CA4E06C00642797 /* Customers.m in Sources */,
 				8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */,
 				848616491CAA5DB0003F2C78 /* UIColor+Utility.m in Sources */,
+				C8673F681CB55FEC00ED34D3 /* MyLayoutDime.m in Sources */,
 				848616391CAA5640003F2C78 /* ImageShowViewController.m in Sources */,
 				841F881A1CA4EB0C00642797 /* BaseModel.m in Sources */,
 				8486162C1CAA22F8003F2C78 /* ViewController.m in Sources */,
 				843148EA1CA917C500606FC1 /* GTTableViewController.m in Sources */,
 				8461CC5E1CA2A78000594CC1 /* main.m in Sources */,
+				C8673F6E1CB55FEC00ED34D3 /* MyRelativeLayout.m in Sources */,
 				843148EE1CA919A100606FC1 /* GTTableViewCell.m in Sources */,
 				846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */,
+				C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */,
 				84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */,
 				848616431CAA587E003F2C78 /* UILabel+Utility.m in Sources */,
+				C8673F661CB55FEC00ED34D3 /* MyFlowLayout.m in Sources */,
+				C8673F691CB55FEC00ED34D3 /* MyLayoutMeasure.m in Sources */,
 				845FC0611CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m in Sources */,
 				C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */,
+				C8673F671CB55FEC00ED34D3 /* MyFrameLayout.m in Sources */,
 				8486162D1CAA22F8003F2C78 /* GTStorageManager.m in Sources */,
+				C8673F6F1CB55FEC00ED34D3 /* MyTableLayout.m in Sources */,
+				C8673F6B1CB55FEC00ED34D3 /* MyLayoutSizeClass.m in Sources */,
 				845FC0601CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m in Sources */,
 				841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */,
+				C8673F6A1CB55FEC00ED34D3 /* MyLayoutPos.m in Sources */,
+				C8673F631CB55FEC00ED34D3 /* MyBaseLayout.m in Sources */,
+				C8673F741CB5614400ED34D3 /* FSBTestMoreView.m in Sources */,
 				C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */,
 				8486164D1CAA854F003F2C78 /* ImageEditorViewController.m in Sources */,
 			);

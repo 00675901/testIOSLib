@@ -7,6 +7,8 @@
 #import "FSBMySecondHouseToolbar.h"
 #import "FSBMySecondHouseToolbarContentView.h"
 
+#import "FSBTestMoreView.h"
+
 @interface FSBMySecondHouseToolbar () <FSBMySecondHouseToolbarContentViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *contentList;
@@ -20,7 +22,8 @@
 @property (nonatomic, assign) int contentHeight;
 
 //筛选页面
-@property (nonatomic, strong) FSBMySecondHouseMoreView *fsbMoreView;
+//@property (nonatomic, strong) FSBMySecondHouseMoreView *fsbMoreView;
+@property (nonatomic, strong) FSBTestMoreView *fsbMoreView;
 
 @end
 
@@ -161,7 +164,8 @@
 - (void)showMoreView {
     [self closeAllView];
     if (!self.fsbMoreView) {
-        _fsbMoreView = [[FSBMySecondHouseMoreView alloc] init];
+        //        _fsbMoreView = [[FSBMySecondHouseMoreView alloc] init];
+        _fsbMoreView = [[FSBTestMoreView alloc] init];
         _fsbMoreView.frame = CGRectMake(ScreenWidth, 0, ScreenWidth, ScreenHeight);
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         [appDelegate.window addSubview:_fsbMoreView];

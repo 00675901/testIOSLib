@@ -24,6 +24,8 @@
 #import "NSString+Utility.h"
 #import "UIColor+Utility.h"
 
+#import "MyLayout.h"
+
 #endif
 
 #endif
