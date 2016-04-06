@@ -33,9 +33,11 @@
     [_cid setText:_dataModel.customer_id];
     [_cContact setText:_dataModel.contact_id];
     [_cNameLetter setText:_dataModel.customer_name_letter];
+    
+    [_cNameLetter setHidden:YES];
 
-    NSLog(@"===%@,%@,%@,%@,%@===", _dataModel.customer_id, _dataModel.contact_id, _dataModel.customer_name, _dataModel.customer_phone, _dataModel.customer_name_letter);
-    NSLog(@"===--%@,%@,%@,%@,%@--===", _cName.text, _cPhone.text, _cid.text, _cContact.text, _cNameLetter.text);
+//    NSLog(@"===%@,%@,%@,%@,%@===", _dataModel.customer_id, _dataModel.contact_id, _dataModel.customer_name, _dataModel.customer_phone, _dataModel.customer_name_letter);
+//    NSLog(@"===--%@,%@,%@,%@,%@--===", _cName.text, _cPhone.text, _cid.text, _cContact.text, _cNameLetter.text);
 }
 
 @end

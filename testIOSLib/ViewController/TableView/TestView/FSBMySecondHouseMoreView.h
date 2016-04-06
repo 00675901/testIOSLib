@@ -5,9 +5,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSBMySecondHouseMoreContentView : UIView
+@interface FSBMySecondHouseMoreView : UIView
 
-- (FSBMySecondHouseMoreContentView*)init;
+- (FSBMySecondHouseMoreView*)init;
 - (void)show;
 
 @end

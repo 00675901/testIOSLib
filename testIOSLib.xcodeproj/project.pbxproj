@@ -14,6 +14,10 @@
 		843148EA1CA917C500606FC1 /* GTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843148E91CA917C500606FC1 /* GTTableViewController.m */; };
 		843148EE1CA919A100606FC1 /* GTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843148EC1CA919A100606FC1 /* GTTableViewCell.m */; };
 		843148EF1CA919A100606FC1 /* GTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843148ED1CA919A100606FC1 /* GTTableViewCell.xib */; };
+		843A916B1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A91691CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m */; };
+		843A916C1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843A916A1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib */; };
+		843A91701CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A916E1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m */; };
+		843A91711CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843A916F1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib */; };
 		845FC0601CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */; };
 		845FC0611CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC05F1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m */; };
 		845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845FC0631CACCD4400BF9BC5 /* checkbox_tick@2x.png */; };
@@ -27,8 +31,8 @@
 		8461CC5E1CA2A78000594CC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461CC5D1CA2A78000594CC1 /* main.m */; };
 		8461CC671CA2A78000594CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC651CA2A78000594CC1 /* Main.storyboard */; };
 		8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC681CA2A78100594CC1 /* Assets.xcassets */; };
-		846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.m */; };
-		846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreContentView.xib */; };
+		846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */; };
+		846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */; };
 		846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F91CB3A3DE00B75E1B /* FMUMath.m */; };
 		8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616251CAA22F8003F2C78 /* AppDelegate.m */; };
 		8486162C1CAA22F8003F2C78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616271CAA22F8003F2C78 /* ViewController.m */; };
@@ -67,6 +71,12 @@
 		843148EB1CA919A100606FC1 /* GTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTableViewCell.h; sourceTree = "<group>"; };
 		843148EC1CA919A100606FC1 /* GTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTableViewCell.m; sourceTree = "<group>"; };
 		843148ED1CA919A100606FC1 /* GTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTTableViewCell.xib; sourceTree = "<group>"; };
+		843A91681CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondMoreViewCell.h; sourceTree = "<group>"; };
+		843A91691CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondMoreViewCell.m; sourceTree = "<group>"; };
+		843A916A1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondMoreViewCell.xib; sourceTree = "<group>"; };
+		843A916D1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondMoreViewCollectionCell.h; sourceTree = "<group>"; };
+		843A916E1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondMoreViewCollectionCell.m; sourceTree = "<group>"; };
+		843A916F1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondMoreViewCollectionCell.xib; sourceTree = "<group>"; };
 		845FC05C1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseToolbar.h; sourceTree = "<group>"; };
 		845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseToolbar.m; sourceTree = "<group>"; };
 		845FC05E1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseToolbarContentView.h; sourceTree = "<group>"; };
@@ -85,9 +95,9 @@
 		8461CC661CA2A78000594CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8461CC681CA2A78100594CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8461CC6D1CA2A78100594CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseMoreContentView.h; sourceTree = "<group>"; };
-		846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseMoreContentView.m; sourceTree = "<group>"; };
-		846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondHouseMoreContentView.xib; sourceTree = "<group>"; };
+		846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseMoreView.h; sourceTree = "<group>"; };
+		846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseMoreView.m; sourceTree = "<group>"; };
+		846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondHouseMoreView.xib; sourceTree = "<group>"; };
 		846860F81CB3A3DE00B75E1B /* FMUMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMUMath.h; sourceTree = "<group>"; };
 		846860F91CB3A3DE00B75E1B /* FMUMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMUMath.m; sourceTree = "<group>"; };
 		848616241CAA22F8003F2C78 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -182,16 +192,30 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		843A91671CB4F13A00E1B8E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				843A91681CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.h */,
+				843A91691CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m */,
+				843A916A1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib */,
+				843A916D1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.h */,
+				843A916E1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m */,
+				843A916F1CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		845FC05B1CACC45000BF9BC5 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
+				843A91671CB4F13A00E1B8E1 /* cell */,
 				845FC05C1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.h */,
 				845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */,
 				845FC05E1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.h */,
 				845FC05F1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m */,
-				846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.h */,
-				846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.m */,
-				846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreContentView.xib */,
+				846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreView.h */,
+				846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */,
+				846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -439,6 +463,7 @@
 				C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */,
 				C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */,
 				845FC0711CACCD4400BF9BC5 /* top_lf_arrow_lf@2x.png in Resources */,
+				843A916C1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib in Resources */,
 				845FC06E1CACCD4400BF9BC5 /* head_tabbar_arrow_down@3x.png in Resources */,
 				845FC0721CACCD4400BF9BC5 /* top_lf_arrow_lf@3x.png in Resources */,
 				8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */,
@@ -451,9 +476,10 @@
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
-				846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreContentView.xib in Resources */,
+				846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib in Resources */,
 				845FC06C1CACCD4400BF9BC5 /* checkbox_tick@3x.png in Resources */,
 				845FC0701CACCD4400BF9BC5 /* head_tabbar_arrow_up@3x.png in Resources */,
+				843A91711CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib in Resources */,
 				8486164E1CAA854F003F2C78 /* ImageEditorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,10 +540,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				848616461CAA5C36003F2C78 /* NSString+Utility.m in Sources */,
+				843A91701CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.m in Sources */,
 				C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */,
 				84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */,
 				C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */,
-				846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreContentView.m in Sources */,
+				843A916B1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m in Sources */,
+				846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreView.m in Sources */,
 				841F88141CA4E06C00642797 /* Customers.m in Sources */,
 				8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */,
 				848616491CAA5DB0003F2C78 /* UIColor+Utility.m in Sources */,

@@ -6,37 +6,88 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FSBMoreConditionView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FSBMySecondHouseMoreView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
-                <outlet property="_conditionCountLab" destination="Pj0-gp-4oM" id="G0K-fE-iKi"/>
-                <outlet property="_departmentTable" destination="TPS-rC-548" id="cq5-9D-zDu"/>
-                <outlet property="_departmentView" destination="OP8-hH-u9P" id="1z5-rU-DE9"/>
-                <outlet property="_estateCountLab" destination="fof-PA-9hc" id="f0M-Iu-u8P"/>
-                <outlet property="_estateTable" destination="yAs-Y8-mGv" id="q0c-QY-9je"/>
-                <outlet property="_estateView" destination="hWO-Vo-26y" id="AHF-op-2Y4"/>
-                <outlet property="_moreConfirmBtn" destination="H5M-PL-fXL" id="Ca9-hI-nRg"/>
-                <outlet property="_moreEndTimeTextField" destination="UMJ-5i-r14" id="QjP-Z7-iu6"/>
-                <outlet property="_moreResetBtn" destination="laJ-5g-Byz" id="YjL-ps-2HG"/>
-                <outlet property="_moreStartTimeTextField" destination="nc0-mM-O5T" id="Z84-gq-It4"/>
-                <outlet property="_moreTable" destination="cno-y0-cdI" id="pVZ-yd-tfD"/>
-                <outlet property="_moreTableFooterView" destination="Ks2-bb-hsY" id="yai-9r-8kC"/>
-                <outlet property="_moreView" destination="CFS-6i-FcG" id="hoL-aN-rib"/>
-                <outlet property="_otherCellUnitLab" destination="vWo-JT-xq3" id="i1S-Jl-ahf"/>
-                <outlet property="_otherEndTextField" destination="zX6-CK-CCD" id="RIg-AL-fKU"/>
-                <outlet property="_otherStartTextField" destination="8Ri-aL-Qqv" id="j1O-1S-23e"/>
-                <outlet property="_otherTable" destination="gT1-IF-Qxw" id="Ezb-Lp-85Y"/>
-                <outlet property="_otherTableFooterView" destination="mis-US-pmy" id="Sun-Jg-f4Q"/>
-                <outlet property="_otherTitleLab" destination="tcz-F7-8ap" id="scx-u5-9os"/>
-                <outlet property="_otherView" destination="L0n-rb-SrM" id="wvR-H0-Wo5"/>
-                <outlet property="_searchDepartmentView" destination="BaD-w6-zny" id="dZZ-Tj-45H"/>
-                <outlet property="_searchDepatmentTextField" destination="xIQ-RU-IEy" id="nPf-nu-WWp"/>
+                <outlet property="_moreTable" destination="cno-y0-cdI" id="tQa-jL-noU"/>
+                <outlet property="_moreView" destination="CFS-6i-FcG" id="Mnr-nT-UgQ"/>
             </connections>
+        </view>
+        <view contentMode="scaleToFill" id="CFS-6i-FcG">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEB-ed-Nli">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="筛选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj0-gp-4oM">
+                            <rect key="frame" x="0.0" y="31" width="375" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="EpH-nc-P4B"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgf-gJ-cKv">
+                            <rect key="frame" x="5" y="25" width="50" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0Pj-js-pli"/>
+                                <constraint firstAttribute="width" constant="50" id="2fT-cP-jd5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-Mf-gj9">
+                            <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
+                            <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="C4p-m3-QXg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Pj0-gp-4oM" secondAttribute="trailing" id="7op-3e-jCS"/>
+                        <constraint firstItem="ii9-Mf-gj9" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" id="Eyg-5D-DXs"/>
+                        <constraint firstItem="Pj0-gp-4oM" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="top" constant="31" id="M8o-Fm-oMw"/>
+                        <constraint firstAttribute="height" constant="64" id="NQL-0c-YyQ"/>
+                        <constraint firstAttribute="trailing" secondItem="ii9-Mf-gj9" secondAttribute="trailing" id="S0b-Z2-1br"/>
+                        <constraint firstItem="Pj0-gp-4oM" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" id="dWn-0C-ZXc"/>
+                        <constraint firstItem="fgf-gJ-cKv" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="top" constant="25" id="pUX-rJ-OaZ"/>
+                        <constraint firstAttribute="bottom" secondItem="ii9-Mf-gj9" secondAttribute="bottom" id="twR-Ca-zqk"/>
+                        <constraint firstItem="fgf-gJ-cKv" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" constant="5" id="u8Y-cL-Oew"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cno-y0-cdI">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Udg-s9-IrT"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="DDb-He-pXu"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cno-y0-cdI" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="bottom" id="6Mr-J7-TQx"/>
+                <constraint firstAttribute="trailing" secondItem="cno-y0-cdI" secondAttribute="trailing" id="LPh-y7-hQd"/>
+                <constraint firstItem="KEB-ed-Nli" firstAttribute="leading" secondItem="CFS-6i-FcG" secondAttribute="leading" id="RWA-wu-RuY"/>
+                <constraint firstAttribute="bottom" secondItem="cno-y0-cdI" secondAttribute="bottom" id="hvG-9S-o7V"/>
+                <constraint firstItem="KEB-ed-Nli" firstAttribute="top" secondItem="CFS-6i-FcG" secondAttribute="top" id="iuS-cd-RxU"/>
+                <constraint firstAttribute="trailing" secondItem="KEB-ed-Nli" secondAttribute="trailing" id="jLR-LY-r5x"/>
+                <constraint firstItem="cno-y0-cdI" firstAttribute="leading" secondItem="CFS-6i-FcG" secondAttribute="leading" id="lZ6-Pf-fAL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="-4.5" y="439.5"/>
         </view>
         <view contentMode="scaleToFill" id="OP8-hH-u9P">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -61,9 +112,6 @@
                                 <constraint firstAttribute="width" constant="50" id="ynD-st-7FM"/>
                             </constraints>
                             <state key="normal" image="top_lf_arrow_lf.png"/>
-                            <connections>
-                                <action selector="cancelDepartmentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="IsL-DN-LGd"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,9 +141,6 @@
                                     <rect key="frame" x="28" y="0.0" width="335" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="iN0-l3-epB" id="UVy-dy-yHG"/>
-                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,10 +166,6 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TPS-rC-548">
                     <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="0C9-Wu-HiD"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="l8m-sX-tyg"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,81 +185,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="-541.5" y="311.5"/>
         </view>
-        <view contentMode="scaleToFill" id="CFS-6i-FcG">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEB-ed-Nli">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="筛选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj0-gp-4oM">
-                            <rect key="frame" x="0.0" y="31" width="375" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="18" id="EpH-nc-P4B"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgf-gJ-cKv">
-                            <rect key="frame" x="5" y="25" width="50" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="0Pj-js-pli"/>
-                                <constraint firstAttribute="width" constant="50" id="2fT-cP-jd5"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="取消">
-                                <color key="titleColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="cancelSelectedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cef-dg-mZE"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-Mf-gj9">
-                            <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
-                            <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="C4p-m3-QXg"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Pj0-gp-4oM" secondAttribute="trailing" id="7op-3e-jCS"/>
-                        <constraint firstItem="ii9-Mf-gj9" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" id="Eyg-5D-DXs"/>
-                        <constraint firstItem="Pj0-gp-4oM" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="top" constant="31" id="M8o-Fm-oMw"/>
-                        <constraint firstAttribute="height" constant="64" id="NQL-0c-YyQ"/>
-                        <constraint firstAttribute="trailing" secondItem="ii9-Mf-gj9" secondAttribute="trailing" id="S0b-Z2-1br"/>
-                        <constraint firstItem="Pj0-gp-4oM" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" id="dWn-0C-ZXc"/>
-                        <constraint firstItem="fgf-gJ-cKv" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="top" constant="25" id="pUX-rJ-OaZ"/>
-                        <constraint firstAttribute="bottom" secondItem="ii9-Mf-gj9" secondAttribute="bottom" id="twR-Ca-zqk"/>
-                        <constraint firstItem="fgf-gJ-cKv" firstAttribute="leading" secondItem="KEB-ed-Nli" secondAttribute="leading" constant="5" id="u8Y-cL-Oew"/>
-                    </constraints>
-                </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cno-y0-cdI">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="idv-el-dhd"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="YRK-hn-Aqj"/>
-                    </connections>
-                </tableView>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="cno-y0-cdI" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="bottom" id="6Mr-J7-TQx"/>
-                <constraint firstAttribute="trailing" secondItem="cno-y0-cdI" secondAttribute="trailing" id="LPh-y7-hQd"/>
-                <constraint firstItem="KEB-ed-Nli" firstAttribute="leading" secondItem="CFS-6i-FcG" secondAttribute="leading" id="RWA-wu-RuY"/>
-                <constraint firstAttribute="bottom" secondItem="cno-y0-cdI" secondAttribute="bottom" id="hvG-9S-o7V"/>
-                <constraint firstItem="KEB-ed-Nli" firstAttribute="top" secondItem="CFS-6i-FcG" secondAttribute="top" id="iuS-cd-RxU"/>
-                <constraint firstAttribute="trailing" secondItem="KEB-ed-Nli" secondAttribute="trailing" id="jLR-LY-r5x"/>
-                <constraint firstItem="cno-y0-cdI" firstAttribute="leading" secondItem="CFS-6i-FcG" secondAttribute="leading" id="lZ6-Pf-fAL"/>
-            </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="-4.5" y="439.5"/>
-        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="hWO-Vo-26y">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -245,9 +212,6 @@
                             <state key="normal" image="top_lf_arrow_lf.png">
                                 <color key="titleColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="canelEstateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Na3-wK-haZ"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXK-iZ-gCg">
                             <rect key="frame" x="325" y="25" width="40" height="30"/>
@@ -259,9 +223,6 @@
                             <state key="normal" title="确定">
                                 <color key="titleColor" red="0.13333333333333333" green="0.65490196078431373" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="confirmEstateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ayV-1z-Mcd"/>
-                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SA-m9-UWL">
                             <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
@@ -280,9 +241,6 @@
                             <state key="normal" title="重置">
                                 <color key="titleColor" red="0.1333333333" green="0.65490196079999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="resetEstateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="lma-Gf-3ok"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -306,10 +264,6 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="del-Ju-3va"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="avX-Fc-NCL"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -348,9 +302,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="Hzs-Ea-Dfs"/>
-                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择结束时间" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UMJ-5i-r14">
                     <rect key="frame" x="240" y="0.0" width="100" height="44"/>
@@ -360,9 +311,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="RW1-Vg-txK"/>
-                    </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzH-Xd-BfT">
                     <rect key="frame" x="0.0" y="44" width="375" height="0.0"/>
@@ -381,9 +329,6 @@
                     <state key="normal" title="重置">
                         <color key="titleColor" red="0.1333333333" green="0.65490196079999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <connections>
-                        <action selector="resetMoreAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="SjI-d0-2hj"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5M-PL-fXL">
                     <rect key="frame" x="230" y="64" width="115" height="34"/>
@@ -396,9 +341,6 @@
                     <state key="normal" title="确定">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="confirmMoreAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="SCT-SS-oCf"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -447,9 +389,6 @@
                             <state key="normal" image="top_lf_arrow_lf.png">
                                 <color key="titleColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="cancelOtherAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="609-IZ-dfB"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyU-FX-d8f">
                             <rect key="frame" x="325" y="25" width="40" height="30"/>
@@ -461,9 +400,6 @@
                             <state key="normal" title="确定">
                                 <color key="titleColor" red="0.1333333333" green="0.65490196079999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="confirmOtherAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="TmA-cK-Chy"/>
-                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLO-tN-3Rh">
                             <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
@@ -492,10 +428,6 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="AIg-78-8hh"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="gIa-Co-c0I"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -534,9 +466,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="s6m-y2-3ua"/>
-                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zX6-CK-CCD">
                     <rect key="frame" x="225" y="0.0" width="100" height="44"/>
@@ -545,9 +474,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="H6L-QU-Jqz"/>
-                    </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFZ-T7-5A8">
                     <rect key="frame" x="0.0" y="44" width="375" height="0.0"/>

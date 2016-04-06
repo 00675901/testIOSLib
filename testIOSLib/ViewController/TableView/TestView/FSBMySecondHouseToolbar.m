@@ -3,7 +3,7 @@
 //  Copyright © 2015年 fangstar. All rights reserved.
 //
 
-#import "FSBMySecondHouseMoreContentView.h"
+#import "FSBMySecondHouseMoreView.h"
 #import "FSBMySecondHouseToolbar.h"
 #import "FSBMySecondHouseToolbarContentView.h"
 
@@ -20,7 +20,7 @@
 @property (nonatomic, assign) int contentHeight;
 
 //筛选页面
-@property (nonatomic, strong) FSBMySecondHouseMoreContentView *fsbMoreView;
+@property (nonatomic, strong) FSBMySecondHouseMoreView *fsbMoreView;
 
 @end
 
@@ -161,9 +161,8 @@
 - (void)showMoreView {
     [self closeAllView];
     if (!self.fsbMoreView) {
-        _fsbMoreView = [[FSBMySecondHouseMoreContentView alloc] init];
+        _fsbMoreView = [[FSBMySecondHouseMoreView alloc] init];
         _fsbMoreView.frame = CGRectMake(ScreenWidth, 0, ScreenWidth, ScreenHeight);
-
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         [appDelegate.window addSubview:_fsbMoreView];
     }
