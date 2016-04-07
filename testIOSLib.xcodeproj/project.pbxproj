@@ -45,6 +45,8 @@
 		8486164E1CAA854F003F2C78 /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486164C1CAA854F003F2C78 /* ImageEditorViewController.xib */; };
 		84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84898BF51CA3B8C8006DCBF0 /* Customer.m */; };
 		84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */; };
+		8490BB6A1CB643DE00039C51 /* SecondHouseData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490BB691CB643DE00039C51 /* SecondHouseData.json */; };
+		8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */; };
 		84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */; };
 		84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4F0F51CA38D71005D5757 /* GTDBManager.m */; };
 		C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */; };
@@ -64,8 +66,8 @@
 		C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F5E1CB55FEC00ED34D3 /* MyMaker.m */; };
 		C8673F6E1CB55FEC00ED34D3 /* MyRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F601CB55FEC00ED34D3 /* MyRelativeLayout.m */; };
 		C8673F6F1CB55FEC00ED34D3 /* MyTableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F621CB55FEC00ED34D3 /* MyTableLayout.m */; };
-		C8673F741CB5614400ED34D3 /* FSBTestMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */; };
-		C8673F751CB5614400ED34D3 /* FSBTestMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */; };
+		C8673F741CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8673F721CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m */; };
+		C8673F751CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8673F731CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib */; };
 		C8CDEAB51CB2534700519D4C /* ImageCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */; };
 		C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */; };
 		C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDEAB81CB263FE00519D4C /* GTCollectionAddViewCell.m */; };
@@ -137,10 +139,14 @@
 		84898BF41CA3B8C8006DCBF0 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
 		84898BF51CA3B8C8006DCBF0 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testCustomJson.json; sourceTree = "<group>"; };
+		8490BB691CB643DE00039C51 /* SecondHouseData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SecondHouseData.json; sourceTree = "<group>"; };
+		8490BB6B1CB681AB00039C51 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+UIColor.h"; sourceTree = "<group>"; };
+		8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+UIColor.m"; sourceTree = "<group>"; };
 		84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCustomDB.db; sourceTree = "<group>"; };
 		84D4F0F41CA38D71005D5757 /* GTDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDBManager.h; sourceTree = "<group>"; };
 		84D4F0F51CA38D71005D5757 /* GTDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDBManager.m; sourceTree = "<group>"; };
 		84D4F0FF1CA39AAB005D5757 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		84E8291D1CB602F500B41116 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C80BBFE21CB147A900F0EF0A /* GTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionViewCell.h; sourceTree = "<group>"; };
 		C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionViewCell.m; sourceTree = "<group>"; };
 		C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -178,9 +184,9 @@
 		C8673F601CB55FEC00ED34D3 /* MyRelativeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRelativeLayout.m; sourceTree = "<group>"; };
 		C8673F611CB55FEC00ED34D3 /* MyTableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableLayout.h; sourceTree = "<group>"; };
 		C8673F621CB55FEC00ED34D3 /* MyTableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableLayout.m; sourceTree = "<group>"; };
-		C8673F711CB5614400ED34D3 /* FSBTestMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBTestMoreView.h; sourceTree = "<group>"; };
-		C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBTestMoreView.m; sourceTree = "<group>"; };
-		C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBTestMoreView.xib; sourceTree = "<group>"; };
+		C8673F711CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseMoreLayout.h; sourceTree = "<group>"; };
+		C8673F721CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseMoreLayout.m; sourceTree = "<group>"; };
+		C8673F731CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondHouseMoreLayout.xib; sourceTree = "<group>"; };
 		C8CDEAB21CB2534700519D4C /* ImageCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCategoryViewController.h; sourceTree = "<group>"; };
 		C8CDEAB31CB2534700519D4C /* ImageCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCategoryViewController.m; sourceTree = "<group>"; };
 		C8CDEAB41CB2534700519D4C /* ImageCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCategoryViewController.xib; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 		82BFED0924673EE34A02A612 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84E8291D1CB602F500B41116 /* QuartzCore.framework */,
 				84D4F0FF1CA39AAB005D5757 /* libsqlite3.tbd */,
 				20F7C5ED1723ADCF303ACA7F /* libPods.a */,
 			);
@@ -389,6 +396,8 @@
 		848616401CAA587E003F2C78 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8490BB6B1CB681AB00039C51 /* CALayer+UIColor.h */,
+				8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */,
 				848616411CAA587E003F2C78 /* UILabel+Utility.h */,
 				848616421CAA587E003F2C78 /* UILabel+Utility.m */,
 				848616471CAA5DB0003F2C78 /* UIColor+Utility.h */,
@@ -500,9 +509,10 @@
 		C8673F701CB5614400ED34D3 /* TestLayoutView */ = {
 			isa = PBXGroup;
 			children = (
-				C8673F711CB5614400ED34D3 /* FSBTestMoreView.h */,
-				C8673F721CB5614400ED34D3 /* FSBTestMoreView.m */,
-				C8673F731CB5614400ED34D3 /* FSBTestMoreView.xib */,
+				8490BB691CB643DE00039C51 /* SecondHouseData.json */,
+				C8673F711CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.h */,
+				C8673F721CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m */,
+				C8673F731CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib */,
 			);
 			path = TestLayoutView;
 			sourceTree = "<group>";
@@ -541,6 +551,7 @@
 				TargetAttributes = {
 					8461CC581CA2A78000594CC1 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = DVFXCJTBLV;
 					};
 				};
 			};
@@ -574,7 +585,7 @@
 				845FC06E1CACCD4400BF9BC5 /* head_tabbar_arrow_down@3x.png in Resources */,
 				845FC0721CACCD4400BF9BC5 /* top_lf_arrow_lf@3x.png in Resources */,
 				8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */,
-				C8673F751CB5614400ED34D3 /* FSBTestMoreView.xib in Resources */,
+				C8673F751CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib in Resources */,
 				843148EF1CA919A100606FC1 /* GTTableViewCell.xib in Resources */,
 				C80BBFEB1CB1B46100F0EF0A /* GTCollectionViewHeader.xib in Resources */,
 				84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */,
@@ -582,6 +593,7 @@
 				845FC06F1CACCD4400BF9BC5 /* head_tabbar_arrow_up@2x.png in Resources */,
 				C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */,
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
+				8490BB6A1CB643DE00039C51 /* SecondHouseData.json in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
 				846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib in Resources */,
@@ -669,6 +681,7 @@
 				C8673F6E1CB55FEC00ED34D3 /* MyRelativeLayout.m in Sources */,
 				843148EE1CA919A100606FC1 /* GTTableViewCell.m in Sources */,
 				846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */,
+				8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */,
 				C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */,
 				84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */,
 				848616431CAA587E003F2C78 /* UILabel+Utility.m in Sources */,
@@ -684,7 +697,7 @@
 				841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */,
 				C8673F6A1CB55FEC00ED34D3 /* MyLayoutPos.m in Sources */,
 				C8673F631CB55FEC00ED34D3 /* MyBaseLayout.m in Sources */,
-				C8673F741CB5614400ED34D3 /* FSBTestMoreView.m in Sources */,
+				C8673F741CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m in Sources */,
 				C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */,
 				8486164D1CAA854F003F2C78 /* ImageEditorViewController.m in Sources */,
 			);
@@ -794,12 +807,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = testIOSLib/PrefixHeader.pch;
 				INFOPLIST_FILE = testIOSLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testIOSLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -810,12 +825,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = testIOSLib/PrefixHeader.pch;
 				INFOPLIST_FILE = testIOSLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testIOSLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <JSONKit-NoWarning/JSONKit.h>
 
 #import "AppDelegate.h"
 #import "GTPublicDefine.h"
@@ -23,6 +24,7 @@
 #import "UILabel+Utility.h"
 #import "NSString+Utility.h"
 #import "UIColor+Utility.h"
+#import "CALayer+UIColor.h"
 
 #import "MyLayout.h"
 

@@ -1,0 +1,18 @@
+ [
+  {"title":"楼盘名称","bottomLine":1},
+  {"title":"房号","bottomLine":3},
+  {"bottomLine":3,"data":[{"name":"出租","id":1},{"name":"出售","id":2},{"name":"租售价","id":3}]},
+  {"bottomLine":3,"data":[{"name":"有效","id":1},{"name":"无效","id":2},{"name":"暂缓","id":3},{"name":"预定","id":4},{"name":"已租","id":5},{"name":"已售","id":6}]},
+  {"title":"用途","bottomLine":1},
+  {"title":"户型","bottomLine":3},
+  {"bottomLine":1,"data":[{"name":"公寓","id":1},{"name":"住宅","id":2},{"name":"商铺","id":3},{"name":"写字楼","id":4},{"name":"商住","id":5}]},
+  {"title":"部门","bottomLine":1},
+  {"title":"员工","bottomLine":1},
+  {"title":"片区","bottomLine":3},
+  {"title":"租价","bottomLine":1},
+  {"title":"售价","bottomLine":1},
+  {"title":"面积","bottomLine":1},
+  {"bottomLine":1,"data":[{"name":"公寓","id":1},{"name":"住宅","id":2},{"name":"商铺","id":3},{"name":"写字楼","id":4},{"name":"商住","id":5}]},
+  {"title":"时间","bottomLine":1},
+  {"title":"上下架","bottomLine":1}
+]

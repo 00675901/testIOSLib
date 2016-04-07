@@ -22,6 +22,7 @@
 #define kLabelColor [UIColor colorWithRed:0.34 green:0.34 blue:0.35 alpha:1]
 #define colorNull [UIColor colorWithRed:3 / 255.0 green:3 / 255.0 blue:3 / 255.0 alpha:1.0]
 #define colorLine [UIColor colorWithRed:210 / 255.0 green:210 / 255.0 blue:210 / 255.0 alpha:1.0]
+#define colorGray [UIColor colorWithHex:0xE2E2E2 alpha:1.0]
 
 // 字体
 #define kCurNormalFontOfSize(fontSize) [UIFont systemFontOfSize:fontSize]
