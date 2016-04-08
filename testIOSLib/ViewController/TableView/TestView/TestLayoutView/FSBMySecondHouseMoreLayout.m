@@ -7,7 +7,7 @@
 
 static CGFloat const moreViewOffsetX = 42.0f;
 #define SHOW_FRAME CGRectMake(moreViewOffsetX, 0, ScreenWidth - moreViewOffsetX, ScreenHeight)
-#define CONTENT_HEIGHT 50 //未展开内容高度
+#define CONTENT_HEIGHT 35 //未展开内容高度
 #define colorBlue [UIColor colorWithHex:0x2093FA alpha:1.0]
 #define colorGray [UIColor colorWithHex:0xE2E2E2 alpha:1.0]
 #define colorGray_1 [UIColor colorWithHex:0xA2A2A2 alpha:1.0]
@@ -20,6 +20,11 @@ static CGFloat const moreViewOffsetX = 42.0f;
 @property (nonatomic, assign) BOOL showMoreView;
 @property (nonatomic, retain) MyLinearLayout *myContentView;
 @property (nonatomic, retain) NSMutableArray<MyBaseLayout *> *dataList;
+
+@property (nonatomic, retain) NSMutableArray<NSString *> *nameIndex;
+@property (nonatomic, retain) NSMutableArray<NSString *> *dataIndex;
+
+@property (nonatomic, retain) MyBaseLayout *view2;
 
 @end
 
@@ -59,24 +64,42 @@ static CGFloat const moreViewOffsetX = 42.0f;
 #pragma mark - 初始化界面/项目/显示数据
 //初始化页面数据
 - (void)initContentData {
+    //    _nameIndex=[NSMutableArray arrayWithCapacity:17];
+
     _dataList = [NSMutableArray arrayWithCapacity:17];
-    [_dataList addObject:[self createNewButton:@"楼盘名称" bottomLine:2]];
-    [_dataList addObject:[self createTextfileButton:@"房号" bottomLine:6]];
-    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"出租", @"出售", @"租售价", nil] LineCount:3 bottomLine:6]];
-    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"有效", @"无效", @"暂缓", @"预定", @"已租", @"已售", nil] LineCount:3 bottomLine:6]];
-    [_dataList addObject:[self createNewButton:@"用途" bottomLine:2]];
-    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:2]];
-    [_dataList addObject:[self createNewButton:@"户型" bottomLine:6]];
+    
+    //    [_dataList addObject:[self createNewButton:@"楼盘名称" bottomLine:2]];
+    //    [_dataList addObject:[self createTextfileButton:@"房号" bottomLine:6]];
+    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"出租", @"出售", @"租售价", nil] LineCount:3 bottomLine:6]];
+    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"有效", @"无效", @"暂缓", @"预定", @"已租", @"已售", nil] LineCount:3 bottomLine:6]];
+    //    [_dataList addObject:[self createNewButton:@"用途" bottomLine:2]];
+    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:2]];
+    //    [_dataList addObject:[self createNewButton:@"户型" bottomLine:6]];
     [_dataList addObject:[self createNewButton:@"部门" bottomLine:2]];
     [_dataList addObject:[self createNewButton:@"员工" bottomLine:2]];
     [_dataList addObject:[self createNewButton:@"片区" bottomLine:6]];
     [_dataList addObject:[self createNewButton:@"租价" bottomLine:2]];
-    [_dataList addObject:[self createNewButton:@"售价" bottomLine:2]];
-    [_dataList addObject:[self createRangeButton:@"面积" FirstDefault:@"请输入面积" SecondDefault:@"请输入面积" bottomLine:2 Symbol:@"m²"]];
-    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"60m²以下", @"60-80m²", @"80-100m²", @"100-120m²", @"120-150m²", @"150-200m²", @"200-250m²", @"250m²以上", nil] LineCount:3 bottomLine:2]];
-    [_dataList addObject:[self createRangeButton:@"时间" FirstDefault:@"请输入开始时间" SecondDefault:@"请输入结束时间" bottomLine:2 Symbol:@""]];
-    [_dataList addObject:[self createNewButton:@"上下架" bottomLine:2]];
-    [_dataList addObject:[self createSingleButton:@"重置" bottomLine:2]];
+    //    [_dataList addObject:[self createNewButton:@"售价" bottomLine:2]];
+    //    [_dataList addObject:[self createRangeButton:@"面积" FirstDefault:@"请输入面积" SecondDefault:@"请输入面积" bottomLine:2 Symbol:@"m²"]];
+    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"60m²以下", @"60-80m²", @"80-100m²", @"100-120m²", @"120-150m²", @"150-200m²", @"200-250m²", @"250m²以上", nil] LineCount:3 bottomLine:2]];
+    //    [_dataList addObject:[self createRangeButton:@"时间" FirstDefault:@"请输入开始时间" SecondDefault:@"请输入结束时间" bottomLine:2 Symbol:@""]];
+    //    [_dataList addObject:[self createNewButton:@"上下架" bottomLine:2]];
+    //    [_dataList addObject:[self createSingleButton:@"重置" bottomLine:2]];
+
+        [_myContentView  addSubview:[self createNewButton:@"楼盘名称" bottomLine:2]];
+        [_myContentView addSubview:[self createTextfileButton:@"房号" bottomLine:6]];
+    
+    MyBaseLayout *view1 = [self createNewButton:@"用途" bottomLine:0];
+    _view2 = [self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:0];
+    
+    MyLinearLayout *tempView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    tempView.padding = UIEdgeInsetsMake(0, 0, 5, 0);
+    tempView.bottomBorderLine = [self createLine:colorLine LineBorad:6];
+    tempView.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
+    
+    [tempView addSubview:view1];
+    [tempView addSubview:_view2];
+    [_myContentView addSubview:tempView];
 }
 //初始化页面显示内容
 - (void)initDataView {
@@ -112,14 +135,14 @@ static CGFloat const moreViewOffsetX = 42.0f;
 - (MyRelativeLayout *)createNewButton:(NSString *)title bottomLine:(int)line {
     MyRelativeLayout *elLayout = [MyRelativeLayout new];
     //设置布局内的子视图离自己的边距.
-    elLayout.padding = UIEdgeInsetsMake(0, 10, 5, 0);
+    elLayout.padding = UIEdgeInsetsMake(5, 10, 5, 0);
     //设置下边线
     elLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距都是10，不包裹子视图，整体高度为50。
+    //左右边距，不包裹子视图，整体高度。
     elLayout.backgroundColor = [UIColor whiteColor];
     elLayout.myLeftMargin = 0;
     elLayout.myRightMargin = 0;
-    elLayout.heightDime.equalTo(@CONTENT_HEIGHT);
+    elLayout.heightDime.equalTo(@(CONTENT_HEIGHT+line));
     //标题
     UILabel *titlelab = [UILabel new];
     titlelab.myTopMargin = 0;
@@ -154,7 +177,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [button setTitleColor:colorTint forState:UIControlStateHighlighted];
     [button setTitleColor:colorTint forState:UIControlStateSelected];
     [button setTitleColor:colorGray forState:UIControlStateHighlighted | UIControlStateSelected];
-    [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(showNextItem:) forControlEvents:UIControlEventTouchUpInside];
     [elLayout addSubview:button];
 
     return elLayout;
@@ -173,7 +196,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     rlLayout.padding = UIEdgeInsetsMake(0, 10, 5, 10);
     //设置下边线
     rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距都是0，不包裹子视图，整体高度为50。
+    //左右边距，不包裹子视图，整体高度
     rlLayout.backgroundColor = [UIColor whiteColor];
     rlLayout.myLeftMargin = 0;
     rlLayout.myRightMargin = 0;
@@ -210,7 +233,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     mflayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     mflayout.backgroundColor = [UIColor whiteColor];
     mflayout.averageArrange = YES;
-    mflayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    mflayout.padding = UIEdgeInsetsMake(-5, 10, 10, 10);
     mflayout.subviewHorzMargin = 25;
     mflayout.subviewVertMargin = 5;
     mflayout.wrapContentHeight = YES;
@@ -261,7 +284,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     rlLayout.gravity = MyMarginGravity_Vert_Fill;
     //设置下边线
     rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距都是0，不包裹子视图，整体高度为50。
+    //左右边距，不包裹子视图，整体高度为
     rlLayout.backgroundColor = [UIColor whiteColor];
     rlLayout.myLeftMargin = 0;
     rlLayout.myRightMargin = 0;
@@ -434,8 +457,13 @@ static CGFloat const moreViewOffsetX = 42.0f;
     };
 }
 
-- (void)showNewView {
-    NSLog(@"OnClick-OnClick");
+- (void)showNewView:(UIButton *)sender {
+    NSLog(@"OnClick-OnClick:%d", sender.tag);
+}
+
+- (void)showNextItem:(UIButton *)sender {
+    _view2.hidden=_view2.isHidden?NO:YES;
+    NSLog(@"OnClick-OnClick-OnClick:%d", sender.tag);
 }
 
 @end

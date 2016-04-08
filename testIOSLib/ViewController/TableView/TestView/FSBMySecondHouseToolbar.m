@@ -58,7 +58,6 @@
     _sourceData = [NSMutableDictionary dictionaryWithDictionary:[testData objectForKey:@"data"]];
 
     _contentList = [NSMutableArray arrayWithCapacity:3];
-
     NSMutableArray* tempList=[NSMutableArray array];
     for (NSDictionary *data in [_sourceData objectForKey:@"house_source"]) {
         FSBSecondHouseMoreModel *tempModel = [[FSBSecondHouseMoreModel alloc] init];
