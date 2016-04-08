@@ -7,7 +7,7 @@
 
 @interface FSBMySecondHouseToolbarContentView ()
 
-@property (nonatomic, retain) NSArray *dataSour;
+@property (nonatomic, retain) NSArray<FSBSecondHouseMoreModel*> *dataSour;
 
 @end
 
@@ -15,7 +15,7 @@
 
 @synthesize contentH = _contentH;
 
-- (FSBMySecondHouseToolbarContentView *)initWithFrame:(CGRect)frame contentHeight:(int)height DataSour:(NSArray *)array {
+- (FSBMySecondHouseToolbarContentView *)initWithFrame:(CGRect)frame contentHeight:(int)height DataSour:(NSArray<FSBSecondHouseMoreModel *> *)array {
     if (self = [super initWithFrame:frame]) {
         [self setBackgroundColor:[UIColor whiteColor]];
         _dataSour = array;
@@ -29,11 +29,11 @@
 - (void)initContentWithFrame:(CGRect)frame {
     UIScrollView *tempView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
     int i = 0;
-    for (NSString *btn in _dataSour) {
+    for (FSBSecondHouseMoreModel *btn in _dataSour) {
         UIButton *tempBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [tempBtn setFrame:CGRectMake(0, i * _contentH, self.bounds.size.width, _contentH)];
 
-        [tempBtn setTitle:btn forState:UIControlStateNormal];
+        [tempBtn setTitle:btn.moreName forState:UIControlStateNormal];
         [tempBtn setTitleColor:colorNull forState:UIControlStateNormal];
         [tempBtn setTitleColor:colorTint forState:UIControlStateHighlighted];
         [tempBtn setTitleColor:colorTint forState:UIControlStateSelected];

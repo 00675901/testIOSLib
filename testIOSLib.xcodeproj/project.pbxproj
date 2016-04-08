@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3127363768D6D6CC924CD036 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F7C5ED1723ADCF303ACA7F /* libPods.a */; };
+		840D91E51CB7959800385CEB /* qq_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D91E41CB7959800385CEB /* qq_test.png */; };
+		840D91E71CB7B18500385CEB /* SecondHouseParamsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */; };
+		840D91EA1CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D91E91CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m */; };
 		841F88141CA4E06C00642797 /* Customers.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88131CA4E06C00642797 /* Customers.m */; };
 		841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88161CA4E1D500642797 /* BaseDBModel.m */; };
 		841F881A1CA4EB0C00642797 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88191CA4EB0C00642797 /* BaseModel.m */; };
@@ -77,6 +80,10 @@
 /* Begin PBXFileReference section */
 		19FFD86A5FBE9F74F87A3D6C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		20F7C5ED1723ADCF303ACA7F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		840D91E41CB7959800385CEB /* qq_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq_test.png; sourceTree = "<group>"; };
+		840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SecondHouseParamsData.json; sourceTree = "<group>"; };
+		840D91E81CB7BE0B00385CEB /* FSBSecondHouseMoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBSecondHouseMoreModel.h; sourceTree = "<group>"; };
+		840D91E91CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBSecondHouseMoreModel.m; sourceTree = "<group>"; };
 		841F88121CA4E06C00642797 /* Customers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customers.h; sourceTree = "<group>"; };
 		841F88131CA4E06C00642797 /* Customers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customers.m; sourceTree = "<group>"; };
 		841F88151CA4E1D500642797 /* BaseDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDBModel.h; sourceTree = "<group>"; };
@@ -266,6 +273,7 @@
 			children = (
 				C8673F701CB5614400ED34D3 /* TestLayoutView */,
 				843A91671CB4F13A00E1B8E1 /* cell */,
+				840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */,
 				845FC05C1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.h */,
 				845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */,
 				845FC05E1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.h */,
@@ -347,6 +355,7 @@
 		8486162F1CAA52EC003F2C78 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				840D91E41CB7959800385CEB /* qq_test.png */,
 				848616301CAA52EC003F2C78 /* navigationBar */,
 			);
 			path = Res;
@@ -411,6 +420,8 @@
 		84898BF21CA3B8C8006DCBF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				840D91E81CB7BE0B00385CEB /* FSBSecondHouseMoreModel.h */,
+				840D91E91CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m */,
 				84898BF31CA3B8C8006DCBF0 /* AllBeans.h */,
 				841F88181CA4EB0C00642797 /* BaseModel.h */,
 				841F88191CA4EB0C00642797 /* BaseModel.m */,
@@ -579,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */,
+				840D91E71CB7B18500385CEB /* SecondHouseParamsData.json in Resources */,
 				C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */,
 				845FC0711CACCD4400BF9BC5 /* top_lf_arrow_lf@2x.png in Resources */,
 				843A916C1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib in Resources */,
@@ -601,6 +613,7 @@
 				845FC0701CACCD4400BF9BC5 /* head_tabbar_arrow_up@3x.png in Resources */,
 				843A91711CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib in Resources */,
 				8486164E1CAA854F003F2C78 /* ImageEditorViewController.xib in Resources */,
+				840D91E51CB7959800385CEB /* qq_test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +703,7 @@
 				845FC0611CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m in Sources */,
 				C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */,
 				C8673F671CB55FEC00ED34D3 /* MyFrameLayout.m in Sources */,
+				840D91EA1CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m in Sources */,
 				8486162D1CAA22F8003F2C78 /* GTStorageManager.m in Sources */,
 				C8673F6F1CB55FEC00ED34D3 /* MyTableLayout.m in Sources */,
 				C8673F6B1CB55FEC00ED34D3 /* MyLayoutSizeClass.m in Sources */,

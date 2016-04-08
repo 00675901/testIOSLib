@@ -9,5 +9,6 @@
 #define allBeans_h
 
 #import "Customer.h"
+#import "FSBSecondHouseMoreModel.h"
 
 #endif

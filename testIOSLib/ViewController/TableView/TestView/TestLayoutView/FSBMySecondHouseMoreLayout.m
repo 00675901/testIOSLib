@@ -8,6 +8,9 @@
 static CGFloat const moreViewOffsetX = 42.0f;
 #define SHOW_FRAME CGRectMake(moreViewOffsetX, 0, ScreenWidth - moreViewOffsetX, ScreenHeight)
 #define CONTENT_HEIGHT 50 //未展开内容高度
+#define colorBlue [UIColor colorWithHex:0x2093FA alpha:1.0]
+#define colorGray [UIColor colorWithHex:0xE2E2E2 alpha:1.0]
+#define colorGray_1 [UIColor colorWithHex:0xA2A2A2 alpha:1.0]
 
 @interface FSBMySecondHouseMoreLayout () {
     IBOutlet UIView *_moreView;
@@ -16,6 +19,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
 
 @property (nonatomic, assign) BOOL showMoreView;
 @property (nonatomic, retain) MyLinearLayout *myContentView;
+@property (nonatomic, retain) NSMutableArray<MyBaseLayout *> *dataList;
 
 @end
 
@@ -52,7 +56,29 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [self addSubview:moreBackView];
 }
 
-#pragma mark - 初始化界面/项目
+#pragma mark - 初始化界面/项目/显示数据
+//初始化页面数据
+- (void)initContentData {
+    _dataList = [NSMutableArray arrayWithCapacity:17];
+    [_dataList addObject:[self createNewButton:@"楼盘名称" bottomLine:2]];
+    [_dataList addObject:[self createTextfileButton:@"房号" bottomLine:6]];
+    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"出租", @"出售", @"租售价", nil] LineCount:3 bottomLine:6]];
+    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"有效", @"无效", @"暂缓", @"预定", @"已租", @"已售", nil] LineCount:3 bottomLine:6]];
+    [_dataList addObject:[self createNewButton:@"用途" bottomLine:2]];
+    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:2]];
+    [_dataList addObject:[self createNewButton:@"户型" bottomLine:6]];
+    [_dataList addObject:[self createNewButton:@"部门" bottomLine:2]];
+    [_dataList addObject:[self createNewButton:@"员工" bottomLine:2]];
+    [_dataList addObject:[self createNewButton:@"片区" bottomLine:6]];
+    [_dataList addObject:[self createNewButton:@"租价" bottomLine:2]];
+    [_dataList addObject:[self createNewButton:@"售价" bottomLine:2]];
+    [_dataList addObject:[self createRangeButton:@"面积" FirstDefault:@"请输入面积" SecondDefault:@"请输入面积" bottomLine:2 Symbol:@"m²"]];
+    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"60m²以下", @"60-80m²", @"80-100m²", @"100-120m²", @"120-150m²", @"150-200m²", @"200-250m²", @"250m²以上", nil] LineCount:3 bottomLine:2]];
+    [_dataList addObject:[self createRangeButton:@"时间" FirstDefault:@"请输入开始时间" SecondDefault:@"请输入结束时间" bottomLine:2 Symbol:@""]];
+    [_dataList addObject:[self createNewButton:@"上下架" bottomLine:2]];
+    [_dataList addObject:[self createSingleButton:@"重置" bottomLine:2]];
+}
+//初始化页面显示内容
 - (void)initDataView {
     [_moreView setFrame:SHOW_FRAME];
     [self addSubview:_moreView];
@@ -61,35 +87,18 @@ static CGFloat const moreViewOffsetX = 42.0f;
     _moreTable.alwaysBounceVertical = YES;
 
     _myContentView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-    //    _myContentView.padding = UIEdgeInsetsMake(10, 10, 10, 10); //设置布局内的子视图离自己的边距.
     _myContentView.myLeftMargin = 0;
     _myContentView.myRightMargin = 0; //同时指定左右边距为0表示宽度和父视图一样宽
     _myContentView.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
     [_myContentView setTarget:self action:@selector(handleHideKeyboard:)];
     [_moreTable addSubview:_myContentView];
 
-    //    NSString *testDataStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SecondHouseData" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
-    //    NSMutableArray *tempa = (NSMutableArray *)[testDataStr objectFromJSONString];
-    //    for (NSDictionary *dic in tempa) {
-    //        //        NSLog(@"---%@---",dic);
-    //    }
-    [_myContentView addSubview:[self creatNewButton:@"楼盘名称" bottomLine:2]];
-    [_myContentView addSubview:[self creatTextfileButton:@"房号" bottomLine:6]];
-    [_myContentView addSubview:[self creatMultiDataButton:[NSArray arrayWithObjects:@"出租", @"出售", @"租售价", nil] LineCount:3 bottomLine:6]];
-    [_myContentView addSubview:[self creatMultiDataButton:[NSArray arrayWithObjects:@"有效", @"无效", @"暂缓", @"预定", @"已租", @"已售", nil] LineCount:3 bottomLine:6]];
-    [_myContentView addSubview:[self creatNewButton:@"用途" bottomLine:2]];
-    [_myContentView addSubview:[self creatMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:2]];
-    [_myContentView addSubview:[self creatNewButton:@"户型" bottomLine:6]];
-    [_myContentView addSubview:[self creatNewButton:@"部门" bottomLine:2]];
-    [_myContentView addSubview:[self creatNewButton:@"员工" bottomLine:2]];
-    [_myContentView addSubview:[self creatNewButton:@"片区" bottomLine:6]];
-    [_myContentView addSubview:[self creatNewButton:@"租价" bottomLine:2]];
-    [_myContentView addSubview:[self creatNewButton:@"售价" bottomLine:2]];
-    [_myContentView addSubview:[self creatRangeButton:@"面积" FirstDefault:@"请输入面积" SecondDefault:@"请输入面积" bottomLine:2 Symbol:@"m²"]];
-    [_myContentView addSubview:[self creatMultiDataButton:[NSArray arrayWithObjects:@"60m²以下", @"60-80m²", @"80-100m²", @"100-120m²", @"120-150m²", @"150-200m²", @"200-250m²", @"250m²以上", nil] LineCount:3 bottomLine:2]];
-    [_myContentView addSubview:[self creatRangeButton:@"时间" FirstDefault:@"请输入开始时间" SecondDefault:@"请输入结束时间" bottomLine:2 Symbol:@""]];
-    [_myContentView addSubview:[self creatNewButton:@"上下架" bottomLine:2]];
-    [_myContentView addSubview:[self creatSingleButton:@"重置" bottomLine:2]];
+    //初始化页面数据
+    [self initContentData];
+    //初始化页面显示内容
+    for (MyBaseLayout *view in _dataList) {
+        [_myContentView addSubview:view];
+    }
 }
 
 /**
@@ -100,12 +109,12 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyRelativeLayout
  */
-- (MyRelativeLayout *)creatNewButton:(NSString *)title bottomLine:(int)line {
+- (MyRelativeLayout *)createNewButton:(NSString *)title bottomLine:(int)line {
     MyRelativeLayout *elLayout = [MyRelativeLayout new];
     //设置布局内的子视图离自己的边距.
     elLayout.padding = UIEdgeInsetsMake(0, 10, 5, 0);
     //设置下边线
-    elLayout.bottomBorderLine = [self creatLine:colorLine LineBorad:line];
+    elLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     //左右边距都是10，不包裹子视图，整体高度为50。
     elLayout.backgroundColor = [UIColor whiteColor];
     elLayout.myLeftMargin = 0;
@@ -158,12 +167,12 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyRelativeLayout
  */
-- (MyRelativeLayout *)creatTextfileButton:(NSString *)title bottomLine:(int)line {
+- (MyRelativeLayout *)createTextfileButton:(NSString *)title bottomLine:(int)line {
     MyRelativeLayout *rlLayout = [MyRelativeLayout new];
     //设置布局内的子视图离自己的边距.
     rlLayout.padding = UIEdgeInsetsMake(0, 10, 5, 10);
     //设置下边线
-    rlLayout.bottomBorderLine = [self creatLine:colorLine LineBorad:line];
+    rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     //左右边距都是0，不包裹子视图，整体高度为50。
     rlLayout.backgroundColor = [UIColor whiteColor];
     rlLayout.myLeftMargin = 0;
@@ -196,9 +205,9 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyFlowLayout
  */
-- (MyFlowLayout *)creatMultiDataButton:(NSArray *)data LineCount:(int)lineCount bottomLine:(int)line {
+- (MyFlowLayout *)createMultiDataButton:(NSArray *)data LineCount:(int)lineCount bottomLine:(int)line {
     MyFlowLayout *mflayout = [MyFlowLayout flowLayoutWithOrientation:MyLayoutViewOrientation_Vert arrangedCount:lineCount];
-    mflayout.bottomBorderLine = [self creatLine:colorLine LineBorad:line];
+    mflayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     mflayout.backgroundColor = [UIColor whiteColor];
     mflayout.averageArrange = YES;
     mflayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -207,21 +216,29 @@ static CGFloat const moreViewOffsetX = 42.0f;
     mflayout.wrapContentHeight = YES;
     int i = 0;
     for (NSString *str in data) {
-        UIButton *button = [UIButton new];
+        //        UIButton *button = [UIButton new];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.myTopMargin = 5;
         button.myBottomMargin = 5;
         //设置按钮显示内容
-        button.layer.cornerRadius = 3;
-        button.layer.borderWidth = 1;
-        [button.layer setBorderUIColor:[UIColor colorWithHex:0xE2E2E2 alpha:1.0]];
+        //Image
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [button.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        button.imageView.contentMode = UIViewContentModeCenter;
+        //显示标题
         [button setTitle:str forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont systemFontOfSize:12]];
-        [button setTitleColor:[UIColor colorWithHex:0xAEAEAE alpha:1.0] forState:UIControlStateNormal];
+        [button setTitleColor:colorGray_1 forState:UIControlStateNormal];
+        //        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:i];
+        //边框/圆角
+        button.layer.cornerRadius = 3;
+        button.layer.borderWidth = 1;
+        [button.layer setBorderUIColor:colorGray];
+
         [button sizeToFit];
-        [button setBackgroundColor:[UIColor whiteColor]];
         [mflayout addSubview:button];
         i++;
     }
@@ -236,14 +253,14 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyRelativeLayout
  */
-- (MyLinearLayout *)creatRangeButton:(NSString *)title FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault bottomLine:(int)line Symbol:(NSString *)symbol {
+- (MyLinearLayout *)createRangeButton:(NSString *)title FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault bottomLine:(int)line Symbol:(NSString *)symbol {
     MyLinearLayout *rlLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Horz];
     //设置布局内的子视图离自己的边距.
     rlLayout.padding = UIEdgeInsetsMake(0, 10, 5, 5);
     //子视图在垂直方向填满
     rlLayout.gravity = MyMarginGravity_Vert_Fill;
     //设置下边线
-    rlLayout.bottomBorderLine = [self creatLine:colorLine LineBorad:line];
+    rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     //左右边距都是0，不包裹子视图，整体高度为50。
     rlLayout.backgroundColor = [UIColor whiteColor];
     rlLayout.myLeftMargin = 0;
@@ -256,16 +273,15 @@ static CGFloat const moreViewOffsetX = 42.0f;
     titlelab.font = [UIFont systemFontOfSize:14];
     [titlelab sizeToFit];
     [rlLayout addSubview:titlelab];
-
     //范围1文本框
     UITextField *textView = [UITextField new];
     textView.leftPos.equalTo(titlelab.rightPos).offset(5);
     textView.placeholder = firstDefault;
     textView.textAlignment = NSTextAlignmentCenter;
+    [textView setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     textView.weight = 0.1;
     [textView setFont:[UIFont systemFontOfSize:12]];
     [rlLayout addSubview:textView];
-
     //分隔符号"-"
     titlelab = [UILabel new];
     titlelab.leftPos.equalTo(textView.rightPos);
@@ -273,16 +289,15 @@ static CGFloat const moreViewOffsetX = 42.0f;
     titlelab.font = [UIFont systemFontOfSize:14];
     [titlelab sizeToFit];
     [rlLayout addSubview:titlelab];
-
     //范围2文本框
     textView = [UITextField new];
     textView.leftPos.equalTo(titlelab.rightPos);
     textView.placeholder = secondDefault;
     textView.textAlignment = NSTextAlignmentCenter;
+    [textView setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     textView.weight = 0.1;
     [textView setFont:[UIFont systemFontOfSize:12]];
     [rlLayout addSubview:textView];
-
     //单位符号
     titlelab = [UILabel new];
     titlelab.leftPos.equalTo(textView.rightPos);
@@ -314,12 +329,12 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyRelativeLayout
  */
-- (MyRelativeLayout *)creatSingleButton:(NSString *)title bottomLine:(int)line {
+- (MyRelativeLayout *)createSingleButton:(NSString *)title bottomLine:(int)line {
     MyRelativeLayout *elLayout = [MyRelativeLayout new];
     //设置布局内的子视图离自己的边距.
     elLayout.padding = UIEdgeInsetsMake(20, 50, 20, 50);
     //设置下边线
-    elLayout.bottomBorderLine = [self creatLine:colorLine LineBorad:line];
+    elLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
     //左右边距都是10，不包裹子视图，整体高度为50。
     elLayout.backgroundColor = [UIColor whiteColor];
     elLayout.myLeftMargin = 0;
@@ -340,13 +355,40 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [button setTitleColor:colorTint forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
     [elLayout addSubview:button];
-    
+
     return elLayout;
 }
 
-- (MyBorderLineDraw *)creatLine:(UIColor *)color LineBorad:(int)board {
+/**
+ *  根据UIColor生成UIImage,主要用作Button Image
+ *
+ *  @param color 颜色UIColor
+ *
+ *  @return UIImage
+ */
+- (UIImage *)createImageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
+/**
+ *  生成项目边框线
+ *
+ *  @param color      颜色UIColor
+ *  @param boardWidth 宽度
+ *
+ *  @return 项目边框线
+ */
+- (MyBorderLineDraw *)createLine:(UIColor *)color LineBorad:(int)boardWidth {
     MyBorderLineDraw *line = [[MyBorderLineDraw alloc] initWithColor:color];
-    line.thick = board;
+    line.thick = boardWidth;
     return line;
 }
 

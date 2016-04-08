@@ -1,5 +1,5 @@
 //
-//  Created by admin on 16/3/29.
+//  Created by G on 16/3/29.
 //  Copyright © 2016年 admin. All rights reserved.
 //
 
@@ -84,24 +84,20 @@ static NSString *headerIdentifier = @"collectionheaderView";
 }
 
 #pragma mark - TZImagePicker方法
-- (IBAction)pickImages {
+- (void)pickImages:(NSIndexPath *)indexPath {
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
     imagePickerVc.allowPickingOriginalPhoto = NO;
     imagePickerVc.allowPickingVideo = NO;
-    // You can get the photos by block, the same as by delegate.
-    // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets) {
         for (UIImage *image in photos) {
-            NSLog(@"%@", [image accessibilityIdentifier]);
+            [_dataArray[indexPath.section] insertObject:image atIndex:[_dataArray[indexPath.section] count] - 1];
+            [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
         }
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
-////图片选择回调
-//- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets infos:(NSArray<NSDictionary *> *)infos {
-//}
-/// 用户点击了取消
+//用户点击了取消
 - (void)imagePickerControllerDidCancel:(TZImagePickerController *)picker {
     NSLog(@"cancel");
 }
@@ -124,7 +120,7 @@ static NSString *headerIdentifier = @"collectionheaderView";
     GTCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifierView forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor grayColor]];
     if (indexPath.row + 1 != [_dataArray[indexPath.section] count]) {
-        [cell setData:nil Label:[NSString stringWithFormat:@"%d-%d", indexPath.section, indexPath.row] IndexPath:indexPath];
+        [cell setData:_dataArray[indexPath.section][indexPath.row] Label:[NSString stringWithFormat:@"%d-%d", indexPath.section, indexPath.row] IndexPath:indexPath];
         cell.delegate = self;
     } else {
         [cell setDataLabel:[NSString stringWithFormat:@"%d-%d", indexPath.section, indexPath.row]];
@@ -168,8 +164,9 @@ static NSString *headerIdentifier = @"collectionheaderView";
         igcv.delegate = self;
         [self.navigationController pushViewController:igcv animated:YES];
     } else if (indexPath.row + 1 == [_dataArray[indexPath.section] count]) {
-        [_dataArray[indexPath.section] insertObject:@"+" atIndex:[_dataArray[indexPath.section] count] - 1];
-        [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
+        //        [_dataArray[indexPath.section] insertObject:@"+" atIndex:[_dataArray[indexPath.section] count] - 1];
+        //        [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
+        [self pickImages:indexPath];
     }
 }
 

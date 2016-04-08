@@ -1,5 +1,5 @@
 //
-//  Created by admin on 16/3/23.
+//  Created by G on 16/3/23.
 //  Copyright © 2016年 admin. All rights reserved.
 //
 
@@ -29,6 +29,7 @@
     [_cContent setHidden:YES];
     [_deleteButton setHidden:NO];
     [_cTitle setText:name];
+    [_cImage setImage:dataImage];
     _cellIndexPath = indexPath;
 }
 

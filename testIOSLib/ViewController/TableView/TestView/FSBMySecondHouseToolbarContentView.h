@@ -17,6 +17,6 @@
 @property (nonatomic, assign, readonly) int contentH;
 @property (nonatomic, assign) id<FSBMySecondHouseToolbarContentViewDelegate> delegate;
 
-- (FSBMySecondHouseToolbarContentView *)initWithFrame:(CGRect)frame contentHeight:(int)height DataSour:(NSArray *)array;
+- (FSBMySecondHouseToolbarContentView *)initWithFrame:(CGRect)frame contentHeight:(int)height DataSour:(NSArray<FSBSecondHouseMoreModel *> *)array;
 
 @end

@@ -11,7 +11,8 @@
 
 @interface FSBMySecondHouseToolbar () <FSBMySecondHouseToolbarContentViewDelegate>
 
-@property (nonatomic, retain) NSMutableArray *contentList;
+@property (nonatomic, strong) NSMutableDictionary *sourceData;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<FSBSecondHouseMoreModel *>*> *contentList;
 @property (nonatomic, strong) UIButton *btClose;
 @property (retain, nonatomic) UIButton *currButton;
 
@@ -45,11 +46,46 @@
     if (self = [super initWithFrame:frame]) {
         _initHeight = frame.size.height;
         _contentHeight = height;
-        [self initBtns];
-        [self initContents];
+        [self initContentData];
         return self;
     }
     return nil;
+}
+
+- (void)initContentData {
+    NSString *testDataStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SecondHouseParamsData" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *testData = (NSDictionary *)[testDataStr objectFromJSONString];
+    _sourceData = [NSMutableDictionary dictionaryWithDictionary:[testData objectForKey:@"data"]];
+
+    _contentList = [NSMutableArray arrayWithCapacity:3];
+
+    NSMutableArray* tempList=[NSMutableArray array];
+    for (NSDictionary *data in [_sourceData objectForKey:@"house_source"]) {
+        FSBSecondHouseMoreModel *tempModel = [[FSBSecondHouseMoreModel alloc] init];
+        tempModel.moreName = [data objectForKey:@"name"];
+        tempModel.moreId = [data objectForKey:@"id"];
+        [tempList addObject:tempModel];
+    }
+    [_contentList addObject:tempList];
+    
+    tempList=[NSMutableArray array];
+    for (NSDictionary *data in [_sourceData objectForKey:@"house_type"]) {
+        FSBSecondHouseMoreModel *tempModel = [[FSBSecondHouseMoreModel alloc] init];
+        tempModel.moreName = [data objectForKey:@"name"];
+        tempModel.moreId = [data objectForKey:@"id"];
+        [tempList addObject:tempModel];
+    }
+    [_contentList addObject:tempList];
+    
+    //自定义筛选按钮
+    tempList=[NSMutableArray array];
+    FSBSecondHouseMoreModel *tempModel = [[FSBSecondHouseMoreModel alloc] init];
+    tempModel.moreName = @"筛选";
+    tempModel.moreId = @"-1";
+    [tempList addObject:tempModel];
+    [_contentList addObject:tempList];
+
+    [self initBtns];
 }
 
 - (void)initBtns {
@@ -58,7 +94,7 @@
     [_btClose addTarget:self action:@selector(closeAllView) forControlEvents:UIControlEventTouchUpInside];
     _btClose.backgroundColor = [UIColor clearColor];
     [self addSubview:_btClose];
-    _contentList = [NSMutableArray arrayWithObjects:[NSArray arrayWithObjects:@"全部", @"我的房源", @"我的收藏", nil], [NSArray arrayWithObjects:@"不限", @"优选网(独家)", @"房星网", nil], [NSArray arrayWithObjects:@"筛选", nil], nil];
+    [self initContents];
 }
 
 - (void)initContents {
@@ -76,9 +112,8 @@
     [_currBottomLine setHidden:YES];
     [btnView addSubview:_currBottomLine];
 
-    for (NSArray *list in _contentList) {
+    for (NSArray<FSBSecondHouseMoreModel*> *list in _contentList) {
         CGRect tempFrame = CGRectMake(i * (ScreenWidth / [_contentList count]), 0, ScreenWidth / [_contentList count], self.bounds.size.height);
-
         if (i != 0 && i != [list count]) {
             UILabel *tempLabelLine = [[UILabel alloc] initWithFrame:CGRectMake(i * tempFrame.size.width, tempFrame.origin.y, 1, tempFrame.size.height)];
             tempLabelLine.backgroundColor = colorLine;
@@ -94,7 +129,7 @@
         [tempBtn setImage:[UIImage imageNamed:@"head_tabbar_arrow_down"] forState:UIControlStateHighlighted | UIControlStateSelected];
         [tempBtn setImageEdgeInsets:UIEdgeInsetsMake(0, tempFrame.size.width - 20, 0, 0)];
 
-        [tempBtn setTitle:list[0] forState:UIControlStateNormal];
+        [tempBtn setTitle:list[0].moreName forState:UIControlStateNormal];
         [tempBtn setTitleColor:colorNull forState:UIControlStateNormal];
         [tempBtn setTitleColor:colorTint forState:UIControlStateHighlighted];
         [tempBtn setTitleColor:colorTint forState:UIControlStateSelected];
@@ -106,7 +141,9 @@
         [btnView addSubview:tempBtn];
 
         //判断打开的页面
-        if (i != [_contentList count] - 1) {
+        if ([@"-1" isEqualToString:list[0].moreId]) {
+            [tempBtn addTarget:self action:@selector(showMoreView) forControlEvents:UIControlEventTouchUpInside];
+        } else {
             [tempBtn addTarget:self action:@selector(btnStatusAction:) forControlEvents:UIControlEventTouchUpInside];
             //计算高度
             int tempH = [_contentList[i] count];
@@ -115,12 +152,8 @@
             tempView.delegate = self;
             tempView.hidden = YES;
             [self addSubview:tempView];
-
             [_viewListIndex addObject:tempView];
-        } else {
-            [tempBtn addTarget:self action:@selector(showMoreView) forControlEvents:UIControlEventTouchUpInside];
         }
-
         i++;
     }
 }
@@ -164,7 +197,7 @@
 - (void)showMoreView {
     [self closeAllView];
     if (!self.fsbMoreView) {
-//                _fsbMoreView = [[FSBMySecondHouseMoreView alloc] init];
+        //                _fsbMoreView = [[FSBMySecondHouseMoreView alloc] init];
         _fsbMoreView = [[FSBMySecondHouseMoreLayout alloc] init];
         _fsbMoreView.frame = CGRectMake(ScreenWidth, 0, ScreenWidth, ScreenHeight);
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -174,9 +207,9 @@
 }
 
 #pragma mark - 内容按钮回调
-- (void)clickCallBack:(int)tag {
-    NSLog(@"callBak:%d", tag);
-    [_currButton setTitle:_contentList[_currButton.tag][tag] forState:UIControlStateNormal];
+- (void)clickCallBack:(int)index {
+    NSLog(@"callBak:%@", _contentList[_currButton.tag][index].moreId);
+    [_currButton setTitle:_contentList[_currButton.tag][index].moreName forState:UIControlStateNormal];
     [self btnStatusAction:_currButton];
 }
 

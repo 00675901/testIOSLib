@@ -42,6 +42,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s96-Kw-AQX">
                                 <rect key="frame" x="0.0" y="160" width="600" height="200"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2h-Vw-SEO">
+                                <rect key="frame" x="365" y="77" width="82" height="27"/>
+                                <state key="normal" image="qq_test.png" backgroundImage="qq_test.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -87,4 +91,7 @@
             <point key="canvasLocation" x="1293" y="409"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="qq_test.png" width="1" height="1"/>
+    </resources>
 </document>
