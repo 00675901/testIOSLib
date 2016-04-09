@@ -7,30 +7,47 @@
 
 static CGFloat const moreViewOffsetX = 42.0f;
 #define SHOW_FRAME CGRectMake(moreViewOffsetX, 0, ScreenWidth - moreViewOffsetX, ScreenHeight)
-#define CONTENT_HEIGHT 35 //未展开内容高度
+#define CONTENT_HEIGHT 40 //未展开内容高度
 #define colorBlue [UIColor colorWithHex:0x2093FA alpha:1.0]
 #define colorGray [UIColor colorWithHex:0xE2E2E2 alpha:1.0]
 #define colorGray_1 [UIColor colorWithHex:0xA2A2A2 alpha:1.0]
+#define DATANIL @"dataNil"
 
-@interface FSBMySecondHouseMoreLayout () {
+/**
+ 数据索引model
+ - returns: FSBSHParamsModel
+ */
+@implementation FSBSHParamsModel
+- (FSBSHParamsModel *)initWithName:(NSString *)name FieldName:(NSString *)fieldName LineWidth:(int)lineWidth ActionType:(actionType)actionType {
+    if (self = [super init]) {
+        _name = name;
+        _fieldName = fieldName;
+        _lineWidth = lineWidth;
+        _actionType = actionType;
+        _params = [NSMutableArray array];
+    }
+    return self;
+}
+@end
+
+@interface FSBMySecondHouseMoreLayout () <UIScrollViewDelegate> {
     IBOutlet UIView *_moreView;
     IBOutlet UIScrollView *_moreTable;
 }
+@property (nonatomic, retain) NSMutableDictionary *sourceData; //源数据
 
 @property (nonatomic, assign) BOOL showMoreView;
-@property (nonatomic, retain) MyLinearLayout *myContentView;
-@property (nonatomic, retain) NSMutableArray<MyBaseLayout *> *dataList;
-
-@property (nonatomic, retain) NSMutableArray<NSString *> *nameIndex;
-@property (nonatomic, retain) NSMutableArray<NSString *> *dataIndex;
-
-@property (nonatomic, retain) MyBaseLayout *view2;
+@property (nonatomic, strong) MyLinearLayout *myContentView;
+@property (nonatomic, strong) NSMutableArray<MyBaseLayout *> *dataViewList; //保存所有根据源数据生成的项目
+@property (nonatomic, strong) NSMutableArray<FSBSHParamsModel *> *dataIndex; //源数据与项目的索引
+@property (nonatomic, strong) NSMutableDictionary *dataOption; //处理所有要操作(显示/隐藏/赋值)的元素
+@property (nonatomic, strong) NSMutableDictionary *dataSelected; //处理所有需要改变选中状态的元素
 
 @end
 
 @implementation FSBMySecondHouseMoreLayout
 
-- (FSBMySecondHouseMoreLayout *)init {
+- (FSBMySecondHouseMoreLayout *)initWithSourceData:(NSMutableDictionary *)sourceData {
     if (self = [super init]) {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"FSBMySecondHouseMoreLayout" owner:self options:nil];
         for (id obj in nibs) {
@@ -40,14 +57,16 @@ static CGFloat const moreViewOffsetX = 42.0f;
             }
         }
         self.backgroundColor = [UIColor clearColor];
+        _sourceData = sourceData;
         [self initBackgroudView];
-        [self initDataView];
+        //初始化数据索引
+        [self initDataIndex];
         return self;
     }
     return nil;
 }
 - (void)tapMoreBackView:(UITapGestureRecognizer *)gesture {
-    [self hiddenMoreView];
+    [self hiddenView];
 }
 - (void)initBackgroudView {
     _showMoreView = NO;
@@ -61,46 +80,88 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [self addSubview:moreBackView];
 }
 
-#pragma mark - 初始化界面/项目/显示数据
-//初始化页面数据
-- (void)initContentData {
-    //    _nameIndex=[NSMutableArray arrayWithCapacity:17];
-
-    _dataList = [NSMutableArray arrayWithCapacity:17];
-    
-    //    [_dataList addObject:[self createNewButton:@"楼盘名称" bottomLine:2]];
-    //    [_dataList addObject:[self createTextfileButton:@"房号" bottomLine:6]];
-    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"出租", @"出售", @"租售价", nil] LineCount:3 bottomLine:6]];
-    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"有效", @"无效", @"暂缓", @"预定", @"已租", @"已售", nil] LineCount:3 bottomLine:6]];
-    //    [_dataList addObject:[self createNewButton:@"用途" bottomLine:2]];
-    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:2]];
-    //    [_dataList addObject:[self createNewButton:@"户型" bottomLine:6]];
-    [_dataList addObject:[self createNewButton:@"部门" bottomLine:2]];
-    [_dataList addObject:[self createNewButton:@"员工" bottomLine:2]];
-    [_dataList addObject:[self createNewButton:@"片区" bottomLine:6]];
-    [_dataList addObject:[self createNewButton:@"租价" bottomLine:2]];
-    //    [_dataList addObject:[self createNewButton:@"售价" bottomLine:2]];
-    //    [_dataList addObject:[self createRangeButton:@"面积" FirstDefault:@"请输入面积" SecondDefault:@"请输入面积" bottomLine:2 Symbol:@"m²"]];
-    //    [_dataList addObject:[self createMultiDataButton:[NSArray arrayWithObjects:@"60m²以下", @"60-80m²", @"80-100m²", @"100-120m²", @"120-150m²", @"150-200m²", @"200-250m²", @"250m²以上", nil] LineCount:3 bottomLine:2]];
-    //    [_dataList addObject:[self createRangeButton:@"时间" FirstDefault:@"请输入开始时间" SecondDefault:@"请输入结束时间" bottomLine:2 Symbol:@""]];
-    //    [_dataList addObject:[self createNewButton:@"上下架" bottomLine:2]];
-    //    [_dataList addObject:[self createSingleButton:@"重置" bottomLine:2]];
-
-        [_myContentView  addSubview:[self createNewButton:@"楼盘名称" bottomLine:2]];
-        [_myContentView addSubview:[self createTextfileButton:@"房号" bottomLine:6]];
-    
-    MyBaseLayout *view1 = [self createNewButton:@"用途" bottomLine:0];
-    _view2 = [self createMultiDataButton:[NSArray arrayWithObjects:@"公寓", @"住宅", @"商铺", @"写字楼", @"商住", @"车位", @"别墅", @"其他", @"厂房", @"车库", nil] LineCount:3 bottomLine:0];
-    
-    MyLinearLayout *tempView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-    tempView.padding = UIEdgeInsetsMake(0, 0, 5, 0);
-    tempView.bottomBorderLine = [self createLine:colorLine LineBorad:6];
-    tempView.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
-    
-    [tempView addSubview:view1];
-    [tempView addSubview:_view2];
-    [_myContentView addSubview:tempView];
+- (void)showView {
+    if (!self.showMoreView) {
+        _showMoreView = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.frame = FMURectSetX(self.frame, 0);
+        }];
+    }
 }
+- (void)hiddenView {
+    if (self.showMoreView) {
+        _showMoreView = NO;
+        [self handleHideKeyboard:nil];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.frame = FMURectSetX(self.frame, ScreenWidth);
+        }];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self handleHideKeyboard:nil];
+}
+
+#pragma mark - 初始化界面/项目/显示数据
+//初始化数据索引
+- (void)initDataIndex {
+    _dataIndex = [NSMutableArray array];
+    FSBSHParamsModel *tempModel = [[FSBSHParamsModel alloc] initWithName:@"楼盘名称" FieldName:DATANIL LineWidth:2 ActionType:actionTypeNew];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"房号" FieldName:DATANIL LineWidth:6 ActionType:actionTypeInput];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:DATANIL FieldName:@"house_sell_data" LineWidth:6 ActionType:actionTypeChoice];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:DATANIL FieldName:@"house_data" LineWidth:2 ActionType:actionTypeChoice];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"用途" FieldName:@"house_use" LineWidth:2 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"户型" FieldName:@"house_rooms" LineWidth:6 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"部门" FieldName:DATANIL LineWidth:2 ActionType:actionTypeNew];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"员工" FieldName:DATANIL LineWidth:2 ActionType:actionTypeNew];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"片区" FieldName:DATANIL LineWidth:6 ActionType:actionTypeNew];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"租价" FieldName:@"house_hire" LineWidth:2 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"售价" FieldName:@"house_sell" LineWidth:2 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"面积" FieldName:@"house_proportion" LineWidth:2 ActionType:actionTypeShowMultiInput];
+    [tempModel.params addObject:@"请输入面积"];
+    [tempModel.params addObject:@"请输入面积"];
+    [tempModel.params addObject:@"m²"];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"日期" FieldName:@"house_sort" LineWidth:2 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"时间" FieldName:DATANIL LineWidth:2 ActionType:actionTypeMultiInput];
+    [tempModel.params addObject:@"请输入开始时间"];
+    [tempModel.params addObject:@"请输入结束时间"];
+    [tempModel.params addObject:@""];
+    [_dataIndex addObject:tempModel];
+
+    tempModel = [[FSBSHParamsModel alloc] initWithName:@"上下架" FieldName:@"house_grounding_data" LineWidth:2 ActionType:actionTypeShow];
+    [_dataIndex addObject:tempModel];
+
+    //初始化页面显示内容
+    [self initDataView];
+}
+
 //初始化页面显示内容
 - (void)initDataView {
     [_moreView setFrame:SHOW_FRAME];
@@ -108,7 +169,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
 
     _moreTable.marginGravity = MyMarginGravity_Fill;
     _moreTable.alwaysBounceVertical = YES;
-
+    _moreTable.delegate = self;
     _myContentView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
     _myContentView.myLeftMargin = 0;
     _myContentView.myRightMargin = 0; //同时指定左右边距为0表示宽度和父视图一样宽
@@ -118,149 +179,295 @@ static CGFloat const moreViewOffsetX = 42.0f;
 
     //初始化页面数据
     [self initContentData];
-    //初始化页面显示内容
-    for (MyBaseLayout *view in _dataList) {
-        [_myContentView addSubview:view];
+}
+
+//初始化页面数据
+- (void)initContentData {
+    _dataOption = [NSMutableDictionary dictionary];
+    _dataSelected = [NSMutableDictionary dictionary];
+    _dataViewList = [NSMutableArray array];
+    int i = 0;
+    for (FSBSHParamsModel *mod in _dataIndex) {
+        MyBaseLayout *tempView;
+        switch (mod.actionType) {
+            case actionTypeNew:
+                NSLog(@"%@--打开新窗口", mod.name);
+                tempView = [self createTCBItemWithTag:i Title:mod.name bottomLineWidth:mod.lineWidth Action:@selector(showNewView:)];
+                break;
+            case actionTypeShow:
+                NSLog(@"%@--隐藏单选项", mod.name);
+                tempView = [self createShowMultiDataItemWithTag:i Title:mod.name Data:[_sourceData objectForKey:mod.fieldName] bottomLineWidth:mod.lineWidth ItemsAction:@selector(itemChoiceFunction:)];
+                break;
+            case actionTypeInput:
+                NSLog(@"%@--单输入框项", mod.name);
+                tempView = [self createTIItemWithTag:i Title:@"房号" bottomLineWidth:mod.lineWidth];
+                break;
+            case actionTypeMultiInput:
+                NSLog(@"%@--多输入框项", mod.name);
+                tempView = [self createRangeItemWithTag:i Title:mod.name bottomLineWidth:mod.lineWidth Action:nil FirstDefault:mod.params[0] SecondDefault:mod.params[1] Symbol:mod.params[2]];
+                break;
+            case actionTypeShowMultiInput:
+                NSLog(@"%@--隐藏多输入框", mod.name);
+                tempView = [self createShowMultiInputDataItemWithTag:i Title:mod.name Data:[_sourceData objectForKey:mod.fieldName] bottomLineWidth:mod.lineWidth ItemsAction:@selector(itemChoiceInputFunction:) FirstDefault:mod.params[0] SecondDefault:mod.params[1] Symbol:mod.params[2]];
+                break;
+            case actionTypeChoice:
+                NSLog(@"%@--单选项", mod.name);
+                tempView = [self createMultiDataItem:[_sourceData objectForKey:mod.fieldName] LineCount:3 bottomLineWidth:mod.lineWidth Action:@selector(choiceFunction:)];
+                tempView.padding = UIEdgeInsetsMake(5, 5, 5, 5);
+                break;
+        }
+        tempView.tag = i;
+        [_dataViewList addObject:tempView];
+        [_myContentView addSubview:tempView];
+        i++;
     }
+    [_myContentView addSubview:[self createSingleButton:@"重置" bottomLineWidth:2]];
+}
+
+#pragma mark - 基础组件
+
+/**
+ *  获取一个水平方向LinearLayout
+ *
+ *  @return LinearLayout
+ */
+- (MyLinearLayout *)getLinearLayoutHorz:(int)bottomLineWidth {
+    MyLinearLayout *llLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Horz];
+    llLayout.backgroundColor = [UIColor whiteColor];
+    //设置布局内的子视图离自己的边距.
+    llLayout.padding = UIEdgeInsetsMake(5, 5, 5, 5);
+    //子视图在垂直方向填满
+    llLayout.gravity = MyMarginGravity_Vert_Fill;
+    //设置下边线
+    llLayout.bottomBorderLine = [self getLine:colorLine LineWidth:bottomLineWidth];
+    //左右边距，不包裹子视图，整体高度为
+    llLayout.wrapContentWidth = NO;
+    llLayout.wrapContentHeight = NO;
+    llLayout.heightDime.equalTo(@CONTENT_HEIGHT);
+    return llLayout;
+}
+/**
+ *  生成项目边框线
+ *
+ *  @param color      颜色UIColor
+ *  @param boardWidth 宽度
+ *
+ *  @return 项目边框线
+ */
+- (MyBorderLineDraw *)getLine:(UIColor *)color LineWidth:(int)width {
+    MyBorderLineDraw *line = [[MyBorderLineDraw alloc] initWithColor:color];
+    line.thick = width;
+    return line;
+}
+/**
+ *  获取LinearLayout使用的标签
+ *
+ *  @param text   内容
+ *  @param weight 比重
+ *
+ *  @return UILabel
+ */
+- (UILabel *)getLLLabel:(NSString *)text Weight:(int)weight {
+    UILabel *titlelab = [UILabel new];
+    if (text) {
+        titlelab.text = text;
+    }
+    titlelab.font = [UIFont systemFontOfSize:14];
+    titlelab.adjustsFontSizeToFitWidth = YES;
+    if (weight > 0) {
+        titlelab.weight = weight;
+    } else {
+        [titlelab sizeToFit];
+    }
+    return titlelab;
 }
 
 /**
- *  创建打开新窗口/显示/隐藏选项项目
+ *  获取LinearLayout使用的文本框
  *
- *  @param title 标题
- *  @param line  下边框宽度
+ *  @param text   内容
+ *  @param weight 比重
  *
- *  @return MyRelativeLayout
+ *  @return UITextField
  */
-- (MyRelativeLayout *)createNewButton:(NSString *)title bottomLine:(int)line {
-    MyRelativeLayout *elLayout = [MyRelativeLayout new];
-    //设置布局内的子视图离自己的边距.
-    elLayout.padding = UIEdgeInsetsMake(5, 10, 5, 0);
-    //设置下边线
-    elLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距，不包裹子视图，整体高度。
-    elLayout.backgroundColor = [UIColor whiteColor];
-    elLayout.myLeftMargin = 0;
-    elLayout.myRightMargin = 0;
-    elLayout.heightDime.equalTo(@(CONTENT_HEIGHT+line));
-    //标题
-    UILabel *titlelab = [UILabel new];
-    titlelab.myTopMargin = 0;
-    titlelab.myBottomMargin = 0;
-    titlelab.leftPos.equalTo(@0);
-    titlelab.text = title;
-    titlelab.font = [UIFont systemFontOfSize:14];
-    [titlelab sizeToFit];
-    [elLayout addSubview:titlelab];
-    //内容
-    UILabel *conlab = [UILabel new];
-    conlab.myTopMargin = 0;
-    conlab.myBottomMargin = 0;
-    conlab.leftPos.equalTo(titlelab.rightPos).offset(5);
-    conlab.rightPos.equalTo(@45);
-    conlab.text = @"";
-    //    conlab.text = @"很长的测试数据很长的测试数据很长的测试数据很长的测试数据很长的测试数据";
-    //    conlab.text = @"测试数据";
-    [conlab setTextAlignment:NSTextAlignmentRight];
-    conlab.font = [UIFont systemFontOfSize:14];
-    [conlab sizeToFit];
-    [elLayout addSubview:conlab];
-    //按钮位置
-    UIButton *button = [UIButton new];
-    button.myTopMargin = 0;
-    button.myBottomMargin = 0;
-    button.leftPos.equalTo(conlab.rightPos);
-    button.rightPos.equalTo(@0);
-    //设置按钮显示内容
-    [button setTitle:@">" forState:UIControlStateNormal];
-    [button setTitleColor:colorGray forState:UIControlStateNormal];
-    [button setTitleColor:colorTint forState:UIControlStateHighlighted];
-    [button setTitleColor:colorTint forState:UIControlStateSelected];
-    [button setTitleColor:colorGray forState:UIControlStateHighlighted | UIControlStateSelected];
-    [button addTarget:self action:@selector(showNextItem:) forControlEvents:UIControlEventTouchUpInside];
-    [elLayout addSubview:button];
-
-    return elLayout;
-}
-/**
- *  创建文本框项目
- *
- *  @param title 标题
- *  @param line  下边框宽度
- *
- *  @return MyRelativeLayout
- */
-- (MyRelativeLayout *)createTextfileButton:(NSString *)title bottomLine:(int)line {
-    MyRelativeLayout *rlLayout = [MyRelativeLayout new];
-    //设置布局内的子视图离自己的边距.
-    rlLayout.padding = UIEdgeInsetsMake(0, 10, 5, 10);
-    //设置下边线
-    rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距，不包裹子视图，整体高度
-    rlLayout.backgroundColor = [UIColor whiteColor];
-    rlLayout.myLeftMargin = 0;
-    rlLayout.myRightMargin = 0;
-    rlLayout.heightDime.equalTo(@CONTENT_HEIGHT);
-    //标题
-    UILabel *titlelab = [UILabel new];
-    titlelab.myTopMargin = 0;
-    titlelab.myBottomMargin = 0;
-    titlelab.leftPos.equalTo(@0);
-    titlelab.text = title;
-    titlelab.font = [UIFont systemFontOfSize:14];
-    [titlelab sizeToFit];
-    [rlLayout addSubview:titlelab];
-    //文本框
+- (UITextField *)getLLTextField:(NSString *)text Weight:(int)weight {
     UITextField *textView = [UITextField new];
-    textView.myTopMargin = 0;
-    textView.myBottomMargin = 0;
-    textView.leftPos.equalTo(titlelab.rightPos).offset(10);
-    textView.rightPos.equalTo(@0);
-    [rlLayout addSubview:textView];
-    return rlLayout;
+    [textView setFont:[UIFont systemFontOfSize:12]];
+    if (text) {
+        textView.placeholder = text;
+    }
+    if (weight > 0) {
+        textView.weight = weight;
+    } else {
+        [textView sizeToFit];
+    }
+    textView.adjustsFontSizeToFitWidth = YES;
+    textView.textAlignment = NSTextAlignmentCenter;
+    [textView setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+    return textView;
+}
+
+/**
+ *  获取LinearLayout使用的按钮
+ *
+ *  @param text   显示text
+ *  @param sel    点击回调
+ *  @param weight 比重
+ *
+ *  @return UIButton
+ */
+- (UIButton *)getLLButton:(NSString *)text Action:(SEL)sel Weight:(int)weight {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (weight > 0) {
+        button.weight = weight;
+    } else {
+        [button sizeToFit];
+    }
+    if (text) {
+        [button setTitle:text forState:UIControlStateNormal];
+        [button setTitleColor:colorGray forState:UIControlStateNormal];
+        [button setTitleColor:colorTint forState:UIControlStateHighlighted];
+        [button setTitleColor:colorTint forState:UIControlStateSelected];
+        [button setTitleColor:colorGray forState:UIControlStateHighlighted | UIControlStateSelected];
+    }
+    [button addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+#pragma mark - 内容组件
+/**
+ *  创建标题-内容-按钮项目
+ *
+ *  组件结构及比重:title(0)-content(6)-button(2)
+ *
+ *  @param title 标题
+ *  @param width 下边框宽度
+ *  @param sel   按钮动作
+ *
+ *  @return MyLinearLayout
+ */
+- (MyLinearLayout *)createTCBItemWithTag:(int)tag Title:(NSString *)title bottomLineWidth:(int)width Action:(SEL)sel {
+    MyLinearLayout *llLayout = [self getLinearLayoutHorz:width];
+    [llLayout setBackgroundColor:[UIColor whiteColor]];
+    //标题
+    UILabel *titlelab = [self getLLLabel:title Weight:0];
+    [llLayout addSubview:titlelab];
+    //内容
+    UILabel *conlab = [self getLLLabel:nil Weight:8];
+    [_dataOption setObject:conlab forKey:[NSString stringWithFormat:@"%d-%d", tag, 1]]; //管理要操作的UI
+    [conlab setText:@"测试数据测试"];
+    [conlab setTextAlignment:NSTextAlignmentRight];
+    [llLayout addSubview:conlab];
+    //按钮
+    UIButton *button = [self getLLButton:@">" Action:sel Weight:2];
+    button.tag = tag;
+    [llLayout addSubview:button];
+    return llLayout;
+}
+/**
+ *  创建标题-输入框项目
+ *
+ *  组件结构及比重:title(0)-inputField(1)
+ *
+ *  @param title 标题
+ *  @param width  下边框宽度
+ *
+ *  @return MyLinearLayout
+ */
+- (MyLinearLayout *)createTIItemWithTag:(int)tag Title:(NSString *)title bottomLineWidth:(int)width {
+    MyLinearLayout *llLayout = [self getLinearLayoutHorz:width];
+    //标题
+    UILabel *titlelab = [self getLLLabel:title Weight:0];
+    [llLayout addSubview:titlelab];
+    //文本框
+    UITextField *textView = [self getLLTextField:@"请输入房号" Weight:1];
+    textView.tag = tag;
+    [llLayout addSubview:textView];
+    return llLayout;
+}
+
+/**
+ *  创建范围选择项目
+ *
+ *  组件结构及比重:title(0)-inputField(4)-UILabel(0)-inputField(4)-Button(2)
+ *
+ *  @param title         标题
+ *  @param width         下边框宽度
+ *  @param sel           按钮动作
+ *  @param firstDefault  起始框默认值
+ *  @param secondDefault 结束框默认值
+ *  @param symbol        单位
+ *
+ *  @return MyLinearLayout
+ */
+- (MyLinearLayout *)createRangeItemWithTag:(int)tag Title:(NSString *)title bottomLineWidth:(int)width Action:(SEL)sel FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault Symbol:(NSString *)symbol {
+    MyLinearLayout *llLayout = [self getLinearLayoutHorz:width];
+    //标题
+    UILabel *titlelab = [self getLLLabel:title Weight:0];
+    [llLayout addSubview:titlelab];
+    //范围1文本框
+    UITextField *textView = [self getLLTextField:firstDefault Weight:4];
+    [textView setTextColor:colorBlue];
+    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, 1]];
+    [llLayout addSubview:textView];
+    //分隔符号"-"
+    titlelab = [self getLLLabel:@"-" Weight:0];
+    [llLayout addSubview:titlelab];
+    //范围2文本框
+    textView = [self getLLTextField:secondDefault Weight:4];
+    [textView setTextColor:colorBlue];
+    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, 2]];
+    [llLayout addSubview:textView];
+    //单位符号
+    titlelab = [self getLLLabel:symbol Weight:0];
+    [llLayout addSubview:titlelab];
+    //操作按钮
+    if (sel) {
+        UIButton *button = [self getLLButton:@">" Action:sel Weight:2];
+        button.tag = tag;
+        [llLayout addSubview:button];
+    }
+    return llLayout;
 }
 
 /**
  *  创建多数据项目
  *
- *  @param lineCount 每行数据的数量
- *  @param line 下边框宽度
+ *  @param data      选项
+ *  @param lineCount 每行项目数量
+ *  @param width     下边框宽度
+ *  @param sel       单选按钮动作
  *
  *  @return MyFlowLayout
  */
-- (MyFlowLayout *)createMultiDataButton:(NSArray *)data LineCount:(int)lineCount bottomLine:(int)line {
+- (MyFlowLayout *)createMultiDataItem:(NSArray *)data LineCount:(int)lineCount bottomLineWidth:(int)width Action:(SEL)sel {
     MyFlowLayout *mflayout = [MyFlowLayout flowLayoutWithOrientation:MyLayoutViewOrientation_Vert arrangedCount:lineCount];
-    mflayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
+    mflayout.bottomBorderLine = [self getLine:colorLine LineWidth:width];
     mflayout.backgroundColor = [UIColor whiteColor];
     mflayout.averageArrange = YES;
-    mflayout.padding = UIEdgeInsetsMake(-5, 10, 10, 10);
     mflayout.subviewHorzMargin = 25;
     mflayout.subviewVertMargin = 5;
     mflayout.wrapContentHeight = YES;
     int i = 0;
-    for (NSString *str in data) {
-        //        UIButton *button = [UIButton new];
+    for (NSDictionary *dic in data) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.myTopMargin = 5;
         button.myBottomMargin = 5;
+        button.heightDime.equalTo(@30);
         //设置按钮显示内容
-        //Image
         [button setBackgroundColor:[UIColor whiteColor]];
-        [button.imageView setContentMode:UIViewContentModeScaleAspectFill];
-        button.imageView.contentMode = UIViewContentModeCenter;
         //显示标题
-        [button setTitle:str forState:UIControlStateNormal];
+        [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+        [button setTitle:[dic objectForKey:@"name"] forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont systemFontOfSize:12]];
         [button setTitleColor:colorGray_1 forState:UIControlStateNormal];
-        //        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
         [button setTag:i];
         //边框/圆角
         button.layer.cornerRadius = 3;
         button.layer.borderWidth = 1;
         [button.layer setBorderUIColor:colorGray];
-
         [button sizeToFit];
         [mflayout addSubview:button];
         i++;
@@ -268,97 +475,81 @@ static CGFloat const moreViewOffsetX = 42.0f;
     return mflayout;
 }
 
+#pragma mark - 组合内容组件
 /**
- *  创建范围选择项目
+ *  隐藏单选按钮组件
+ *
+ *  组件结构:(标题-内容-按钮项目)+多数据项目
  *
  *  @param title 标题
- *  @param line  下边框宽度
+ *  @param data  选项
+ *  @param width 下边框宽度
+ *  @param sel   隐藏单选按钮动作
  *
- *  @return MyRelativeLayout
+ *  @return MyLinearLayout
  */
-- (MyLinearLayout *)createRangeButton:(NSString *)title FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault bottomLine:(int)line Symbol:(NSString *)symbol {
-    MyLinearLayout *rlLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Horz];
-    //设置布局内的子视图离自己的边距.
-    rlLayout.padding = UIEdgeInsetsMake(0, 10, 5, 5);
-    //子视图在垂直方向填满
-    rlLayout.gravity = MyMarginGravity_Vert_Fill;
-    //设置下边线
-    rlLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距，不包裹子视图，整体高度为
-    rlLayout.backgroundColor = [UIColor whiteColor];
-    rlLayout.myLeftMargin = 0;
-    rlLayout.myRightMargin = 0;
-    rlLayout.heightDime.equalTo(@CONTENT_HEIGHT);
-    //标题
-    UILabel *titlelab = [UILabel new];
-    titlelab.leftPos.equalTo(@0);
-    titlelab.text = title;
-    titlelab.font = [UIFont systemFontOfSize:14];
-    [titlelab sizeToFit];
-    [rlLayout addSubview:titlelab];
-    //范围1文本框
-    UITextField *textView = [UITextField new];
-    textView.leftPos.equalTo(titlelab.rightPos).offset(5);
-    textView.placeholder = firstDefault;
-    textView.textAlignment = NSTextAlignmentCenter;
-    [textView setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-    textView.weight = 0.1;
-    [textView setFont:[UIFont systemFontOfSize:12]];
-    [rlLayout addSubview:textView];
-    //分隔符号"-"
-    titlelab = [UILabel new];
-    titlelab.leftPos.equalTo(textView.rightPos);
-    titlelab.text = @"-";
-    titlelab.font = [UIFont systemFontOfSize:14];
-    [titlelab sizeToFit];
-    [rlLayout addSubview:titlelab];
-    //范围2文本框
-    textView = [UITextField new];
-    textView.leftPos.equalTo(titlelab.rightPos);
-    textView.placeholder = secondDefault;
-    textView.textAlignment = NSTextAlignmentCenter;
-    [textView setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-    textView.weight = 0.1;
-    [textView setFont:[UIFont systemFontOfSize:12]];
-    [rlLayout addSubview:textView];
-    //单位符号
-    titlelab = [UILabel new];
-    titlelab.leftPos.equalTo(textView.rightPos);
-    titlelab.text = symbol;
-    titlelab.font = [UIFont systemFontOfSize:14];
-    [titlelab sizeToFit];
-    [rlLayout addSubview:titlelab];
-
-    //操作按钮
-    UIButton *button = [UIButton new];
-    button.leftPos.equalTo(titlelab.rightPos);
-    //设置按钮显示内容
-    [button setTitle:@">" forState:UIControlStateNormal];
-    [button setTitleColor:colorGray forState:UIControlStateNormal];
-    [button setTitleColor:colorTint forState:UIControlStateHighlighted];
-    [button setTitleColor:colorTint forState:UIControlStateSelected];
-    [button setTitleColor:colorGray forState:UIControlStateHighlighted | UIControlStateSelected];
-    [button sizeToFit];
-    [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
-    [rlLayout addSubview:button];
-
-    return rlLayout;
+- (MyLinearLayout *)createShowMultiDataItemWithTag:(int)tag Title:(NSString *)title Data:(NSArray *)data bottomLineWidth:(int)width ItemsAction:(SEL)sel {
+    //(标题-内容-按钮项目)
+    MyLinearLayout *view1 = [self createTCBItemWithTag:tag Title:title bottomLineWidth:0 Action:@selector(showNextItem:)];
+    //多数据项目
+    MyFlowLayout *view2 = [self createMultiDataItem:data LineCount:3 bottomLineWidth:0 Action:sel];
+    view2.tag = tag;
+    view2.padding = UIEdgeInsetsMake(-5, 10, 5, 10);
+    [_dataOption setObject:view2 forKey:[NSString stringWithFormat:@"MyFlowLayout_%d", tag]];
+    MyLinearLayout *llLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    llLayout.padding = UIEdgeInsetsMake(0, 0, 5, 0);
+    llLayout.bottomBorderLine = [self getLine:colorLine LineWidth:width];
+    llLayout.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
+    [llLayout addSubview:view1];
+    [llLayout addSubview:view2];
+    [view2 setHidden:YES];
+    return llLayout;
 }
+
 /**
- *  创建单个居中按钮项目
+ *  隐藏按钮多输入框组件
+ *
+ *  组件结构:范围选择项目+多数据项目
+ *
+ *  @param title 标题
+ *  @param data  选项
+ *  @param width 下边框宽度
+ *  @param sel   隐藏单选按钮动作
+ *
+ *  @return MyLinearLayout
+ */
+- (MyLinearLayout *)createShowMultiInputDataItemWithTag:(int)tag Title:(NSString *)title Data:(NSArray *)data bottomLineWidth:(int)width ItemsAction:(SEL)sel FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault Symbol:(NSString *)symbol {
+    //范围选择项目
+    MyLinearLayout *view1 = [self createRangeItemWithTag:tag Title:title bottomLineWidth:0 Action:@selector(showNextItem:) FirstDefault:firstDefault SecondDefault:secondDefault Symbol:symbol];
+    //多数据项目
+    MyFlowLayout *view2 = [self createMultiDataItem:data LineCount:3 bottomLineWidth:0 Action:sel];
+    view2.padding = UIEdgeInsetsMake(-5, 10, 5, 10);
+    view2.tag = tag;
+    [_dataOption setObject:view2 forKey:[NSString stringWithFormat:@"MyFlowLayout_%d", tag]];
+    MyLinearLayout *llLayout = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+    llLayout.padding = UIEdgeInsetsMake(0, 0, 5, 0);
+    llLayout.bottomBorderLine = [self getLine:colorLine LineWidth:width];
+    llLayout.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
+    [llLayout addSubview:view1];
+    [llLayout addSubview:view2];
+    [view2 setHidden:YES];
+    return llLayout;
+}
+
+/**
+ *  创建重置按钮
  *
  *  @param title 标题
  *  @param line  下边框宽度
  *
  *  @return MyRelativeLayout
  */
-- (MyRelativeLayout *)createSingleButton:(NSString *)title bottomLine:(int)line {
+- (MyRelativeLayout *)createSingleButton:(NSString *)title bottomLineWidth:(int)width {
     MyRelativeLayout *elLayout = [MyRelativeLayout new];
     //设置布局内的子视图离自己的边距.
     elLayout.padding = UIEdgeInsetsMake(20, 50, 20, 50);
     //设置下边线
-    elLayout.bottomBorderLine = [self createLine:colorLine LineBorad:line];
-    //左右边距都是10，不包裹子视图，整体高度为50。
+    elLayout.bottomBorderLine = [self getLine:colorLine LineWidth:width];
     elLayout.backgroundColor = [UIColor whiteColor];
     elLayout.myLeftMargin = 0;
     elLayout.myRightMargin = 0;
@@ -372,13 +563,12 @@ static CGFloat const moreViewOffsetX = 42.0f;
     //设置按钮显示内容
     button.layer.cornerRadius = 3;
     button.layer.borderWidth = 1;
-    [button.layer setBorderUIColor:[UIColor colorWithHex:0x2093FA alpha:1.0]];
+    [button.layer setBorderUIColor:colorBlue];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor colorWithHex:0x2093FA alpha:1.0] forState:UIControlStateNormal];
+    [button setTitleColor:colorBlue forState:UIControlStateNormal];
     [button setTitleColor:colorTint forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(showNewView) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(resetAll:) forControlEvents:UIControlEventTouchUpInside];
     [elLayout addSubview:button];
-
     return elLayout;
 }
 
@@ -389,81 +579,139 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return UIImage
  */
-- (UIImage *)createImageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return theImage;
-}
-
-/**
- *  生成项目边框线
- *
- *  @param color      颜色UIColor
- *  @param boardWidth 宽度
- *
- *  @return 项目边框线
- */
-- (MyBorderLineDraw *)createLine:(UIColor *)color LineBorad:(int)boardWidth {
-    MyBorderLineDraw *line = [[MyBorderLineDraw alloc] initWithColor:color];
-    line.thick = boardWidth;
-    return line;
-}
-
-- (void)show {
-    if (!self.showMoreView) {
-        _showMoreView = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.frame = FMURectSetX(self.frame, 0);
-        }];
-    }
-}
-- (void)hiddenMoreView {
-    if (self.showMoreView) {
-        _showMoreView = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.frame = FMURectSetX(self.frame, ScreenWidth);
-        }];
-    }
-}
+//- (UIImage *)createImageWithColor:(UIColor *)color {
+//    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+//    UIGraphicsBeginImageContext(rect.size);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [color CGColor]);
+//    CGContextFillRect(context, rect);
+//
+//    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return theImage;
+//}
 
 #pragma mark-- Handle Method
 - (void)handleHideKeyboard:(id)sender {
     [self endEditing:YES];
 }
 
-- (void)handleLabelHidden:(UIButton *)sender {
-    _myContentView.beginLayoutBlock = ^{
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
-    };
-    _myContentView.endLayoutBlock = ^{
-        [UIView commitAnimations];
-    };
+//- (void)handleLabelHidden:(UIButton *)sender {
+//    _myContentView.beginLayoutBlock = ^{
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:0.3];
+//    };
+//    _myContentView.endLayoutBlock = ^{
+//        [UIView commitAnimations];
+//    };
+//}
+//
+//- (void)handleLabelShow {
+//    _myContentView.beginLayoutBlock = ^{
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:0.3];
+//    };
+//    _myContentView.endLayoutBlock = ^{
+//        [UIView commitAnimations];
+//    };
+//}
+
+- (void)resetAll:(UIButton *)sender {
+    NSLog(@"重置--重置");
 }
 
-- (void)handleLabelShow {
-    _myContentView.beginLayoutBlock = ^{
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
-    };
-    _myContentView.endLayoutBlock = ^{
-        [UIView commitAnimations];
-    };
-}
-
+/**
+ *  打开新View
+ *
+ *  @param sender 索引
+ */
 - (void)showNewView:(UIButton *)sender {
-    NSLog(@"OnClick-OnClick:%d", sender.tag);
+    [self handleHideKeyboard:nil];
+    NSLog(@"打开新窗口:%d-----%d", [[sender superview] tag], sender.tag);
+}
+/**
+ *  显示/隐藏多数据项
+ *
+ *  @param sender 索引
+ */
+- (void)showNextItem:(UIButton *)sender {
+    [self handleHideKeyboard:nil];
+    NSLog(@"显示/隐藏项目:%d----%d", [[sender superview] tag], sender.tag);
+    MyFlowLayout *tempView = [_dataOption objectForKey:[NSString stringWithFormat:@"MyFlowLayout_%d", sender.tag]];
+    [tempView setHidden:tempView.isHidden ? NO : YES];
+    _myContentView.beginLayoutBlock = ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+    };
+    _myContentView.endLayoutBlock = ^{
+        [UIView commitAnimations];
+    };
 }
 
-- (void)showNextItem:(UIButton *)sender {
-    _view2.hidden=_view2.isHidden?NO:YES;
-    NSLog(@"OnClick-OnClick-OnClick:%d", sender.tag);
+/**
+ *  单选
+ *
+ *  @param sender 索引
+ */
+- (void)choiceFunction:(UIButton *)sender {
+    NSLog(@"单选按钮:%d--%d", [[sender superview] tag], sender.tag);
+    FSBSHParamsModel *mod = _dataIndex[[[sender superview] tag]];
+    NSDictionary *dic = [_sourceData objectForKey:mod.fieldName][sender.tag];
+    NSLog(@"单选按钮-------name:%@,id:%@", dic[@"name"], dic[@"id"]);
+    [self buttonActionStatus:sender];
+}
+/**
+ *  隐藏项目onclick
+ *
+ *  @param sender 索引
+ */
+- (void)itemChoiceFunction:(UIButton *)sender {
+    NSLog(@"隐藏项目单选按钮:%d----%d", [[sender superview] tag], sender.tag);
+    FSBSHParamsModel *mod = _dataIndex[[[sender superview] tag]];
+    NSDictionary *dic = [_sourceData objectForKey:mod.fieldName][sender.tag];
+    NSLog(@"隐藏项目单选按钮-------name:%@,id:%@", dic[@"name"], dic[@"id"]);
+    UILabel *tempLab = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 1]];
+    [tempLab setText:dic[@"name"]];
+    [self buttonActionStatus:sender];
+}
+/**
+ *  隐藏多选项项目onclick
+ *
+ *  @param sender 索引
+ */
+- (void)itemChoiceInputFunction:(UIButton *)sender {
+    NSLog(@"隐藏项目多选项单选按钮:%d---%d", [[sender superview] tag], sender.tag);
+    FSBSHParamsModel *mod = _dataIndex[[[sender superview] tag]];
+    NSDictionary *dic = [_sourceData objectForKey:mod.fieldName][sender.tag];
+    NSLog(@"隐藏项目多选项单选按钮-------name:%@,id:%@", dic[@"name"], dic[@"id"]);
+    NSArray *tempList = [dic[@"id"] componentsSeparatedByString:@"-"];
+    UITextField *temptv1 = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 1]];
+    UITextField *temptv2 = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 2]];
+    if (2 == [tempList count]) {
+        [temptv1 setText:tempList[0]];
+        [temptv2 setText:tempList[1]];
+    } else {
+        [temptv1 setText:@""];
+        [temptv2 setText:@""];
+    }
+    [self buttonActionStatus:sender];
+}
+/**
+ *  处理按钮状态
+ *
+ *  @param sender 索引
+ */
+- (void)buttonActionStatus:(UIButton *)sender {
+    [self handleHideKeyboard:nil];
+    NSString *tempKey = [NSString stringWithFormat:@"%d", [[sender superview] tag]];
+    UIButton *tempBtn = [_dataSelected objectForKey:tempKey];
+    if (tempBtn) {
+        [tempBtn setBackgroundColor:[UIColor whiteColor]];
+        tempBtn.selected = NO;
+    }
+    sender.selected = YES;
+    [sender setBackgroundColor:colorBlue];
+    [_dataSelected setObject:sender forKey:tempKey];
 }
 
 @end
