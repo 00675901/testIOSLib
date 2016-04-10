@@ -34,8 +34,6 @@
 		8461CC5E1CA2A78000594CC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461CC5D1CA2A78000594CC1 /* main.m */; };
 		8461CC671CA2A78000594CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC651CA2A78000594CC1 /* Main.storyboard */; };
 		8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC681CA2A78100594CC1 /* Assets.xcassets */; };
-		846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */; };
-		846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */; };
 		846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F91CB3A3DE00B75E1B /* FMUMath.m */; };
 		8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616251CAA22F8003F2C78 /* AppDelegate.m */; };
 		8486162C1CAA22F8003F2C78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616271CAA22F8003F2C78 /* ViewController.m */; };
@@ -52,6 +50,14 @@
 		8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */; };
 		84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */; };
 		84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4F0F51CA38D71005D5757 /* GTDBManager.m */; };
+		84F736DC1CBA25C000952B2D /* FSBMySecondHouseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F736DA1CBA25C000952B2D /* FSBMySecondHouseMoreView.m */; };
+		84F736DD1CBA25C000952B2D /* FSBMySecondHouseMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736DB1CBA25C000952B2D /* FSBMySecondHouseMoreView.xib */; };
+		84F736E21CBA46AB00952B2D /* show_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F736DE1CBA46AB00952B2D /* show_arrow_down@2x.png */; };
+		84F736E31CBA46AB00952B2D /* show_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F736DF1CBA46AB00952B2D /* show_arrow_down@3x.png */; };
+		84F736E41CBA46AB00952B2D /* show_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F736E01CBA46AB00952B2D /* show_arrow_up@2x.png */; };
+		84F736E51CBA46AB00952B2D /* show_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F736E11CBA46AB00952B2D /* show_arrow_up.png */; };
+		84F736EA1CBA4E1700952B2D /* BaseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F736E71CBA4E1700952B2D /* BaseAlert.m */; };
+		84F736EB1CBA4E1700952B2D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F736E91CBA4E1700952B2D /* Utils.m */; };
 		C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */; };
 		C80BBFE61CB147A900F0EF0A /* GTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */; };
 		C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BBFE81CB1B46100F0EF0A /* GTCollectionViewHeader.m */; };
@@ -119,9 +125,6 @@
 		8461CC661CA2A78000594CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8461CC681CA2A78100594CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8461CC6D1CA2A78100594CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseMoreView.h; sourceTree = "<group>"; };
-		846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseMoreView.m; sourceTree = "<group>"; };
-		846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondHouseMoreView.xib; sourceTree = "<group>"; };
 		846860F81CB3A3DE00B75E1B /* FMUMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMUMath.h; sourceTree = "<group>"; };
 		846860F91CB3A3DE00B75E1B /* FMUMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMUMath.m; sourceTree = "<group>"; };
 		848616241CAA22F8003F2C78 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +157,17 @@
 		84D4F0F51CA38D71005D5757 /* GTDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDBManager.m; sourceTree = "<group>"; };
 		84D4F0FF1CA39AAB005D5757 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		84E8291D1CB602F500B41116 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		84F736D91CBA25C000952B2D /* FSBMySecondHouseMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMySecondHouseMoreView.h; sourceTree = "<group>"; };
+		84F736DA1CBA25C000952B2D /* FSBMySecondHouseMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMySecondHouseMoreView.m; sourceTree = "<group>"; };
+		84F736DB1CBA25C000952B2D /* FSBMySecondHouseMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSBMySecondHouseMoreView.xib; sourceTree = "<group>"; };
+		84F736DE1CBA46AB00952B2D /* show_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show_arrow_down@2x.png"; sourceTree = "<group>"; };
+		84F736DF1CBA46AB00952B2D /* show_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show_arrow_down@3x.png"; sourceTree = "<group>"; };
+		84F736E01CBA46AB00952B2D /* show_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show_arrow_up@2x.png"; sourceTree = "<group>"; };
+		84F736E11CBA46AB00952B2D /* show_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_arrow_up.png; sourceTree = "<group>"; };
+		84F736E61CBA4E1700952B2D /* BaseAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAlert.h; sourceTree = "<group>"; };
+		84F736E71CBA4E1700952B2D /* BaseAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAlert.m; sourceTree = "<group>"; };
+		84F736E81CBA4E1700952B2D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		84F736E91CBA4E1700952B2D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		C80BBFE21CB147A900F0EF0A /* GTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCollectionViewCell.h; sourceTree = "<group>"; };
 		C80BBFE31CB147A900F0EF0A /* GTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCollectionViewCell.m; sourceTree = "<group>"; };
 		C80BBFE41CB147A900F0EF0A /* GTCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -271,6 +285,7 @@
 		845FC05B1CACC45000BF9BC5 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
+				84F736D81CBA25C000952B2D /* TestTableCollectionView */,
 				C8673F701CB5614400ED34D3 /* TestLayoutView */,
 				843A91671CB4F13A00E1B8E1 /* cell */,
 				840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */,
@@ -278,9 +293,6 @@
 				845FC05D1CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m */,
 				845FC05E1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.h */,
 				845FC05F1CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m */,
-				846860F31CB39CB700B75E1B /* FSBMySecondHouseMoreView.h */,
-				846860F41CB39CB700B75E1B /* FSBMySecondHouseMoreView.m */,
-				846860F61CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -364,6 +376,10 @@
 		848616301CAA52EC003F2C78 /* navigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				84F736DE1CBA46AB00952B2D /* show_arrow_down@2x.png */,
+				84F736DF1CBA46AB00952B2D /* show_arrow_down@3x.png */,
+				84F736E01CBA46AB00952B2D /* show_arrow_up@2x.png */,
+				84F736E11CBA46AB00952B2D /* show_arrow_up.png */,
 				845FC0631CACCD4400BF9BC5 /* checkbox_tick@2x.png */,
 				845FC0641CACCD4400BF9BC5 /* checkbox_tick@3x.png */,
 				845FC0651CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png */,
@@ -397,6 +413,10 @@
 			children = (
 				846860F81CB3A3DE00B75E1B /* FMUMath.h */,
 				846860F91CB3A3DE00B75E1B /* FMUMath.m */,
+				84F736E61CBA4E1700952B2D /* BaseAlert.h */,
+				84F736E71CBA4E1700952B2D /* BaseAlert.m */,
+				84F736E81CBA4E1700952B2D /* Utils.h */,
+				84F736E91CBA4E1700952B2D /* Utils.m */,
 				848616401CAA587E003F2C78 /* Category */,
 			);
 			path = Utils;
@@ -444,6 +464,16 @@
 				84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		84F736D81CBA25C000952B2D /* TestTableCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				84F736D91CBA25C000952B2D /* FSBMySecondHouseMoreView.h */,
+				84F736DA1CBA25C000952B2D /* FSBMySecondHouseMoreView.m */,
+				84F736DB1CBA25C000952B2D /* FSBMySecondHouseMoreView.xib */,
+			);
+			path = TestTableCollectionView;
 			sourceTree = "<group>";
 		};
 		96381C2399122088AD15B0BF /* Pods */ = {
@@ -593,9 +623,11 @@
 				840D91E71CB7B18500385CEB /* SecondHouseParamsData.json in Resources */,
 				C8CDEAB61CB2534700519D4C /* ImageCategoryViewController.xib in Resources */,
 				845FC0711CACCD4400BF9BC5 /* top_lf_arrow_lf@2x.png in Resources */,
+				84F736E51CBA46AB00952B2D /* show_arrow_up.png in Resources */,
 				843A916C1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.xib in Resources */,
 				845FC06E1CACCD4400BF9BC5 /* head_tabbar_arrow_down@3x.png in Resources */,
 				845FC0721CACCD4400BF9BC5 /* top_lf_arrow_lf@3x.png in Resources */,
+				84F736DD1CBA25C000952B2D /* FSBMySecondHouseMoreView.xib in Resources */,
 				8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */,
 				C8673F751CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib in Resources */,
 				843148EF1CA919A100606FC1 /* GTTableViewCell.xib in Resources */,
@@ -603,14 +635,16 @@
 				84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */,
 				8461CC671CA2A78000594CC1 /* Main.storyboard in Resources */,
 				845FC06F1CACCD4400BF9BC5 /* head_tabbar_arrow_up@2x.png in Resources */,
+				84F736E21CBA46AB00952B2D /* show_arrow_down@2x.png in Resources */,
 				C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */,
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
 				8490BB6A1CB643DE00039C51 /* SecondHouseData.json in Resources */,
+				84F736E31CBA46AB00952B2D /* show_arrow_down@3x.png in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
-				846860F71CB39D9400B75E1B /* FSBMySecondHouseMoreView.xib in Resources */,
 				845FC06C1CACCD4400BF9BC5 /* checkbox_tick@3x.png in Resources */,
 				845FC0701CACCD4400BF9BC5 /* head_tabbar_arrow_up@3x.png in Resources */,
+				84F736E41CBA46AB00952B2D /* show_arrow_up@2x.png in Resources */,
 				843A91711CB4FC4800E1B8E1 /* FSBMySecondMoreViewCollectionCell.xib in Resources */,
 				8486164E1CAA854F003F2C78 /* ImageEditorViewController.xib in Resources */,
 				840D91E51CB7959800385CEB /* qq_test.png in Resources */,
@@ -680,7 +714,6 @@
 				C8CDEABA1CB263FE00519D4C /* GTCollectionAddViewCell.m in Sources */,
 				C8673F6C1CB55FEC00ED34D3 /* MyLinearLayout.m in Sources */,
 				843A916B1CB4F13A00E1B8E1 /* FSBMySecondMoreViewCell.m in Sources */,
-				846860F51CB39CB700B75E1B /* FSBMySecondHouseMoreView.m in Sources */,
 				C8673F651CB55FEC00ED34D3 /* MyFloatLayout.m in Sources */,
 				841F88141CA4E06C00642797 /* Customers.m in Sources */,
 				8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */,
@@ -696,11 +729,13 @@
 				846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */,
 				8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */,
 				C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */,
+				84F736EB1CBA4E1700952B2D /* Utils.m in Sources */,
 				84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */,
 				848616431CAA587E003F2C78 /* UILabel+Utility.m in Sources */,
 				C8673F661CB55FEC00ED34D3 /* MyFlowLayout.m in Sources */,
 				C8673F691CB55FEC00ED34D3 /* MyLayoutMeasure.m in Sources */,
 				845FC0611CACC45000BF9BC5 /* FSBMySecondHouseToolbarContentView.m in Sources */,
+				84F736DC1CBA25C000952B2D /* FSBMySecondHouseMoreView.m in Sources */,
 				C80BBFE51CB147A900F0EF0A /* GTCollectionViewCell.m in Sources */,
 				C8673F671CB55FEC00ED34D3 /* MyFrameLayout.m in Sources */,
 				840D91EA1CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m in Sources */,
@@ -711,6 +746,7 @@
 				841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */,
 				C8673F6A1CB55FEC00ED34D3 /* MyLayoutPos.m in Sources */,
 				C8673F631CB55FEC00ED34D3 /* MyBaseLayout.m in Sources */,
+				84F736EA1CBA4E1700952B2D /* BaseAlert.m in Sources */,
 				C8673F741CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m in Sources */,
 				C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */,
 				8486164D1CAA854F003F2C78 /* ImageEditorViewController.m in Sources */,

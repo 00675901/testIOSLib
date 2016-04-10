@@ -4,8 +4,9 @@ platform :ios, '6.0'
 pod 'FMDB'
 pod 'JSONKit-NoWarning'
 pod 'ViewDeck'
-#pod 'MyLayout’
+#pod 'MyLayout’ #pod安装不支持6.0,已经手工导入
 pod 'TZImagePickerController'
+pod 'MBProgressHUD'
 
 target 'testIOSLib' do
 

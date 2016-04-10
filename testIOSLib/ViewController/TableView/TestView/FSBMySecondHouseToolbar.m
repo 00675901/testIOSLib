@@ -3,11 +3,10 @@
 //  Copyright © 2015年 fangstar. All rights reserved.
 //
 
-#import "FSBMySecondHouseMoreView.h"
+//#import "FSBMySecondHouseMoreView.h"
+#import "FSBMySecondHouseMoreLayout.h"
 #import "FSBMySecondHouseToolbar.h"
 #import "FSBMySecondHouseToolbarContentView.h"
-
-#import "FSBMySecondHouseMoreLayout.h"
 
 @interface FSBMySecondHouseToolbar () <FSBMySecondHouseToolbarContentViewDelegate>
 
@@ -128,7 +127,7 @@
 
         UIButton *tempBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [tempBtn setFrame:tempFrame];
-        
+
         [tempBtn setImage:[UIImage imageNamed:@"head_tabbar_arrow_down"] forState:UIControlStateNormal];
         [tempBtn setImage:[UIImage imageNamed:@"head_tabbar_arrow_up"] forState:UIControlStateHighlighted];
         [tempBtn setImage:[UIImage imageNamed:@"head_tabbar_arrow_up"] forState:UIControlStateSelected];
@@ -140,11 +139,12 @@
         [tempBtn setTitleColor:colorTint forState:UIControlStateHighlighted];
         [tempBtn setTitleColor:colorTint forState:UIControlStateSelected];
         [tempBtn setTitleColor:colorNull forState:UIControlStateHighlighted | UIControlStateSelected];
-        
+
         [tempBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
         [tempBtn setTag:i];
         [btnView addSubview:tempBtn];
 
+        [self showSpreadView:tempBtn];
         //判断打开的页面
         if ([@"-1" isEqualToString:list[0].moreId]) {
             [tempBtn addTarget:self action:@selector(showMoreView:) forControlEvents:UIControlEventTouchUpInside];
@@ -162,7 +162,6 @@
  *  @param sender 索引
  */
 - (void)btnStatusAction:(UIButton *)sender {
-    [self showSpreadView:sender];
     if (sender == _currButton) {
         _currButton.selected = _currButton.selected ? NO : YES;
         [_viewListIndex[_currButton.tag] setHidden:!_currButton.isSelected];
@@ -224,7 +223,7 @@
  */
 - (void)showSpreadView:(UIButton *)sender {
     //计算高度
-    NSLog(@"%d---%d",sender.tag,[_contentList count]);
+    NSLog(@"%d---%d", sender.tag, [_contentList count]);
     int tempH = [_contentList[sender.tag] count];
     tempH *= _contentHeight; //每个项目高度;
     FSBMySecondHouseToolbarContentView *tempView = [[FSBMySecondHouseToolbarContentView alloc] initWithFrame:CGRectMake(0, _initHeight + 1, self.bounds.size.width, tempH) contentHeight:_contentHeight DataSour:_contentList[sender.tag]];

@@ -20,6 +20,7 @@
 #import "AllBeans.h"
 #import "GTStorageManager.h"
 #import "FMUMath.h"
+#import "BaseAlert.h"
 
 #import "UILabel+Utility.h"
 #import "NSString+Utility.h"

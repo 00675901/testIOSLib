@@ -33,13 +33,15 @@ static CGFloat const moreViewOffsetX = 42.0f;
 @interface FSBMySecondHouseMoreLayout () <UIScrollViewDelegate> {
     IBOutlet UIView *_moreView;
     IBOutlet UIScrollView *_moreTable;
+    IBOutlet UIActivityIndicatorView *_loadView;
 }
 @property (nonatomic, retain) NSMutableDictionary *sourceData; //源数据
 
 @property (nonatomic, assign) BOOL showMoreView;
 @property (nonatomic, strong) MyLinearLayout *myContentView;
-@property (nonatomic, strong) NSMutableArray<MyBaseLayout *> *dataViewList; //保存所有根据源数据生成的项目
+
 @property (nonatomic, strong) NSMutableArray<FSBSHParamsModel *> *dataIndex; //源数据与项目的索引
+@property (nonatomic, strong) NSMutableArray<MyBaseLayout *> *dataViewIndex; //源数据与项目的索引
 @property (nonatomic, strong) NSMutableDictionary *dataOption; //处理所有要操作(显示/隐藏/赋值)的元素
 @property (nonatomic, strong) NSMutableDictionary *dataSelected; //处理所有需要改变选中状态的元素
 
@@ -59,11 +61,10 @@ static CGFloat const moreViewOffsetX = 42.0f;
         self.backgroundColor = [UIColor clearColor];
         _sourceData = sourceData;
         [self initBackgroudView];
-        //初始化数据索引
-        [self initDataIndex];
-        return self;
+        //初始化页面显示内容
+        [self initDataView];
     }
-    return nil;
+    return self;
 }
 - (void)tapMoreBackView:(UITapGestureRecognizer *)gesture {
     [self hiddenView];
@@ -99,8 +100,45 @@ static CGFloat const moreViewOffsetX = 42.0f;
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self handleHideKeyboard:nil];
+}
+
+//初始化页面显示内容
+- (void)initDataView {
+    [_moreView setFrame:SHOW_FRAME];
+    [self addSubview:_moreView];
+    [self setUserInteractionEnabled:NO];
+
+    _moreTable.marginGravity = MyMarginGravity_Fill;
+    _moreTable.alwaysBounceVertical = YES;
+    _moreTable.delegate = self;
+
+    //    [[BaseAlert sharedInstance] showLodingWithMessage:@"正在加载..."];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        //初始化数据索引
+        [self initDataIndex];
+    }];
+    [operation setCompletionBlock:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //内容容器
+            _myContentView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
+            _myContentView.myLeftMargin = 0;
+            _myContentView.myRightMargin = 0; //同时指定左右边距为0表示宽度和父视图一样宽
+            _myContentView.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
+            [_myContentView setTarget:self action:@selector(handleHideKeyboard:)];
+            [_moreTable addSubview:_myContentView];
+            //显示内容
+            for (MyBaseLayout *items in _dataViewIndex) {
+                [_myContentView addSubview:items];
+            }
+            [_loadView stopAnimating];
+            [self setUserInteractionEnabled:YES];
+        }];
+
+    }];
+    [queue addOperation:operation];
 }
 
 #pragma mark - 初始化界面/项目/显示数据
@@ -158,70 +196,52 @@ static CGFloat const moreViewOffsetX = 42.0f;
     tempModel = [[FSBSHParamsModel alloc] initWithName:@"上下架" FieldName:@"house_grounding_data" LineWidth:2 ActionType:actionTypeShow];
     [_dataIndex addObject:tempModel];
 
-    //初始化页面显示内容
-    [self initDataView];
-}
-
-//初始化页面显示内容
-- (void)initDataView {
-    [_moreView setFrame:SHOW_FRAME];
-    [self addSubview:_moreView];
-
-    _moreTable.marginGravity = MyMarginGravity_Fill;
-    _moreTable.alwaysBounceVertical = YES;
-    _moreTable.delegate = self;
-    _myContentView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
-    _myContentView.myLeftMargin = 0;
-    _myContentView.myRightMargin = 0; //同时指定左右边距为0表示宽度和父视图一样宽
-    _myContentView.gravity = MyMarginGravity_Horz_Fill; //让子视图全部水平填充
-    [_myContentView setTarget:self action:@selector(handleHideKeyboard:)];
-    [_moreTable addSubview:_myContentView];
-
     //初始化页面数据
     [self initContentData];
 }
 
 //初始化页面数据
 - (void)initContentData {
+    _dataViewIndex = [NSMutableArray array];
     _dataOption = [NSMutableDictionary dictionary];
     _dataSelected = [NSMutableDictionary dictionary];
-    _dataViewList = [NSMutableArray array];
     int i = 0;
     for (FSBSHParamsModel *mod in _dataIndex) {
         MyBaseLayout *tempView;
         switch (mod.actionType) {
             case actionTypeNew:
-                NSLog(@"%@--打开新窗口", mod.name);
+                //打开新窗口
                 tempView = [self createTCBItemWithTag:i Title:mod.name bottomLineWidth:mod.lineWidth Action:@selector(showNewView:)];
                 break;
             case actionTypeShow:
-                NSLog(@"%@--隐藏单选项", mod.name);
+                //隐藏单选项
                 tempView = [self createShowMultiDataItemWithTag:i Title:mod.name Data:[_sourceData objectForKey:mod.fieldName] bottomLineWidth:mod.lineWidth ItemsAction:@selector(itemChoiceFunction:)];
                 break;
             case actionTypeInput:
-                NSLog(@"%@--单输入框项", mod.name);
-                tempView = [self createTIItemWithTag:i Title:@"房号" bottomLineWidth:mod.lineWidth];
+                //单输入框项
+                tempView = [self createTIItemWithTag:i Title:mod.name bottomLineWidth:mod.lineWidth];
                 break;
             case actionTypeMultiInput:
-                NSLog(@"%@--多输入框项", mod.name);
+                //多输入框项
                 tempView = [self createRangeItemWithTag:i Title:mod.name bottomLineWidth:mod.lineWidth Action:nil FirstDefault:mod.params[0] SecondDefault:mod.params[1] Symbol:mod.params[2]];
                 break;
             case actionTypeShowMultiInput:
-                NSLog(@"%@--隐藏多输入框", mod.name);
+                //隐藏多项输入框
                 tempView = [self createShowMultiInputDataItemWithTag:i Title:mod.name Data:[_sourceData objectForKey:mod.fieldName] bottomLineWidth:mod.lineWidth ItemsAction:@selector(itemChoiceInputFunction:) FirstDefault:mod.params[0] SecondDefault:mod.params[1] Symbol:mod.params[2]];
                 break;
             case actionTypeChoice:
-                NSLog(@"%@--单选项", mod.name);
-                tempView = [self createMultiDataItem:[_sourceData objectForKey:mod.fieldName] LineCount:3 bottomLineWidth:mod.lineWidth Action:@selector(choiceFunction:)];
+                //单选项
+                tempView = [self createMultiDataItemWithTag:i Data:[_sourceData objectForKey:mod.fieldName] LineCount:3 bottomLineWidth:mod.lineWidth Action:@selector(choiceFunction:)];
                 tempView.padding = UIEdgeInsetsMake(5, 5, 5, 5);
                 break;
         }
         tempView.tag = i;
-        [_dataViewList addObject:tempView];
-        [_myContentView addSubview:tempView];
+        [_dataViewIndex addObject:tempView];
         i++;
     }
-    [_myContentView addSubview:[self createSingleButton:@"重置" bottomLineWidth:2]];
+    [_dataViewIndex addObject:[self createSingleButton:@"重置" bottomLineWidth:2]];
+    //设置默认值
+    [self resetAll:nil];
 }
 
 #pragma mark - 基础组件
@@ -381,6 +401,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [llLayout addSubview:titlelab];
     //文本框
     UITextField *textView = [self getLLTextField:@"请输入房号" Weight:1];
+    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, 1]];
     textView.tag = tag;
     [llLayout addSubview:textView];
     return llLayout;
@@ -440,7 +461,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *
  *  @return MyFlowLayout
  */
-- (MyFlowLayout *)createMultiDataItem:(NSArray *)data LineCount:(int)lineCount bottomLineWidth:(int)width Action:(SEL)sel {
+- (MyFlowLayout *)createMultiDataItemWithTag:(int)tag Data:(NSArray *)data LineCount:(int)lineCount bottomLineWidth:(int)width Action:(SEL)sel {
     MyFlowLayout *mflayout = [MyFlowLayout flowLayoutWithOrientation:MyLayoutViewOrientation_Vert arrangedCount:lineCount];
     mflayout.bottomBorderLine = [self getLine:colorLine LineWidth:width];
     mflayout.backgroundColor = [UIColor whiteColor];
@@ -457,9 +478,9 @@ static CGFloat const moreViewOffsetX = 42.0f;
         //设置按钮显示内容
         [button setBackgroundColor:[UIColor whiteColor]];
         //显示标题
-        [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+        //        [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
         [button setTitle:[dic objectForKey:@"name"] forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont systemFontOfSize:12]];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:10]];
         [button setTitleColor:colorGray_1 forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [button addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
@@ -470,6 +491,9 @@ static CGFloat const moreViewOffsetX = 42.0f;
         [button.layer setBorderUIColor:colorGray];
         [button sizeToFit];
         [mflayout addSubview:button];
+        if (i == 0) {
+            [_dataOption setObject:button forKey:[NSString stringWithFormat:@"%d-%d", tag, 0]]; //加入到操作项目,用于初始化赋值
+        }
         i++;
     }
     return mflayout;
@@ -492,7 +516,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     //(标题-内容-按钮项目)
     MyLinearLayout *view1 = [self createTCBItemWithTag:tag Title:title bottomLineWidth:0 Action:@selector(showNextItem:)];
     //多数据项目
-    MyFlowLayout *view2 = [self createMultiDataItem:data LineCount:3 bottomLineWidth:0 Action:sel];
+    MyFlowLayout *view2 = [self createMultiDataItemWithTag:tag Data:data LineCount:3 bottomLineWidth:0 Action:sel];
     view2.tag = tag;
     view2.padding = UIEdgeInsetsMake(-5, 10, 5, 10);
     [_dataOption setObject:view2 forKey:[NSString stringWithFormat:@"MyFlowLayout_%d", tag]];
@@ -522,7 +546,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     //范围选择项目
     MyLinearLayout *view1 = [self createRangeItemWithTag:tag Title:title bottomLineWidth:0 Action:@selector(showNextItem:) FirstDefault:firstDefault SecondDefault:secondDefault Symbol:symbol];
     //多数据项目
-    MyFlowLayout *view2 = [self createMultiDataItem:data LineCount:3 bottomLineWidth:0 Action:sel];
+    MyFlowLayout *view2 = [self createMultiDataItemWithTag:tag Data:data LineCount:3 bottomLineWidth:0 Action:sel];
     view2.padding = UIEdgeInsetsMake(-5, 10, 5, 10);
     view2.tag = tag;
     [_dataOption setObject:view2 forKey:[NSString stringWithFormat:@"MyFlowLayout_%d", tag]];
@@ -592,32 +616,34 @@ static CGFloat const moreViewOffsetX = 42.0f;
 //}
 
 #pragma mark-- Handle Method
+//结束编辑
 - (void)handleHideKeyboard:(id)sender {
     [self endEditing:YES];
 }
-
-//- (void)handleLabelHidden:(UIButton *)sender {
-//    _myContentView.beginLayoutBlock = ^{
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:0.3];
-//    };
-//    _myContentView.endLayoutBlock = ^{
-//        [UIView commitAnimations];
-//    };
-//}
-//
-//- (void)handleLabelShow {
-//    _myContentView.beginLayoutBlock = ^{
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:0.3];
-//    };
-//    _myContentView.endLayoutBlock = ^{
-//        [UIView commitAnimations];
-//    };
-//}
-
+/**
+ *  重置管理的项目为默认值
+ *
+ *  @param sender 索引
+ */
 - (void)resetAll:(UIButton *)sender {
     NSLog(@"重置--重置");
+    for (NSString *key in _dataOption) {
+        id item = [_dataOption objectForKey:key];
+        if ([item isKindOfClass:[UITextField class]]) {
+            [(UITextField *)item setText:@""];
+        } else if ([item isKindOfClass:[UILabel class]]) {
+            NSArray *tempList = [key componentsSeparatedByString:@"-"];
+            if ([tempList count] > 0) {
+                FSBSHParamsModel *mod = _dataIndex[[tempList[0] intValue]];
+                [(UILabel *)item setText:[_sourceData objectForKey:mod.fieldName][0][@"name"]];
+            }
+        } else if ([item isKindOfClass:[UIButton class]]) {
+            [self buttonActionStatus:(UIButton *)item];
+        }
+        //        else if([item isKindOfClass:[MyFlowLayout class]]){
+        //            [(MyFlowLayout*)item setHidden:YES];
+        //        }
+    }
 }
 
 /**
@@ -661,29 +687,25 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [self buttonActionStatus:sender];
 }
 /**
- *  隐藏项目onclick
+ *  隐藏单选项目onclick
  *
  *  @param sender 索引
  */
 - (void)itemChoiceFunction:(UIButton *)sender {
-    NSLog(@"隐藏项目单选按钮:%d----%d", [[sender superview] tag], sender.tag);
     FSBSHParamsModel *mod = _dataIndex[[[sender superview] tag]];
     NSDictionary *dic = [_sourceData objectForKey:mod.fieldName][sender.tag];
-    NSLog(@"隐藏项目单选按钮-------name:%@,id:%@", dic[@"name"], dic[@"id"]);
     UILabel *tempLab = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 1]];
     [tempLab setText:dic[@"name"]];
     [self buttonActionStatus:sender];
 }
 /**
- *  隐藏多选项项目onclick
+ *  隐藏多输入框项目onclick
  *
  *  @param sender 索引
  */
 - (void)itemChoiceInputFunction:(UIButton *)sender {
-    NSLog(@"隐藏项目多选项单选按钮:%d---%d", [[sender superview] tag], sender.tag);
     FSBSHParamsModel *mod = _dataIndex[[[sender superview] tag]];
     NSDictionary *dic = [_sourceData objectForKey:mod.fieldName][sender.tag];
-    NSLog(@"隐藏项目多选项单选按钮-------name:%@,id:%@", dic[@"name"], dic[@"id"]);
     NSArray *tempList = [dic[@"id"] componentsSeparatedByString:@"-"];
     UITextField *temptv1 = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 1]];
     UITextField *temptv2 = [_dataOption objectForKey:[NSString stringWithFormat:@"%d-%d", [[sender superview] tag], 2]];

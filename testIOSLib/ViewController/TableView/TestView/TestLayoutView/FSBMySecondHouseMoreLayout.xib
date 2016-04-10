@@ -13,6 +13,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="_loadView" destination="BBr-Ai-VWM" id="ZPS-LV-qkL"/>
                 <outlet property="_moreTable" destination="vh1-pQ-6zu" id="yqd-TT-fPd"/>
                 <outlet property="_moreView" destination="CFS-6i-FcG" id="Wk1-mW-sZL"/>
             </connections>
@@ -85,11 +86,17 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh1-pQ-6zu">
                     <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                 </scrollView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BBr-Ai-VWM">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="BBr-Ai-VWM" firstAttribute="centerY" secondItem="CFS-6i-FcG" secondAttribute="centerY" id="ATm-ao-3Zb"/>
                 <constraint firstItem="vh1-pQ-6zu" firstAttribute="top" secondItem="KEB-ed-Nli" secondAttribute="bottom" id="BOZ-Xf-Mfd"/>
                 <constraint firstItem="KEB-ed-Nli" firstAttribute="top" secondItem="CFS-6i-FcG" secondAttribute="top" id="DCU-yN-qWS"/>
+                <constraint firstItem="BBr-Ai-VWM" firstAttribute="centerX" secondItem="CFS-6i-FcG" secondAttribute="centerX" id="FCG-Ca-C7E"/>
                 <constraint firstAttribute="trailing" secondItem="KEB-ed-Nli" secondAttribute="trailing" id="IYd-CN-uoa"/>
                 <constraint firstAttribute="trailing" secondItem="vh1-pQ-6zu" secondAttribute="trailing" id="Qd4-US-ve1"/>
                 <constraint firstItem="KEB-ed-Nli" firstAttribute="leading" secondItem="CFS-6i-FcG" secondAttribute="leading" id="ifb-fi-6xS"/>
