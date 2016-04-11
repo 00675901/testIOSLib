@@ -1,0 +1,392 @@
+{
+    "result": 1, 
+    "msg": "查询成功", 
+    "msg_type": 0, 
+    "data": [
+        {
+            "district_id": 0, 
+            "district_name": "不限", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }
+            ]
+        }, 
+        {
+            "district_id": 42, 
+            "district_name": "西山区", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }, 
+                {
+                    "block_id": 1, 
+                    "block_name": "家兴"
+                }, 
+                {
+                    "block_id": 1383, 
+                    "block_name": "省高院片区"
+                }, 
+                {
+                    "block_id": 1391, 
+                    "block_name": "大商汇片区"
+                }, 
+                {
+                    "block_id": 1392, 
+                    "block_name": "滇池度假区"
+                }, 
+                {
+                    "block_id": 1393, 
+                    "block_name": "西华园片区"
+                }, 
+                {
+                    "block_id": 1441, 
+                    "block_name": "西山区政府片区"
+                }, 
+                {
+                    "block_id": 1444, 
+                    "block_name": "马街片区"
+                }, 
+                {
+                    "block_id": 1445, 
+                    "block_name": "红联片区"
+                }, 
+                {
+                    "block_id": 1543, 
+                    "block_name": "滇池卫城片区"
+                }, 
+                {
+                    "block_id": 1544, 
+                    "block_name": "福海片区"
+                }, 
+                {
+                    "block_id": 1545, 
+                    "block_name": "金马坊片区"
+                }, 
+                {
+                    "block_id": 1546, 
+                    "block_name": "明波片区"
+                }, 
+                {
+                    "block_id": 1547, 
+                    "block_name": "南坝片区"
+                }, 
+                {
+                    "block_id": 1548, 
+                    "block_name": "西坝片区"
+                }, 
+                {
+                    "block_id": 1567, 
+                    "block_name": "55"
+                }, 
+                {
+                    "block_id": 1568, 
+                    "block_name": "家兴1"
+                }, 
+                {
+                    "block_id": 1569, 
+                    "block_name": "家兴"
+                }, 
+                {
+                    "block_id": 1570, 
+                    "block_name": "家兴2"
+                }, 
+                {
+                    "block_id": 1572, 
+                    "block_name": "家兴3"
+                }, 
+                {
+                    "block_id": 1574, 
+                    "block_name": "teeeeeeeeeeeee"
+                }, 
+                {
+                    "block_id": 1575, 
+                    "block_name": "家兴4"
+                }, 
+                {
+                    "block_id": 1577, 
+                    "block_name": "家兴5"
+                }, 
+                {
+                    "block_id": 1579, 
+                    "block_name": "嘉兴"
+                }, 
+                {
+                    "block_id": 1582, 
+                    "block_name": "xxxxxxxxxx456"
+                }, 
+                {
+                    "block_id": 1585, 
+                    "block_name": "t0000000"
+                }
+            ]
+        }, 
+        {
+            "district_id": 43, 
+            "district_name": "官渡区", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }, 
+                {
+                    "block_id": 1397, 
+                    "block_name": "关上片区"
+                }, 
+                {
+                    "block_id": 1399, 
+                    "block_name": "官南路片区"
+                }, 
+                {
+                    "block_id": 1421, 
+                    "block_name": "南窑片区"
+                }, 
+                {
+                    "block_id": 1461, 
+                    "block_name": "世纪城片区"
+                }, 
+                {
+                    "block_id": 1462, 
+                    "block_name": "经济开发区"
+                }, 
+                {
+                    "block_id": 1501, 
+                    "block_name": "新亚洲片区"
+                }, 
+                {
+                    "block_id": 1502, 
+                    "block_name": "和平村片区"
+                }, 
+                {
+                    "block_id": 1523, 
+                    "block_name": "六甲片区"
+                }, 
+                {
+                    "block_id": 1549, 
+                    "block_name": "菊花村片区"
+                }, 
+                {
+                    "block_id": 1550, 
+                    "block_name": "东聚片区"
+                }, 
+                {
+                    "block_id": 1551, 
+                    "block_name": "福保片区"
+                }, 
+                {
+                    "block_id": 1552, 
+                    "block_name": "大板桥片区"
+                }, 
+                {
+                    "block_id": 1553, 
+                    "block_name": "金马寺片区"
+                }, 
+                {
+                    "block_id": 1554, 
+                    "block_name": "凉亭片区"
+                }, 
+                {
+                    "block_id": 1555, 
+                    "block_name": "湿地片区"
+                }, 
+                {
+                    "block_id": 1556, 
+                    "block_name": "小板桥片区"
+                }, 
+                {
+                    "block_id": 1557, 
+                    "block_name": "螺蛳湾片区"
+                }, 
+                {
+                    "block_id": 1558, 
+                    "block_name": "羊甫片区"
+                }, 
+                {
+                    "block_id": 1573, 
+                    "block_name": "000000000000"
+                }, 
+                {
+                    "block_id": 1578, 
+                    "block_name": "t6666666666"
+                }, 
+                {
+                    "block_id": 1580, 
+                    "block_name": "11111111111"
+                }, 
+                {
+                    "block_id": 1586, 
+                    "block_name": "012345678901234567890123456789qw"
+                }
+            ]
+        }, 
+        {
+            "district_id": 44, 
+            "district_name": "五华区", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }, 
+                {
+                    "block_id": 1446, 
+                    "block_name": "虹山片区"
+                }, 
+                {
+                    "block_id": 1448, 
+                    "block_name": "高新片区"
+                }, 
+                {
+                    "block_id": 1449, 
+                    "block_name": "黄土坡片区"
+                }, 
+                {
+                    "block_id": 1450, 
+                    "block_name": "红联片区"
+                }, 
+                {
+                    "block_id": 1451, 
+                    "block_name": "王家桥片区"
+                }, 
+                {
+                    "block_id": 1452, 
+                    "block_name": "教场路片区"
+                }, 
+                {
+                    "block_id": 1472, 
+                    "block_name": "莲花池片区"
+                }, 
+                {
+                    "block_id": 1473, 
+                    "block_name": "财大片区"
+                }, 
+                {
+                    "block_id": 1475, 
+                    "block_name": "昆烟片区"
+                }, 
+                {
+                    "block_id": 1481, 
+                    "block_name": "翠湖片区"
+                }, 
+                {
+                    "block_id": 1503, 
+                    "block_name": "小西门片区"
+                }, 
+                {
+                    "block_id": 1507, 
+                    "block_name": "金马坊片区"
+                }, 
+                {
+                    "block_id": 1541, 
+                    "block_name": "月牙塘片区"
+                }, 
+                {
+                    "block_id": 1564, 
+                    "block_name": "海源寺片区"
+                }, 
+                {
+                    "block_id": 1565, 
+                    "block_name": "西山区政府片区"
+                }, 
+                {
+                    "block_id": 1581, 
+                    "block_name": "t0000000"
+                }, 
+                {
+                    "block_id": 1583, 
+                    "block_name": "wh"
+                }
+            ]
+        }, 
+        {
+            "district_id": 45, 
+            "district_name": "盘龙区", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }, 
+                {
+                    "block_id": 1463, 
+                    "block_name": "金星片区"
+                }, 
+                {
+                    "block_id": 1464, 
+                    "block_name": "北站片区"
+                }, 
+                {
+                    "block_id": 1469, 
+                    "block_name": "金江片区"
+                }, 
+                {
+                    "block_id": 1504, 
+                    "block_name": "交三桥片区"
+                }, 
+                {
+                    "block_id": 1505, 
+                    "block_name": "新迎片区"
+                }, 
+                {
+                    "block_id": 1506, 
+                    "block_name": "白龙片区"
+                }, 
+                {
+                    "block_id": 1508, 
+                    "block_name": "和平村片区"
+                }, 
+                {
+                    "block_id": 1542, 
+                    "block_name": "月牙塘片区"
+                }, 
+                {
+                    "block_id": 1559, 
+                    "block_name": "茨坝片区"
+                }, 
+                {
+                    "block_id": 1560, 
+                    "block_name": "白沙河片区"
+                }, 
+                {
+                    "block_id": 1561, 
+                    "block_name": "龙头街片区"
+                }, 
+                {
+                    "block_id": 1562, 
+                    "block_name": "世博园片区"
+                }, 
+                {
+                    "block_id": 1563, 
+                    "block_name": "昙华寺片区"
+                }, 
+                {
+                    "block_id": 1566, 
+                    "block_name": "金殿片区"
+                }, 
+                {
+                    "block_id": 1576, 
+                    "block_name": "t5555555"
+                }, 
+                {
+                    "block_id": 1584, 
+                    "block_name": "t0000000"
+                }
+            ]
+        }, 
+        {
+            "district_id": 46, 
+            "district_name": "呈贡区", 
+            "district_block": [
+                {
+                    "block_id": 0, 
+                    "block_name": "不限"
+                }, 
+                {
+                    "block_id": 1571, 
+                    "block_name": "test"
+                }
+            ]
+        }
+    ], 
+    "errorcode": 0
+}

@@ -5,6 +5,8 @@
 
 #import "FSBMySecondHouseToolbarContentView.h"
 
+#define colorNull [UIColor colorWithRed:3 / 255.0 green:3 / 255.0 blue:3 / 255.0 alpha:1.0]
+
 @interface FSBMySecondHouseToolbarContentView ()
 
 @property (nonatomic, retain) NSArray<FSBSecondHouseMoreModel*> *dataSour;

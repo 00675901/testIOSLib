@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A88EA9188860C61111B9AE178202B501BF9143F3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "de672939-9e0d-4316-bd89-ab5beda7afea++7643" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A88EA9188860C61111B9AE178202B501BF9143F3" : 0,
+    "de672939-9e0d-4316-bd89-ab5beda7afea++7643" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BDDD7CA8-131E-4212-98FD-AC5648265ABA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A88EA9188860C61111B9AE178202B501BF9143F3" : "testIOSLib\/",
+    "de672939-9e0d-4316-bd89-ab5beda7afea++7643" : "testIOSLib\/FSLibrary\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "testIOSLib",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "testIOSLib.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:00675901\/testIOSLib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A88EA9188860C61111B9AE178202B501BF9143F3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/svn.fx",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "de672939-9e0d-4316-bd89-ab5beda7afea++7643"
+    }
+  ]
+}

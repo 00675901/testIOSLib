@@ -8,7 +8,10 @@
 #import "FSBMySecondHouseToolbar.h"
 #import "FSBMySecondHouseToolbarContentView.h"
 
-@interface FSBMySecondHouseToolbar () <FSBMySecondHouseToolbarContentViewDelegate>
+#define colorNull [UIColor colorWithRed:3 / 255.0 green:3 / 255.0 blue:3 / 255.0 alpha:1.0]
+#define colorLine [UIColor colorWithRed:210 / 255.0 green:210 / 255.0 blue:210 / 255.0 alpha:1.0]
+
+@interface FSBMySecondHouseToolbar () <FSBMySecondHouseToolbarContentViewDelegate, FMNetworkProtocol>
 
 @property (nonatomic, strong) NSMutableDictionary *sourceData;
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<FSBSecondHouseMoreModel *> *> *contentList;
@@ -17,6 +20,8 @@
 
 @property (retain, nonatomic) NSMutableArray<FSBMySecondHouseToolbarContentView *> *viewListIndex;
 @property (retain, nonatomic) UILabel *currBottomLine;
+
+@property (nonatomic, strong) NSMutableArray *requestArray;
 
 @property (nonatomic, assign) int initHeight;
 @property (nonatomic, assign) int contentHeight;
@@ -46,19 +51,31 @@
     if (self = [super initWithFrame:frame]) {
         _initHeight = frame.size.height;
         _contentHeight = height;
-        [self initContentData];
+        _requestArray = [NSMutableArray array];
+        [self testLocalData];
+//        [self initRequestData];
         return self;
     }
     return nil;
 }
+
+-(void)initRequestData{
+    FMNetworkRequest *request = [[FSNetworkManager sharedInstance] getMySecondHouseParamsByUID:@"10420" networkDelegate:self];
+    [_requestArray addObject:request];
+}
+
+#warning 本地测试数据
+-(void)testLocalData{
+    NSString *testDataStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SecondHouseParamsData" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *testData = (NSDictionary *)[testDataStr objectFromJSONString];
+    _sourceData = [NSMutableDictionary dictionaryWithDictionary:[testData objectForKey:@"data"]];
+    [self initContentData];
+}
+
 /**
  *  初始化数据
  */
 - (void)initContentData {
-    NSString *testDataStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SecondHouseParamsData" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *testData = (NSDictionary *)[testDataStr objectFromJSONString];
-    _sourceData = [NSMutableDictionary dictionaryWithDictionary:[testData objectForKey:@"data"]];
-
     _contentList = [NSMutableArray arrayWithCapacity:3];
     NSMutableArray *tempList = [NSMutableArray array];
     for (NSDictionary *data in [_sourceData objectForKey:@"house_source"]) {
@@ -223,7 +240,6 @@
  */
 - (void)showSpreadView:(UIButton *)sender {
     //计算高度
-    NSLog(@"%d---%d", sender.tag, [_contentList count]);
     int tempH = [_contentList[sender.tag] count];
     tempH *= _contentHeight; //每个项目高度;
     FSBMySecondHouseToolbarContentView *tempView = [[FSBMySecondHouseToolbarContentView alloc] initWithFrame:CGRectMake(0, _initHeight + 1, self.bounds.size.width, tempH) contentHeight:_contentHeight DataSour:_contentList[sender.tag]];
@@ -238,6 +254,22 @@
     NSLog(@"callBak:%@", _contentList[_currButton.tag][index].moreId);
     [_currButton setTitle:_contentList[_currButton.tag][index].moreName forState:UIControlStateNormal];
     [self btnStatusAction:_currButton];
+}
+
+#pragma mark - FMNetwork Delegate
+- (void)fmNetworkFinished:(FMNetworkRequest *)fmNetworkRequest {
+    if ([fmNetworkRequest.requestName isEqualToString:kReq_Probe_GetMySecondHouseParams]) {
+        NSLog(@"Date:%@", fmNetworkRequest.responseData);
+        _sourceData = [NSMutableDictionary dictionaryWithDictionary:fmNetworkRequest.responseData];
+        [self initContentData];
+    }
+}
+
+- (void)fmNetworkFailed:(FMNetworkRequest *)fmNetworkRequest {
+    if ([fmNetworkRequest.requestName isEqualToString:kReq_Probe_GetMySecondHouseParams]) {
+        [[BaseAlert sharedInstance] dismiss];
+        [[BaseAlert sharedInstance] showMessage:fmNetworkRequest.responseData];
+    }
 }
 
 @end

@@ -11,6 +11,19 @@
 		840D91E51CB7959800385CEB /* qq_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D91E41CB7959800385CEB /* qq_test.png */; };
 		840D91E71CB7B18500385CEB /* SecondHouseParamsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */; };
 		840D91EA1CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D91E91CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m */; };
+		84195BA41CBB770800E4FB4C /* FSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BA11CBB770800E4FB4C /* FSNetworkManager.m */; };
+		84195BA51CBB770800E4FB4C /* FSStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BA31CBB770800E4FB4C /* FSStorageManager.m */; };
+		84195BB21CBB8C0C00E4FB4C /* libFSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BB11CBB8C0600E4FB4C /* libFSLibrary.a */; };
+		84195BB41CBB8C4900E4FB4C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BB31CBB8C4900E4FB4C /* CoreText.framework */; };
+		84195BB71CBB8C5000E4FB4C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BB51CBB8C5000E4FB4C /* AddressBook.framework */; };
+		84195BB81CBB8C5000E4FB4C /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BB61CBB8C5000E4FB4C /* AddressBookUI.framework */; };
+		84195BBA1CBB8C5700E4FB4C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BB91CBB8C5700E4FB4C /* libxml2.tbd */; };
+		84195BBC1CBB8D8900E4FB4C /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84195BBB1CBB8D8900E4FB4C /* libz.1.2.5.tbd */; };
+		84195BCC1CBBCDD100E4FB4C /* FSBMSHBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BC71CBBCDD100E4FB4C /* FSBMSHBlockView.m */; };
+		84195BCD1CBBCDD100E4FB4C /* FSBMSHDeptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BC91CBBCDD100E4FB4C /* FSBMSHDeptView.m */; };
+		84195BCE1CBBCDD100E4FB4C /* FSBMSHStaffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BCB1CBBCDD100E4FB4C /* FSBMSHStaffView.m */; };
+		84195BD11CBBD39B00E4FB4C /* FSBMSHBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84195BD01CBBD39B00E4FB4C /* FSBMSHBaseView.m */; };
+		84195BD31CBBD68700E4FB4C /* pianqu.json in Resources */ = {isa = PBXBuildFile; fileRef = 84195BD21CBBD68700E4FB4C /* pianqu.json */; };
 		841F88141CA4E06C00642797 /* Customers.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88131CA4E06C00642797 /* Customers.m */; };
 		841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88161CA4E1D500642797 /* BaseDBModel.m */; };
 		841F881A1CA4EB0C00642797 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F88191CA4EB0C00642797 /* BaseModel.m */; };
@@ -34,7 +47,6 @@
 		8461CC5E1CA2A78000594CC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461CC5D1CA2A78000594CC1 /* main.m */; };
 		8461CC671CA2A78000594CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC651CA2A78000594CC1 /* Main.storyboard */; };
 		8461CC691CA2A78100594CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8461CC681CA2A78100594CC1 /* Assets.xcassets */; };
-		846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 846860F91CB3A3DE00B75E1B /* FMUMath.m */; };
 		8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616251CAA22F8003F2C78 /* AppDelegate.m */; };
 		8486162C1CAA22F8003F2C78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848616271CAA22F8003F2C78 /* ViewController.m */; };
 		8486162D1CAA22F8003F2C78 /* GTStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486162A1CAA22F8003F2C78 /* GTStorageManager.m */; };
@@ -46,7 +58,6 @@
 		8486164E1CAA854F003F2C78 /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486164C1CAA854F003F2C78 /* ImageEditorViewController.xib */; };
 		84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84898BF51CA3B8C8006DCBF0 /* Customer.m */; };
 		84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */; };
-		8490BB6A1CB643DE00039C51 /* SecondHouseData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490BB691CB643DE00039C51 /* SecondHouseData.json */; };
 		8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */; };
 		84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */; };
 		84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4F0F51CA38D71005D5757 /* GTDBManager.m */; };
@@ -83,6 +94,16 @@
 		C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CDEAB91CB263FE00519D4C /* GTCollectionAddViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84195BB01CBB8C0600E4FB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84195BAC1CBB8C0600E4FB4C /* FSLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B996D3E1B6CC0CA0061E6B6;
+			remoteInfo = FSLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		19FFD86A5FBE9F74F87A3D6C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		20F7C5ED1723ADCF303ACA7F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +111,25 @@
 		840D91E61CB7B18500385CEB /* SecondHouseParamsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SecondHouseParamsData.json; sourceTree = "<group>"; };
 		840D91E81CB7BE0B00385CEB /* FSBSecondHouseMoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBSecondHouseMoreModel.h; sourceTree = "<group>"; };
 		840D91E91CB7BE0B00385CEB /* FSBSecondHouseMoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBSecondHouseMoreModel.m; sourceTree = "<group>"; };
+		84195BA01CBB770800E4FB4C /* FSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNetworkManager.h; sourceTree = "<group>"; };
+		84195BA11CBB770800E4FB4C /* FSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNetworkManager.m; sourceTree = "<group>"; };
+		84195BA21CBB770800E4FB4C /* FSStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStorageManager.h; sourceTree = "<group>"; };
+		84195BA31CBB770800E4FB4C /* FSStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStorageManager.m; sourceTree = "<group>"; };
+		84195BAC1CBB8C0600E4FB4C /* FSLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FSLibrary.xcodeproj; path = FSLibrary/FSLibrary.xcodeproj; sourceTree = "<group>"; };
+		84195BB31CBB8C4900E4FB4C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		84195BB51CBB8C5000E4FB4C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		84195BB61CBB8C5000E4FB4C /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		84195BB91CBB8C5700E4FB4C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		84195BBB1CBB8D8900E4FB4C /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		84195BC61CBBCDD100E4FB4C /* FSBMSHBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMSHBlockView.h; sourceTree = "<group>"; };
+		84195BC71CBBCDD100E4FB4C /* FSBMSHBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMSHBlockView.m; sourceTree = "<group>"; };
+		84195BC81CBBCDD100E4FB4C /* FSBMSHDeptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMSHDeptView.h; sourceTree = "<group>"; };
+		84195BC91CBBCDD100E4FB4C /* FSBMSHDeptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMSHDeptView.m; sourceTree = "<group>"; };
+		84195BCA1CBBCDD100E4FB4C /* FSBMSHStaffView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMSHStaffView.h; sourceTree = "<group>"; };
+		84195BCB1CBBCDD100E4FB4C /* FSBMSHStaffView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMSHStaffView.m; sourceTree = "<group>"; };
+		84195BCF1CBBD39B00E4FB4C /* FSBMSHBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBMSHBaseView.h; sourceTree = "<group>"; };
+		84195BD01CBBD39B00E4FB4C /* FSBMSHBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBMSHBaseView.m; sourceTree = "<group>"; };
+		84195BD21CBBD68700E4FB4C /* pianqu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pianqu.json; sourceTree = "<group>"; };
 		841F88121CA4E06C00642797 /* Customers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customers.h; sourceTree = "<group>"; };
 		841F88131CA4E06C00642797 /* Customers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customers.m; sourceTree = "<group>"; };
 		841F88151CA4E1D500642797 /* BaseDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDBModel.h; sourceTree = "<group>"; };
@@ -125,8 +165,6 @@
 		8461CC661CA2A78000594CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8461CC681CA2A78100594CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8461CC6D1CA2A78100594CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		846860F81CB3A3DE00B75E1B /* FMUMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMUMath.h; sourceTree = "<group>"; };
-		846860F91CB3A3DE00B75E1B /* FMUMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMUMath.m; sourceTree = "<group>"; };
 		848616241CAA22F8003F2C78 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		848616251CAA22F8003F2C78 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		848616261CAA22F8003F2C78 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -149,7 +187,6 @@
 		84898BF41CA3B8C8006DCBF0 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
 		84898BF51CA3B8C8006DCBF0 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testCustomJson.json; sourceTree = "<group>"; };
-		8490BB691CB643DE00039C51 /* SecondHouseData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SecondHouseData.json; sourceTree = "<group>"; };
 		8490BB6B1CB681AB00039C51 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+UIColor.h"; sourceTree = "<group>"; };
 		8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+UIColor.m"; sourceTree = "<group>"; };
 		84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCustomDB.db; sourceTree = "<group>"; };
@@ -222,7 +259,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84195BBC1CBB8D8900E4FB4C /* libz.1.2.5.tbd in Frameworks */,
+				84195BBA1CBB8C5700E4FB4C /* libxml2.tbd in Frameworks */,
+				84195BB71CBB8C5000E4FB4C /* AddressBook.framework in Frameworks */,
+				84195BB81CBB8C5000E4FB4C /* AddressBookUI.framework in Frameworks */,
+				84195BB41CBB8C4900E4FB4C /* CoreText.framework in Frameworks */,
 				3127363768D6D6CC924CD036 /* libPods.a in Frameworks */,
+				84195BB21CBB8C0C00E4FB4C /* libFSLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,11 +275,36 @@
 		82BFED0924673EE34A02A612 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84195BBB1CBB8D8900E4FB4C /* libz.1.2.5.tbd */,
+				84195BB91CBB8C5700E4FB4C /* libxml2.tbd */,
+				84195BB51CBB8C5000E4FB4C /* AddressBook.framework */,
+				84195BB61CBB8C5000E4FB4C /* AddressBookUI.framework */,
+				84195BB31CBB8C4900E4FB4C /* CoreText.framework */,
+				84195BAC1CBB8C0600E4FB4C /* FSLibrary.xcodeproj */,
 				84E8291D1CB602F500B41116 /* QuartzCore.framework */,
 				84D4F0FF1CA39AAB005D5757 /* libsqlite3.tbd */,
 				20F7C5ED1723ADCF303ACA7F /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84195B9F1CBB770800E4FB4C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84195BA01CBB770800E4FB4C /* FSNetworkManager.h */,
+				84195BA11CBB770800E4FB4C /* FSNetworkManager.m */,
+				84195BA21CBB770800E4FB4C /* FSStorageManager.h */,
+				84195BA31CBB770800E4FB4C /* FSStorageManager.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		84195BAD1CBB8C0600E4FB4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84195BB11CBB8C0600E4FB4C /* libFSLibrary.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		843148E51CA917C500606FC1 /* ViewController */ = {
@@ -325,6 +393,7 @@
 				843148E51CA917C500606FC1 /* ViewController */,
 				84898BF21CA3B8C8006DCBF0 /* Models */,
 				84B0E3551CA2A9D40033D2A2 /* DB */,
+				84195B9F1CBB770800E4FB4C /* Network */,
 				8486163F1CAA587E003F2C78 /* Utils */,
 				8461CC651CA2A78000594CC1 /* Main.storyboard */,
 				8486162F1CAA52EC003F2C78 /* Res */,
@@ -411,8 +480,6 @@
 		8486163F1CAA587E003F2C78 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				846860F81CB3A3DE00B75E1B /* FMUMath.h */,
-				846860F91CB3A3DE00B75E1B /* FMUMath.m */,
 				84F736E61CBA4E1700952B2D /* BaseAlert.h */,
 				84F736E71CBA4E1700952B2D /* BaseAlert.m */,
 				84F736E81CBA4E1700952B2D /* Utils.h */,
@@ -550,10 +617,18 @@
 		C8673F701CB5614400ED34D3 /* TestLayoutView */ = {
 			isa = PBXGroup;
 			children = (
-				8490BB691CB643DE00039C51 /* SecondHouseData.json */,
 				C8673F711CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.h */,
 				C8673F721CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m */,
 				C8673F731CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.xib */,
+				84195BCF1CBBD39B00E4FB4C /* FSBMSHBaseView.h */,
+				84195BD01CBBD39B00E4FB4C /* FSBMSHBaseView.m */,
+				84195BC61CBBCDD100E4FB4C /* FSBMSHBlockView.h */,
+				84195BC71CBBCDD100E4FB4C /* FSBMSHBlockView.m */,
+				84195BD21CBBD68700E4FB4C /* pianqu.json */,
+				84195BC81CBBCDD100E4FB4C /* FSBMSHDeptView.h */,
+				84195BC91CBBCDD100E4FB4C /* FSBMSHDeptView.m */,
+				84195BCA1CBBCDD100E4FB4C /* FSBMSHStaffView.h */,
+				84195BCB1CBBCDD100E4FB4C /* FSBMSHStaffView.m */,
 			);
 			path = TestLayoutView;
 			sourceTree = "<group>";
@@ -607,12 +682,28 @@
 			mainGroup = 8461CC501CA2A78000594CC1;
 			productRefGroup = 8461CC5A1CA2A78000594CC1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 84195BAD1CBB8C0600E4FB4C /* Products */;
+					ProjectRef = 84195BAC1CBB8C0600E4FB4C /* FSLibrary.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8461CC581CA2A78000594CC1 /* testIOSLib */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		84195BB11CBB8C0600E4FB4C /* libFSLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFSLibrary.a;
+			remoteRef = 84195BB01CBB8C0600E4FB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8461CC571CA2A78000594CC1 /* Resources */ = {
@@ -638,8 +729,8 @@
 				84F736E21CBA46AB00952B2D /* show_arrow_down@2x.png in Resources */,
 				C8CDEABB1CB263FE00519D4C /* GTCollectionAddViewCell.xib in Resources */,
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
-				8490BB6A1CB643DE00039C51 /* SecondHouseData.json in Resources */,
 				84F736E31CBA46AB00952B2D /* show_arrow_down@3x.png in Resources */,
+				84195BD31CBBD68700E4FB4C /* pianqu.json in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
 				845FC06C1CACCD4400BF9BC5 /* checkbox_tick@3x.png in Resources */,
@@ -719,6 +810,7 @@
 				8486162B1CAA22F8003F2C78 /* AppDelegate.m in Sources */,
 				848616491CAA5DB0003F2C78 /* UIColor+Utility.m in Sources */,
 				C8673F681CB55FEC00ED34D3 /* MyLayoutDime.m in Sources */,
+				84195BCC1CBBCDD100E4FB4C /* FSBMSHBlockView.m in Sources */,
 				848616391CAA5640003F2C78 /* ImageShowViewController.m in Sources */,
 				841F881A1CA4EB0C00642797 /* BaseModel.m in Sources */,
 				8486162C1CAA22F8003F2C78 /* ViewController.m in Sources */,
@@ -726,7 +818,7 @@
 				8461CC5E1CA2A78000594CC1 /* main.m in Sources */,
 				C8673F6E1CB55FEC00ED34D3 /* MyRelativeLayout.m in Sources */,
 				843148EE1CA919A100606FC1 /* GTTableViewCell.m in Sources */,
-				846860FA1CB3A3DE00B75E1B /* FMUMath.m in Sources */,
+				84195BA41CBB770800E4FB4C /* FSNetworkManager.m in Sources */,
 				8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */,
 				C8673F6D1CB55FEC00ED34D3 /* MyMaker.m in Sources */,
 				84F736EB1CBA4E1700952B2D /* Utils.m in Sources */,
@@ -743,12 +835,16 @@
 				C8673F6F1CB55FEC00ED34D3 /* MyTableLayout.m in Sources */,
 				C8673F6B1CB55FEC00ED34D3 /* MyLayoutSizeClass.m in Sources */,
 				845FC0601CACC45000BF9BC5 /* FSBMySecondHouseToolbar.m in Sources */,
+				84195BCD1CBBCDD100E4FB4C /* FSBMSHDeptView.m in Sources */,
+				84195BA51CBB770800E4FB4C /* FSStorageManager.m in Sources */,
 				841F88171CA4E1D500642797 /* BaseDBModel.m in Sources */,
+				84195BD11CBBD39B00E4FB4C /* FSBMSHBaseView.m in Sources */,
 				C8673F6A1CB55FEC00ED34D3 /* MyLayoutPos.m in Sources */,
 				C8673F631CB55FEC00ED34D3 /* MyBaseLayout.m in Sources */,
 				84F736EA1CBA4E1700952B2D /* BaseAlert.m in Sources */,
 				C8673F741CB5614400ED34D3 /* FSBMySecondHouseMoreLayout.m in Sources */,
 				C80BBFEA1CB1B46100F0EF0A /* GTCollectionViewHeader.m in Sources */,
+				84195BCE1CBBCDD100E4FB4C /* FSBMSHStaffView.m in Sources */,
 				8486164D1CAA854F003F2C78 /* ImageEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,7 +954,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PREFIX_HEADER = testIOSLib/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit-NoWarning\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/TZImagePickerController\"",
+					"\"${PODS_ROOT}/Headers/Public/ViewDeck\"",
+					"\"$(PROJECT_DIR)/FSLibrary\"/**",
+				);
 				INFOPLIST_FILE = testIOSLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -876,7 +983,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PREFIX_HEADER = testIOSLib/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit-NoWarning\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/TZImagePickerController\"",
+					"\"${PODS_ROOT}/Headers/Public/ViewDeck\"",
+					"\"$(PROJECT_DIR)/FSLibrary\"/**",
+				);
 				INFOPLIST_FILE = testIOSLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

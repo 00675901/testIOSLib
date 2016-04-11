@@ -4,13 +4,21 @@
 //
 
 #import "FSBMySecondHouseMoreLayout.h"
+#import "MyLayout.h"
+
+#import "FSBMSHBaseView.h"
+#import "FSBMSHBlockView.h"
+#import "FSBMSHDeptView.h"
+#import "FSBMSHStaffView.h"
 
 static CGFloat const moreViewOffsetX = 42.0f;
 #define SHOW_FRAME CGRectMake(moreViewOffsetX, 0, ScreenWidth - moreViewOffsetX, ScreenHeight)
+#define INIT_SHOW_FRAME CGRectMake(ScreenWidth, 0, ScreenWidth - moreViewOffsetX, ScreenHeight)
 #define CONTENT_HEIGHT 40 //未展开内容高度
 #define colorBlue [UIColor colorWithHex:0x2093FA alpha:1.0]
 #define colorGray [UIColor colorWithHex:0xE2E2E2 alpha:1.0]
 #define colorGray_1 [UIColor colorWithHex:0xA2A2A2 alpha:1.0]
+#define colorLine [UIColor colorWithRed:210 / 255.0 green:210 / 255.0 blue:210 / 255.0 alpha:1.0]
 #define DATANIL @"dataNil"
 
 /**
@@ -36,18 +44,24 @@ static CGFloat const moreViewOffsetX = 42.0f;
     IBOutlet UIActivityIndicatorView *_loadView;
     IBOutlet UIDatePicker *_datePicker;
     IBOutlet UIToolbar *_toolBar;
-    IBOutlet UIBarButtonItem *_toolBarTitle;
     IBOutlet UIBarButtonItem *_toolBarCertain;
+    
+    IBOutlet FSBMSHStaffView *_staffView; //员工
+    IBOutlet FSBMSHDeptView *_deptView; //部门
+    IBOutlet FSBMSHBlockView *_blockView; //片区
 }
 @property (nonatomic, retain) NSMutableDictionary *sourceData; //源数据
 
 @property (nonatomic, assign) BOOL showMoreView;
+@property (nonatomic, assign) BOOL showMoreOtherView;
 @property (nonatomic, strong) MyLinearLayout *myContentView;
 
 @property (nonatomic, strong) NSMutableArray<FSBSHParamsModel *> *dataIndex; //源数据与项目的索引
 @property (nonatomic, strong) NSMutableArray<MyBaseLayout *> *dataViewIndex; //源数据与项目的索引
 @property (nonatomic, strong) NSMutableDictionary *dataOption; //处理所有要操作(显示/隐藏/赋值)的元素
 @property (nonatomic, strong) NSMutableDictionary *dataSelected; //处理所有需要改变选中状态的元素
+
+@property (nonatomic, strong) NSMutableArray<FSBMSHBaseView *> *viewList;
 
 @end
 
@@ -75,6 +89,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
 }
 - (void)initBackgroudView {
     _showMoreView = NO;
+    _showMoreOtherView = NO;
     UIView *moreBackView = [[UIView alloc] init];
     moreBackView.frame = self.bounds;
     moreBackView.backgroundColor = [UIColor blackColor];
@@ -93,13 +108,60 @@ static CGFloat const moreViewOffsetX = 42.0f;
         }];
     }
 }
-- (void)hiddenView {
+- (IBAction)hiddenView {
     if (self.showMoreView) {
         _showMoreView = NO;
         [self handleHideKeyboard:nil];
         [UIView animateWithDuration:0.5 animations:^{
             self.frame = FMURectSetX(self.frame, ScreenWidth);
-        }];
+        }
+            completion:^(BOOL finished) {
+                if (finished) {
+                    for (UIView *view in _viewList) {
+                        [view removeFromSuperview];
+                    }
+                    _showMoreOtherView = NO;
+                }
+            }];
+    }
+}
+
+- (void)showViewOther:(FSBMSHBaseView *)view {
+    if (!self.showMoreOtherView) {
+        _showMoreOtherView = YES;
+        [view setFrame:INIT_SHOW_FRAME];
+        [_moreView addSubview:view];
+        [view startDataView:@"111111"];
+        [UIView animateWithDuration:0.5 animations:^{
+            view.frame = FMURectSetX(view.frame, 0);
+        }
+            completion:^(BOOL finished) {
+                if (finished) {
+                    [_viewList addObject:view];
+                }
+            }];
+    }
+}
+- (IBAction)hiddenViewOther {
+    if (self.showMoreOtherView) {
+        _showMoreOtherView = NO;
+        [self handleHideKeyboard:nil];
+        if ([_viewList count] > 0) {
+            FSBMSHBaseView *view = [_viewList lastObject];
+            [UIView animateWithDuration:0.5 animations:^{
+                if (view) {
+                    view.frame = FMURectSetX(view.frame, ScreenWidth);
+                }
+            }
+                completion:^(BOOL finished) {
+                    if (finished) {
+                        if (view) {
+                            [view removeFromSuperview];
+                            [_viewList removeLastObject];
+                        }
+                    }
+                }];
+        }
     }
 }
 
@@ -119,7 +181,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
     _moreTable.alwaysBounceVertical = YES;
     _moreTable.delegate = self;
 
-    //    [[BaseAlert sharedInstance] showLodingWithMessage:@"正在加载..."];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         //初始化数据索引
@@ -127,6 +188,8 @@ static CGFloat const moreViewOffsetX = 42.0f;
     }];
     [operation setCompletionBlock:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            _viewList = [NSMutableArray array];
+            [_datePicker setFrame:CGRectZero];
             //内容容器
             _myContentView = [MyLinearLayout linearLayoutWithOrientation:MyLayoutViewOrientation_Vert];
             _myContentView.myLeftMargin = 0;
@@ -662,7 +725,15 @@ static CGFloat const moreViewOffsetX = 42.0f;
  */
 - (void)showNewView:(UIButton *)sender {
     [self handleHideKeyboard:nil];
-    NSLog(@"打开新窗口:%d-----%d", [[sender superview] tag], sender.tag);
+    NSString *key = _dataIndex[sender.tag].name;
+    if ([@"员工" isEqualToString:key]) {
+        [self showViewOther:_staffView];
+    } else if ([@"部门" isEqualToString:key]) {
+        [self showViewOther:_deptView];
+    } else if ([@"片区" isEqualToString:key]) {
+        [self showViewOther:_blockView];
+    }
+    //NSLog(@"打开新窗口:%d-----%d", [[sender superview] tag], sender.tag);
 }
 /**
  *  显示/隐藏多数据项
@@ -751,7 +822,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
     if (13 == index) {
         textField.inputView = _datePicker;
         textField.inputAccessoryView = _toolBar;
-        [_toolBarTitle setTitle:textField.placeholder];
         _toolBarCertain.tag = index * 100 + textField.tag;
     }
 }
@@ -759,16 +829,18 @@ static CGFloat const moreViewOffsetX = 42.0f;
 //}
 
 #pragma mark - 时间选择Delegate,dataSource
-- (IBAction)timePicker:(UIButton *)sender {
+- (void)timePicker:(UIButton *)sender {
+    NSLog(@"%d", sender.tag);
     [self handleHideKeyboard:nil];
     NSString *key = [NSString stringWithFormat:@"%d-%d", (int)sender.tag / 100, sender.tag % 100];
     NSDate *select = [_datePicker date];
     NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
     selectDateFormatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateAndTime = [selectDateFormatter stringFromDate:select];
-    [(UITextField*)_dataOption[key] setText:dateAndTime];
+    [(UITextField *)_dataOption[key] setText:dateAndTime];
 }
-- (IBAction)cancelTimePicker:(id)sender {
+- (void)cancelTimePicker:(UIButton *)sender {
+    NSLog(@"%d", sender.tag);
     [self handleHideKeyboard:nil];
     NSLog(@"time pick cancel");
 }

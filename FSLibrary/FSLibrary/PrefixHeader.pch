@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  FSLibrary
+//
+//  Created by XuLei on 15/8/5.
+//  Copyright (c) 2015年 fangstar. All rights reserved.
+//
+
+#ifndef FSLibrary_PrefixHeader_pch
+#define FSLibrary_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <QuartzCore/QuartzCore.h>
+#endif
+
+#endif

@@ -10,6 +10,22 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define ScreenScale [UIScreen mainScreen].scale
 
+//文林电脑
+//static NSString * const kApiBaseUrl = @"http://192.168.22.20/FSERP/probe/admin/fangstarbrokerapi/public/";
+
+static NSString * const kApiBaseUrl = @"http://probe.test.fangstar.net:8120";
+
+//static NSString * const kApiBaseUrl = @"http://probe.test.fangstar.net:8888";
+
+//static NSString * const kApiBaseUrl = @"http://192.168.10.20:8991";
+
+// 云凯
+//static NSString * const kApiBaseUrl = @"http://192.168.22.5";
+
+// 通知
+#define NOTIFICATION_UPGRADE                                @"upgrade"
+#define NOTIFICATION_BLACKLIST                              @"blacklist"
+
 // 颜色
 #define kARGBColor(r, g, b, a) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
 #define kSepartorLineColor kARGBColor(230, 230, 230, 1.0)
@@ -29,7 +45,6 @@
 
 // 系统
 #define kSystemVersion [[[UIDevice currentDevice] systemVersion] floatValue]
-#define IOS7_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
 
 // 判断iPhone4
 #define isIPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
