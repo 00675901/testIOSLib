@@ -13,9 +13,13 @@
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="_datePicker" destination="LS3-Cs-fAt" id="H34-IM-hrl"/>
                 <outlet property="_loadView" destination="BBr-Ai-VWM" id="ZPS-LV-qkL"/>
                 <outlet property="_moreTable" destination="vh1-pQ-6zu" id="yqd-TT-fPd"/>
                 <outlet property="_moreView" destination="CFS-6i-FcG" id="Wk1-mW-sZL"/>
+                <outlet property="_toolBar" destination="fEO-4X-awc" id="JJF-13-rid"/>
+                <outlet property="_toolBarCertain" destination="UAh-LM-6dm" id="HM4-9S-BFH"/>
+                <outlet property="_toolBarTitle" destination="CpA-0O-kMt" id="hzt-wI-mCe"/>
             </connections>
             <point key="canvasLocation" x="-106.5" y="353.5"/>
         </view>
@@ -108,5 +112,33 @@
             <point key="canvasLocation" x="-524.5" y="353.5"/>
         </view>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fEO-4X-awc">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="取消" style="done" id="um3-ZH-aOC">
+                    <connections>
+                        <action selector="cancelTimePicker:" destination="iN0-l3-epB" id="A3o-ia-YKT"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="标题内容" width="217" style="plain" id="CpA-0O-kMt">
+                    <color key="tintColor" red="0.51856008287292821" green="0.51856008287292821" blue="0.51856008287292821" alpha="1" colorSpace="calibratedRGB"/>
+                </barButtonItem>
+                <barButtonItem title="确定" style="done" id="UAh-LM-6dm">
+                    <connections>
+                        <action selector="timePicker:" destination="iN0-l3-epB" id="aJV-HG-YMs"/>
+                    </connections>
+                </barButtonItem>
+            </items>
+            <point key="canvasLocation" x="293" y="42"/>
+        </toolbar>
+        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="LS3-Cs-fAt">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <date key="date" timeIntervalSinceReferenceDate="481990166.97364098">
+                <!--2016-04-10 14:09:26 +0000-->
+            </date>
+            <point key="canvasLocation" x="293" y="186"/>
+        </datePicker>
     </objects>
 </document>

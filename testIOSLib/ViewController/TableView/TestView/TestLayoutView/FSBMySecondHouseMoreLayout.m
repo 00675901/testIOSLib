@@ -30,10 +30,14 @@ static CGFloat const moreViewOffsetX = 42.0f;
 }
 @end
 
-@interface FSBMySecondHouseMoreLayout () <UIScrollViewDelegate> {
+@interface FSBMySecondHouseMoreLayout () <UIScrollViewDelegate, UITextFieldDelegate> {
     IBOutlet UIView *_moreView;
     IBOutlet UIScrollView *_moreTable;
     IBOutlet UIActivityIndicatorView *_loadView;
+    IBOutlet UIDatePicker *_datePicker;
+    IBOutlet UIToolbar *_toolBar;
+    IBOutlet UIBarButtonItem *_toolBarTitle;
+    IBOutlet UIBarButtonItem *_toolBarCertain;
 }
 @property (nonatomic, retain) NSMutableDictionary *sourceData; //源数据
 
@@ -104,6 +108,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     [self handleHideKeyboard:nil];
 }
 
+#pragma mark - 初始化界面/项目/显示数据
 //初始化页面显示内容
 - (void)initDataView {
     [_moreView setFrame:SHOW_FRAME];
@@ -140,8 +145,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
     }];
     [queue addOperation:operation];
 }
-
-#pragma mark - 初始化界面/项目/显示数据
 //初始化数据索引
 - (void)initDataIndex {
     _dataIndex = [NSMutableArray array];
@@ -190,7 +193,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     tempModel = [[FSBSHParamsModel alloc] initWithName:@"时间" FieldName:DATANIL LineWidth:2 ActionType:actionTypeMultiInput];
     [tempModel.params addObject:@"请输入开始时间"];
     [tempModel.params addObject:@"请输入结束时间"];
-    [tempModel.params addObject:@""];
+    [tempModel.params addObject:@"timePick"];
     [_dataIndex addObject:tempModel];
 
     tempModel = [[FSBSHParamsModel alloc] initWithName:@"上下架" FieldName:@"house_grounding_data" LineWidth:2 ActionType:actionTypeShow];
@@ -260,7 +263,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
     llLayout.gravity = MyMarginGravity_Vert_Fill;
     //设置下边线
     llLayout.bottomBorderLine = [self getLine:colorLine LineWidth:bottomLineWidth];
-    //左右边距，不包裹子视图，整体高度为
+    //左右边距，不包裹子视图，整体高度为@CONTENT_HEIGHT
     llLayout.wrapContentWidth = NO;
     llLayout.wrapContentHeight = NO;
     llLayout.heightDime.equalTo(@CONTENT_HEIGHT);
@@ -312,6 +315,7 @@ static CGFloat const moreViewOffsetX = 42.0f;
  */
 - (UITextField *)getLLTextField:(NSString *)text Weight:(int)weight {
     UITextField *textView = [UITextField new];
+    textView.delegate = self;
     [textView setFont:[UIFont systemFontOfSize:12]];
     if (text) {
         textView.placeholder = text;
@@ -375,7 +379,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
     //内容
     UILabel *conlab = [self getLLLabel:nil Weight:8];
     [_dataOption setObject:conlab forKey:[NSString stringWithFormat:@"%d-%d", tag, 1]]; //管理要操作的UI
-    [conlab setText:@"测试数据测试"];
     [conlab setTextAlignment:NSTextAlignmentRight];
     [llLayout addSubview:conlab];
     //按钮
@@ -423,25 +426,33 @@ static CGFloat const moreViewOffsetX = 42.0f;
  */
 - (MyLinearLayout *)createRangeItemWithTag:(int)tag Title:(NSString *)title bottomLineWidth:(int)width Action:(SEL)sel FirstDefault:(NSString *)firstDefault SecondDefault:(NSString *)secondDefault Symbol:(NSString *)symbol {
     MyLinearLayout *llLayout = [self getLinearLayoutHorz:width];
+    llLayout.tag = tag;
     //标题
-    UILabel *titlelab = [self getLLLabel:title Weight:0];
-    [llLayout addSubview:titlelab];
+    UILabel *titlelab;
+    if (title) {
+        titlelab = [self getLLLabel:title Weight:0];
+        [llLayout addSubview:titlelab];
+    }
     //范围1文本框
     UITextField *textView = [self getLLTextField:firstDefault Weight:4];
+    textView.tag = 1;
     [textView setTextColor:colorBlue];
-    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, 1]];
+    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, textView.tag]];
     [llLayout addSubview:textView];
     //分隔符号"-"
     titlelab = [self getLLLabel:@"-" Weight:0];
     [llLayout addSubview:titlelab];
     //范围2文本框
     textView = [self getLLTextField:secondDefault Weight:4];
+    textView.tag = 2;
     [textView setTextColor:colorBlue];
-    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, 2]];
+    [_dataOption setObject:textView forKey:[NSString stringWithFormat:@"%d-%d", tag, textView.tag]];
     [llLayout addSubview:textView];
     //单位符号
-    titlelab = [self getLLLabel:symbol Weight:0];
-    [llLayout addSubview:titlelab];
+    if (![@"timePick" isEqualToString:symbol]) {
+        titlelab = [self getLLLabel:symbol Weight:0];
+        [llLayout addSubview:titlelab];
+    }
     //操作按钮
     if (sel) {
         UIButton *button = [self getLLButton:@">" Action:sel Weight:2];
@@ -478,7 +489,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
         //设置按钮显示内容
         [button setBackgroundColor:[UIColor whiteColor]];
         //显示标题
-        //        [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
         [button setTitle:[dic objectForKey:@"name"] forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont systemFontOfSize:10]];
         [button setTitleColor:colorGray_1 forState:UIControlStateNormal];
@@ -626,7 +636,6 @@ static CGFloat const moreViewOffsetX = 42.0f;
  *  @param sender 索引
  */
 - (void)resetAll:(UIButton *)sender {
-    NSLog(@"重置--重置");
     for (NSString *key in _dataOption) {
         id item = [_dataOption objectForKey:key];
         if ([item isKindOfClass:[UITextField class]]) {
@@ -734,6 +743,34 @@ static CGFloat const moreViewOffsetX = 42.0f;
     sender.selected = YES;
     [sender setBackgroundColor:colorBlue];
     [_dataSelected setObject:sender forKey:tempKey];
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    int index = [[textField superview] tag];
+    if (13 == index) {
+        textField.inputView = _datePicker;
+        textField.inputAccessoryView = _toolBar;
+        [_toolBarTitle setTitle:textField.placeholder];
+        _toolBarCertain.tag = index * 100 + textField.tag;
+    }
+}
+//- (void)textFieldDidEndEditing:(UITextField *)textField {
+//}
+
+#pragma mark - 时间选择Delegate,dataSource
+- (IBAction)timePicker:(UIButton *)sender {
+    [self handleHideKeyboard:nil];
+    NSString *key = [NSString stringWithFormat:@"%d-%d", (int)sender.tag / 100, sender.tag % 100];
+    NSDate *select = [_datePicker date];
+    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+    selectDateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSString *dateAndTime = [selectDateFormatter stringFromDate:select];
+    [(UITextField*)_dataOption[key] setText:dateAndTime];
+}
+- (IBAction)cancelTimePicker:(id)sender {
+    [self handleHideKeyboard:nil];
+    NSLog(@"time pick cancel");
 }
 
 @end
