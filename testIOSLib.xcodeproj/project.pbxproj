@@ -59,6 +59,7 @@
 		84898BF61CA3B8C8006DCBF0 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84898BF51CA3B8C8006DCBF0 /* Customer.m */; };
 		84898BF81CA3C3F6006DCBF0 /* testCustomJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */; };
 		8490BB6D1CB681AB00039C51 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */; };
+		84A52B731CBC8E6C00F2405A /* yuangong.json in Resources */ = {isa = PBXBuildFile; fileRef = 84A52B721CBC8E6C00F2405A /* yuangong.json */; };
 		84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */; };
 		84D4F0F61CA38D71005D5757 /* GTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4F0F51CA38D71005D5757 /* GTDBManager.m */; };
 		84F736DC1CBA25C000952B2D /* FSBMySecondHouseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F736DA1CBA25C000952B2D /* FSBMySecondHouseMoreView.m */; };
@@ -189,6 +190,7 @@
 		84898BF71CA3C3F6006DCBF0 /* testCustomJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testCustomJson.json; sourceTree = "<group>"; };
 		8490BB6B1CB681AB00039C51 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+UIColor.h"; sourceTree = "<group>"; };
 		8490BB6C1CB681AB00039C51 /* CALayer+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+UIColor.m"; sourceTree = "<group>"; };
+		84A52B721CBC8E6C00F2405A /* yuangong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yuangong.json; sourceTree = "<group>"; };
 		84B0E3561CA2A9D40033D2A2 /* testCustomDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCustomDB.db; sourceTree = "<group>"; };
 		84D4F0F41CA38D71005D5757 /* GTDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDBManager.h; sourceTree = "<group>"; };
 		84D4F0F51CA38D71005D5757 /* GTDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDBManager.m; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 				84195BC91CBBCDD100E4FB4C /* FSBMSHDeptView.m */,
 				84195BCA1CBBCDD100E4FB4C /* FSBMSHStaffView.h */,
 				84195BCB1CBBCDD100E4FB4C /* FSBMSHStaffView.m */,
+				84A52B721CBC8E6C00F2405A /* yuangong.json */,
 			);
 			path = TestLayoutView;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				845FC06B1CACCD4400BF9BC5 /* checkbox_tick@2x.png in Resources */,
 				84F736E31CBA46AB00952B2D /* show_arrow_down@3x.png in Resources */,
 				84195BD31CBBD68700E4FB4C /* pianqu.json in Resources */,
+				84A52B731CBC8E6C00F2405A /* yuangong.json in Resources */,
 				845FC06D1CACCD4400BF9BC5 /* head_tabbar_arrow_down@2x.png in Resources */,
 				84B0E3571CA2A9D40033D2A2 /* testCustomDB.db in Resources */,
 				845FC06C1CACCD4400BF9BC5 /* checkbox_tick@3x.png in Resources */,

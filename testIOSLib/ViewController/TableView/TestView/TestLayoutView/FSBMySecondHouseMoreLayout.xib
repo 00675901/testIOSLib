@@ -336,12 +336,20 @@
                         <constraint firstItem="leh-Nk-Bu1" firstAttribute="top" secondItem="D4U-Rn-PSL" secondAttribute="top" constant="26" id="qf2-Kx-uzt"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gV2-U2-6kK">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="D4U-Rn-PSL" secondAttribute="trailing" id="FjH-BQ-Qbn"/>
+                <constraint firstItem="gV2-U2-6kK" firstAttribute="top" secondItem="D4U-Rn-PSL" secondAttribute="bottom" id="L5L-er-YXW"/>
+                <constraint firstItem="gV2-U2-6kK" firstAttribute="leading" secondItem="KNy-7N-i2R" secondAttribute="leading" id="OfT-1p-esv"/>
+                <constraint firstAttribute="bottom" secondItem="gV2-U2-6kK" secondAttribute="bottom" id="eVl-gU-cHe"/>
                 <constraint firstItem="D4U-Rn-PSL" firstAttribute="top" secondItem="KNy-7N-i2R" secondAttribute="top" id="qrR-dh-BU5"/>
                 <constraint firstItem="D4U-Rn-PSL" firstAttribute="leading" secondItem="KNy-7N-i2R" secondAttribute="leading" id="svy-f9-P4a"/>
+                <constraint firstAttribute="trailing" secondItem="gV2-U2-6kK" secondAttribute="trailing" id="x2V-Mb-tYz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -417,15 +425,30 @@
                         <constraint firstItem="UN0-ww-o2Z" firstAttribute="leading" secondItem="BG6-qw-Zlm" secondAttribute="leading" id="jbo-VX-lwr"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-hX-AUn">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="R7M-sl-XTx" id="qGm-Fn-CEC"/>
+                        <outlet property="delegate" destination="R7M-sl-XTx" id="zS7-mg-5WR"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="BG6-qw-Zlm" secondAttribute="trailing" id="0bO-qp-2Oe"/>
+                <constraint firstItem="SwT-hX-AUn" firstAttribute="top" secondItem="BG6-qw-Zlm" secondAttribute="bottom" id="7KL-mY-TC4"/>
+                <constraint firstItem="SwT-hX-AUn" firstAttribute="leading" secondItem="R7M-sl-XTx" secondAttribute="leading" id="Tii-9R-Izz"/>
                 <constraint firstItem="BG6-qw-Zlm" firstAttribute="top" secondItem="R7M-sl-XTx" secondAttribute="top" id="acB-ze-K6P"/>
+                <constraint firstAttribute="trailing" secondItem="SwT-hX-AUn" secondAttribute="trailing" id="e9Z-Xs-Nk7"/>
                 <constraint firstItem="BG6-qw-Zlm" firstAttribute="leading" secondItem="R7M-sl-XTx" secondAttribute="leading" id="oCo-Wr-PUl"/>
+                <constraint firstAttribute="bottom" secondItem="SwT-hX-AUn" secondAttribute="bottom" id="qGq-pc-tBH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="_contentTable" destination="SwT-hX-AUn" id="LBb-Z5-30c"/>
+            </connections>
             <point key="canvasLocation" x="-96.5" y="1067.5"/>
         </view>
     </objects>
