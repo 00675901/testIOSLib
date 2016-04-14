@@ -163,6 +163,21 @@
 //cell点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Customer *tempdata = _testTVData[indexPath.section][indexPath.row];
+    if (indexPath.section == 5) {
+        [_testTVData[indexPath.section] removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationNone];
+    } else if (indexPath.section == 6) {
+        tempdata.customer_name = [NSString stringWithFormat:@"%d", indexPath.row + 1];
+        [_testTVData[indexPath.section] addObject:tempdata];
+        tempdata.customer_name = [NSString stringWithFormat:@"%d", indexPath.row + 2];
+        [_testTVData[indexPath.section] addObject:tempdata];
+        tempdata.customer_name = [NSString stringWithFormat:@"%d", indexPath.row + 3];
+        [_testTVData[indexPath.section] addObject:tempdata];
+//        [tableView insertRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    
+
     NSLog(@"%d,%d------%@", indexPath.section, indexPath.row, tempdata.customer_name);
 }
 
