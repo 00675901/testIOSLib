@@ -1,0 +1,52 @@
+{
+    "result": 1, 
+    "msg": "", 
+    "msg_type": 0, 
+    "data": [
+        {
+            "staff_name": "不限", 
+            "staff_id": ""
+        }, 
+        {
+            "staff_name": "张臣芬", 
+            "staff_id": 2417
+        }, 
+        {
+            "staff_name": "吴学先", 
+            "staff_id": 5463
+        }, 
+        {
+            "staff_name": "李加飞", 
+            "staff_id": 6801
+        }, 
+        {
+            "staff_name": "雷昊", 
+            "staff_id": 7055
+        }, 
+        {
+            "staff_name": "吴仕会", 
+            "staff_id": 7556
+        }, 
+        {
+            "staff_name": "杨祥分", 
+            "staff_id": 8117
+        }, 
+        {
+            "staff_name": "周玉祥", 
+            "staff_id": 9026
+        }, 
+        {
+            "staff_name": "郑俊松", 
+            "staff_id": 9290
+        }, 
+        {
+            "staff_name": "刘娅约", 
+            "staff_id": 9928
+        }, 
+        {
+            "staff_name": "魏叶美", 
+            "staff_id": 10434
+        }
+    ], 
+    "errorcode": 0
+}
